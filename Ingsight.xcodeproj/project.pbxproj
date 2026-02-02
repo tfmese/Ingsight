@@ -29,9 +29,25 @@
 		A8D2D4F22F30E4D3009D2E71 /* IngsightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IngsightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		A8D2D5122F30E783009D2E71 /* Exceptions for "Ingsight" folder in "Compile Sources" phase from "Ingsight" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = A8D2D4D52F30E4D2009D2E71 /* Sources */;
+			membershipExceptions = (
+				Resources/toxic_ingredients.json,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A8D2D4DB2F30E4D2009D2E71 /* Ingsight */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A8D2D5122F30E783009D2E71 /* Exceptions for "Ingsight" folder in "Compile Sources" phase from "Ingsight" target */,
+			);
+			explicitFileTypes = {
+				Resources/toxic_ingredients.json = text.json;
+			};
 			path = Ingsight;
 			sourceTree = "<group>";
 		};

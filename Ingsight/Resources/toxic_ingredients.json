@@ -1,0 +1,23 @@
+    [
+        {
+            "id": "msg_001",
+            "name": "Monosodyum Glutamat",
+            "aliases": ["MSG", "E621", "Mono Sodyum Glutamat", "Çin Tuzu"],
+            "riskLevel": "high",
+            "description": "Lezzet artırıcıdır. Baş ağrısı ve hassasiyete neden olabilir."
+        },
+        {
+            "id": "hfcs_002",
+            "name": "Yüksek Fruktozlu Mısır Şurubu",
+            "aliases": ["HFCS", "Mısır Şurubu", "Fruktoz Şurubu", "Nişasta Bazlı Şeker"],
+            "riskLevel": "medium",
+            "description": "İşlenmiş şeker. Obezite ve karaciğer yağlanması riski taşır."
+        },
+        {
+            "id": "palmoil_003",
+            "name": "Palm Yağı",
+            "aliases": ["Palm Oil", "Palmiye Yağı", "Bitkisel Yağ (Palm)"],
+            "riskLevel": "medium",
+            "description": "Yüksek doymuş yağ içerir ve kardiyovasküler risk oluşturabilir."
+        }
+    ]
