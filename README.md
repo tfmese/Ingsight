@@ -1,7 +1,7 @@
 # Ingsight 🍎 Know Before You Consume
 
-![Swift](https://img.shields.io/badge/Swift-5.9-orange?style=flat&logo=swift)
-![Platform](https://img.shields.io/badge/Platform-iOS%2017.0+-lightgrey?style=flat&logo=apple)
+![Swift](https://img.shields.io/badge/Swift-6-orange?style=flat&logo=swift)
+![Platform](https://img.shields.io/badge/Platform-iOS%2026.2+-lightgrey?style=flat&logo=apple)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat)
 ![Architecture](https://img.shields.io/badge/Architecture-MVVM-green?style=flat)
 
@@ -23,7 +23,7 @@
 
 | Component | Technology | Description |
 | :--- | :--- | :--- |
-| **Language** | Swift 5 | Modern, safe, and fast. |
+| **Language** | Swift 6 | Modern, safe, and fast. |
 | **UI Framework** | SwiftUI | Declarative user interface. |
 | **Architecture** | MVVM | Clean separation of concerns. |
 | **Database** | SwiftData | Modern persistence framework for user history. |
