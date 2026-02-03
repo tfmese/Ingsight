@@ -1,23 +1,22 @@
-//
-//  File.swift
-//  Ingsight
-//
-//  Created by Talha Fırat on 2.02.2026.
-//
-
 import Foundation
+import SwiftUI
 
 enum RiskLevel: String, Codable {
-    case high = "high"
-    case medium = "medium"
-    case low = "low"
-    
-    // UI'da kullanacağımız renk ve metin yardımcıları (ilerisi için hazırlık)
+    case high, medium, low
+
     var label: String {
         switch self {
-        case .high: return "Yüksek Risk"
-        case .medium: return "Orta Risk"
-        case .low: return "Düşük Risk"
+        case .high: "Yüksek Risk"
+        case .medium: "Orta Risk"
+        case .low: "Düşük Risk"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .high: .red
+        case .medium: .orange
+        case .low: .green
         }
     }
 }
@@ -25,7 +24,10 @@ enum RiskLevel: String, Codable {
 struct Ingredient: Identifiable, Codable {
     let id: String
     let name: String
-    let aliases: [String] // Alternatif isimler
+    let aliases: [String]
     let riskLevel: RiskLevel
     let description: String
+
+    var riskLabel: String { riskLevel.label }
+    var riskColor: Color { riskLevel.color }
 }

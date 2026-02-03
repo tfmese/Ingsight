@@ -7,6 +7,11 @@ class ScannerViewModel: ObservableObject {
     // Arayüzün dinleyeceği değişkenler
     @Published var selectedImage: UIImage? = nil
     @Published var recognizedText: String = ""
+    @Published var isAnalyzing: Bool = false
+    @Published var detectedIngredients: [Ingredient] = []
+    @Published var isAnalysisScreenPresented: Bool = false
+    private let ingredientService = IngredientService.shared
+    
     @Published var selectedItem: PhotosPickerItem? = nil {
         didSet {
             // Seçim yapıldığında otomatik olarak yükleme işlemini başlat
@@ -76,11 +81,13 @@ class ScannerViewModel: ObservableObject {
                 }.joined(separator: "\n")
 
                 // UI Güncellemesi (Main Thread)
-                DispatchQueue.main.async {
-                    self.recognizedText = recognizedString
-                    self.isScanning = false
-                    print("Okunan Metin: \(self.recognizedText)") // Konsoldan kontrol etmek için
-                }
+                    DispatchQueue.main.async {
+                        self.recognizedText = recognizedString
+                        self.isScanning = false
+                        
+                        // METİN OKUNDU, ŞİMDİ ANALİZ ET:
+                        self.analyzeIngredients()
+                    }
             }
 
             // Ayarlar
@@ -92,12 +99,46 @@ class ScannerViewModel: ObservableObject {
             try? requestHandler.perform([request])
         }
     }
+
+
+
+    @MainActor // 👈 Bu işaret, tüm işlemlerin güvenli olan Ana Thread'de yapılmasını sağlar
+    func analyzeIngredients() {
+        // Boş kontrolü
+        guard !recognizedText.isEmpty else { return }
+        
+        self.isAnalyzing = true
+        
+        // Doğrudan servisi çağırıyoruz (DispatchQueue.global YOK)
+        // String karşılaştırması milisaniyeler sürer, UI'ı dondurmaz.
+        let matches = ingredientService.checkForRisk(in: recognizedText)
+        
+        // Sonuçları işle
+        self.detectedIngredients = matches
+        self.isAnalyzing = false
+        // Sonuç modalını aç
+        self.isAnalysisScreenPresented = true
+        // Konsol çıktısı
+        if matches.isEmpty {
+            print("✅ Temiz")
+        } else {
+            print("⚠️ BULUNANLAR: \(matches.map { $0.name })")
+        }
+    }
+    
     
     // Temizleme Fonksiyonu
     func reset() {
         selectedImage = nil
         selectedItem = nil
         recognizedText = ""
+        detectedIngredients.removeAll()
+        isAnalysisScreenPresented = false
+    }
+    
+    func resetAnalysis() {
+        detectedIngredients.removeAll()
+        isAnalysisScreenPresented = false
     }
 }
 

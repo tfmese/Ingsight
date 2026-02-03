@@ -10,7 +10,6 @@ import Foundation
 class IngredientService {
     // Singleton yapısı: Her yerden bu tekil örneğe ulaşacağız.
     static let shared = IngredientService()
-    
     // Yüklenen içerikleri tutacağımız liste
     var ingredients: [Ingredient] = []
     
@@ -46,20 +45,28 @@ class IngredientService {
     }
     
     // Arama Fonksiyonu (İleride kullanacağız)
+    // IngredientService.swift
+
+
     func checkForRisk(in text: String) -> [Ingredient] {
-        // Basit arama: Metin içinde zararlı madde adı veya takma adları geçiyor mu?
-        let lowercasedText = text.lowercased()
-        
-        return ingredients.filter { ingredient in
-            // Ana ismi kontrol et
-            if lowercasedText.contains(ingredient.name.lowercased()) { return true }
+            let lowercasedText = text.lowercased()
             
-            // Takma adları (aliases) kontrol et
-            for alias in ingredient.aliases {
-                if lowercasedText.contains(alias.lowercased()) { return true }
+            return ingredients.filter { ingredient in
+                // 1. İsim Kontrolü
+                if lowercasedText.contains(ingredient.name.lowercased()) {
+                    return true
+                }
+                
+                // 2. Takma Adlar (Aliases)
+                for alias in ingredient.aliases {
+                    if lowercasedText.contains(alias.lowercased()) {
+                        return true
+                    }
+                }
+                
+                
+                
+                return false
             }
-            
-            return false
         }
-    }
 }
