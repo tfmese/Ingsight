@@ -1,23 +1,1088 @@
-    [
+[
+    {
+        "id": "msg_001",
+        "name": "Monosodyum Glutamat",
+        "aliases": ["MSG", "E621", "Mono Sodyum Glutamat", "Çin Tuzu", "Glutamik Asit"],
+        "riskLevel": "high",
+        "description": "Lezzet artırıcıdır. Baş ağrısı, obezite ve nörotoksik etkilerle ilişkilendirilir."
+    },
+    {
+        "id": "hfcs_002",
+        "name": "Yüksek Fruktozlu Mısır Şurubu",
+        "aliases": ["HFCS", "Mısır Şurubu", "Fruktoz Şurubu", "Nişasta Bazlı Şeker", "NBS"],
+        "riskLevel": "medium",
+        "description": "Doğal olmayan işlenmiş şeker. İnsülin direnci ve karaciğer yağlanması riski taşır."
+    },
+    {
+        "id": "palmoil_003",
+        "name": "Palm Yağı",
+        "aliases": ["Palm Oil", "Palmiye Yağı", "Bitkisel Yağ (Palm)", "Palm Çekirdeği Yağı"],
+        "riskLevel": "medium",
+        "description": "Yüksek doymuş yağ içerir. Kardiyovasküler risk oluşturabilir ve çevresel etkisi yüksektir."
+    },
+    {
+        "id": "asp_004",
+        "name": "Aspartam",
+        "aliases": ["E951", "NutraSweet", "Yapay Tatlandırıcı"],
+        "riskLevel": "medium",
+        "description": "Yapay tatlandırıcı. Baş ağrısı tetikleyebilir ve metabolik etkileri tartışmalıdır."
+    },
+    {
+        "id": "sodnit_005",
+        "name": "Sodyum Nitrit",
+        "aliases": ["E250", "Nitrit"],
+        "riskLevel": "high",
+        "description": "İşlenmiş et koruyucusu. Kanserojen nitrozaminlere dönüşme riski yüksektir."
+    },
+    {
+        "id": "sodnitrat_006",
+        "name": "Sodyum Nitrat",
+        "aliases": ["E251", "Nitrat"],
+        "riskLevel": "high",
+        "description": "Genellikle şarküteri ürünlerinde bulunur. Kalp damar sağlığına olumsuz etkileri olabilir."
+    },
+    {
+        "id": "col_e102_007",
+        "name": "Tartrazin",
+        "aliases": ["E102", "Sarı 5", "Yellow 5", "Tartrazine"],
+        "riskLevel": "medium",
+        "description": "Sentetik sarı boya. Çocuklarda hiperaktivite ve astım tetikleyicisi olabilir."
+    },
+    {
+        "id": "col_e110_008",
+        "name": "Sunset Yellow",
+        "aliases": ["E110", "Gün Batımı Sarısı", "Yellow 6", "Turuncu Sarı S"],
+        "riskLevel": "medium",
+        "description": "Sentetik turuncu boya. Alerjik reaksiyonlar ve hiperaktivite ile ilişkilendirilir."
+    },
+    {
+        "id": "col_e129_009",
+        "name": "Allura Red",
+        "aliases": ["E129", "Allura Kırmızısı", "Red 40", "Kırmızı 40"],
+        "riskLevel": "high",
+        "description": "Yaygın kullanılan kırmızı boya. Bazı ülkelerde çocuk ürünlerinde kullanımı kısıtlanmıştır."
+    },
+    {
+        "id": "col_e133_010",
+        "name": "Brilliant Blue",
+        "aliases": ["E133", "Parlak Mavi", "Blue 1", "Mavi 1"],
+        "riskLevel": "medium",
+        "description": "Sentetik mavi boya. Hassas bireylerde alerjik reaksiyonlara yol açabilir."
+    },
+    {
+        "id": "col_e171_011",
+        "name": "Titanyum Dioksit",
+        "aliases": ["E171", "Titanium Dioxide", "Titanyum Oksit"],
+        "riskLevel": "high",
+        "description": "Beyazlatıcı ajan. Genotoksik (DNA hasarı) potansiyeli nedeniyle AB'de yasaklanmıştır."
+    },
+    {
+        "id": "bha_012",
+        "name": "Butil Hidroksi Anisol",
+        "aliases": ["BHA", "E320"],
+        "riskLevel": "high",
+        "description": "Petrol türevi antioksidan. Hormon bozucu ve olası kanserojen olarak sınıflandırılır."
+    },
+    {
+        "id": "bht_013",
+        "name": "Butil Hidroksi Toluen",
+        "aliases": ["BHT", "E321"],
+        "riskLevel": "high",
+        "description": "BHA ile benzer özellikler taşır. Uzun süreli tüketimde organ hasarı riski tartışılmaktadır."
+    },
+    {
+        "id": "carr_014",
+        "name": "Karagenan",
+        "aliases": ["E407", "Carrageenan", "Karragenan"],
+        "riskLevel": "medium",
+        "description": "Deniz yosunundan elde edilen kıvam artırıcı. Bağırsak iltihaplanmasını tetikleyebilir."
+    },
+    {
+        "id": "sodbenz_015",
+        "name": "Sodyum Benzoat",
+        "aliases": ["E211", "Benzoat"],
+        "riskLevel": "medium",
+        "description": "Asitli gıda koruyucusu. C vitamini ile tepkimeye girerek benzen oluşturabilir."
+    },
+    {
+        "id": "potbenz_016",
+        "name": "Potasyum Benzoat",
+        "aliases": ["E212"],
+        "riskLevel": "medium",
+        "description": "Sodyum benzoat benzeri koruyucu. Benzer risk profiline sahiptir."
+    },
+    {
+        "id": "transfat_017",
+        "name": "Trans Yağ",
+        "aliases": ["Hidrojenize Yağ", "Kısmi Hidrojenize Yağ", "Margarin"],
+        "riskLevel": "high",
+        "description": "Damar tıkanıklığı ve kalp hastalığı riskini doğrudan artırır."
+    },
+    {
+        "id": "acesulfame_018",
+        "name": "Acesulfame K",
+        "aliases": ["E950", "Asesülfam Potasyum", "Acesulfame Potassium"],
+        "riskLevel": "medium",
+        "description": "Yapay tatlandırıcı. Genellikle aspartam ile birlikte kullanılır, uzun vadeli etkileri tartışmalıdır."
+    },
+    {
+        "id": "saccharin_019",
+        "name": "Sakarin",
+        "aliases": ["E954", "Saccharin"],
+        "riskLevel": "medium",
+        "description": "En eski yapay tatlandırıcılardan biridir. Mesane kanseri riski üzerine geçmişte tartışmalar yaşanmıştır."
+    },
+    {
+        "id": "cyclamate_020",
+        "name": "Siklamat",
+        "aliases": ["E952", "Sodyum Siklamat"],
+        "riskLevel": "high",
+        "description": "Yapay tatlandırıcı. Bazı ülkelerde (örn. ABD) yasaklanmıştır."
+    },
+    {
+        "id": "col_e120_021",
+        "name": "Karmin",
+        "aliases": ["E120", "Cochineal", "Karminik Asit", "Böcek Boyası"],
+        "riskLevel": "medium",
+        "description": "Böceklerden elde edilen kırmızı boya. Şiddetli alerjik reaksiyonlara neden olabilir."
+    },
+    {
+        "id": "sulfite_022",
+        "name": "Sülfitler",
+        "aliases": ["E220", "E221", "E222", "E223", "E224", "Kükürt Dioksit", "Sodyum Sülfit"],
+        "riskLevel": "medium",
+        "description": "Kuru meyve ve şaraplarda bulunur. Astımlılarda solunum sıkıntısı yaratabilir."
+    },
+    {
+        "id": "potbrom_023",
+        "name": "Potasyum Bromat",
+        "aliases": ["E924", "Bromated Flour"],
+        "riskLevel": "high",
+        "description": "Un katkı maddesi. Birçok ülkede kanserojen riski nedeniyle yasaklanmıştır."
+    },
+    {
+        "id": "azodi_024",
+        "name": "Azodikarbonamid",
+        "aliases": ["E927a", "ADA"],
+        "riskLevel": "medium",
+        "description": "Hamur düzenleyici ve plastik sanayinde kullanılır. Solunum yolu rahatsızlıklarına yol açabilir."
+    },
+    {
+        "id": "tbhq_025",
+        "name": "TBHQ",
+        "aliases": ["E319", "Tert-Butil Hidrokinon"],
+        "riskLevel": "high",
+        "description": "Yağ koruyucu antioksidan. Yüksek dozlarda bağışıklık sistemini etkileyebilir."
+    },
+    {
+        "id": "prop_gall_026",
+        "name": "Propil Gallat",
+        "aliases": ["E310"],
+        "riskLevel": "medium",
+        "description": "Yağların bozulmasını önler. Bazı hassas bünyelerde alerji yapabilir."
+    },
+    {
+        "id": "col_e122_027",
+        "name": "Azorubin",
+        "aliases": ["E122", "Carmoisine", "Karmoisin"],
+        "riskLevel": "medium",
+        "description": "Sentetik kırmızı boya. Hiperaktivite ve alerji riski taşır."
+    },
+    {
+        "id": "col_e124_028",
+        "name": "Ponceau 4R",
+        "aliases": ["E124", "Koşinal Kırmızısı A"],
+        "riskLevel": "high",
+        "description": "Sentetik kırmızı boya. Kanserojen potansiyeli nedeniyle bazı ülkelerde kısıtlıdır."
+    },
+    {
+        "id": "col_e150d_029",
+        "name": "Amonyum Sülfit Karamel",
+        "aliases": ["E150d", "Karamel Boyası IV"],
+        "riskLevel": "medium",
+        "description": "Kola ve soslarda renk vericidir. Üretim sürecinde zararlı yan ürünler oluşabilir."
+    },
+    {
+        "id": "poly80_030",
+        "name": "Polisorbat 80",
+        "aliases": ["E433", "Polysorbate 80"],
+        "riskLevel": "medium",
+        "description": "Emülgatör. Bağırsak florasını bozabileceği yönünde araştırmalar mevcuttur."
+    },
+    {
+        "id": "cmc_031",
+        "name": "Karboksimetil Selüloz",
+        "aliases": ["E466", "CMC", "Selüloz Sakızı"],
+        "riskLevel": "medium",
+        "description": "Kıvam artırıcı. Bağırsak mikrobiyotasını olumsuz etkileyebilir."
+    },
+    {
+        "id": "canola_032",
+        "name": "Kanola Yağı",
+        "aliases": ["Canola Oil", "Kolza Yağı"],
+        "riskLevel": "medium",
+        "description": "Genetiği değiştirilmiş tohumlardan elde edilme ihtimali yüksektir ve yoğun işlem görür."
+    },
+    {
+        "id": "soybean_oil_033",
+        "name": "Soya Yağı",
+        "aliases": ["Soybean Oil", "Soya Fasulyesi Yağı"],
+        "riskLevel": "medium",
+        "description": "Genellikle GDO'lu ve yüksek Omega-6 içerir. Enflamasyonu tetikleyebilir."
+    },
+    {
+        "id": "acrylamide_034",
+        "name": "Akrilamid",
+        "aliases": ["Acrylamide"],
+        "riskLevel": "high",
+        "description": "Cips ve kızarmış ürünlerde yüksek ısıda oluşan kimyasaldır. Kanserojen olarak sınıflandırılır."
+    },
+    {
+        "id": "col_e132_035",
+        "name": "İndigotin",
+        "aliases": ["E132", "İndigo Karmin", "Blue 2"],
+        "riskLevel": "medium",
+        "description": "Sentetik mavi boya. Uzun süreli etkileri tam bilinmemektedir."
+    },
+    {
+        "id": "col_e142_036",
+        "name": "Yeşil S",
+        "aliases": ["E142", "Green S"],
+        "riskLevel": "medium",
+        "description": "Sentetik yeşil boya. Bazı ülkelerde (ABD, Kanada) yasaklanmıştır."
+    },
+    {
+        "id": "al_sulf_037",
+        "name": "Alüminyum Sülfat",
+        "aliases": ["E520"],
+        "riskLevel": "medium",
+        "description": "Sertleştirici ajan. Vücutta alüminyum birikimine katkıda bulunabilir."
+    },
+    {
+        "id": "dimeth_038",
+        "name": "Dimetilpolisiloksan",
+        "aliases": ["E900", "Silikon Yağı"],
+        "riskLevel": "medium",
+        "description": "Köpük önleyici. Fast food kızartma yağlarında sıkça kullanılır."
+    },
+    {
+        "id": "maltodextrin_039",
+        "name": "Maltodekstrin",
+        "aliases": ["Maltodextrin", "Nişasta Şekeri"],
+        "riskLevel": "medium",
+        "description": "Yüksek glisemik indekse sahiptir. Kan şekerini sofra şekerinden daha hızlı yükseltebilir."
+    },
+    {
+        "id": "diacetyl_040",
+        "name": "Diasetil",
+        "aliases": ["Tereyağı Aroması"],
+        "riskLevel": "high",
+        "description": "Yapay tereyağı aroması. Solunması akciğerlere ciddi zarar verebilir (Patlamış mısır akciğeri)."
+    },
+     {
+        "id": "col_e151_041",
+        "name": "Brilliant Black BN",
+        "aliases": ["E151", "Parlak Siyah BN", "Black PN"],
+        "riskLevel": "medium",
+        "description": "Sentetik siyah boya. Alerjik reaksiyon riski taşır."
+    },
+    {
+        "id": "potnit_042",
+        "name": "Potasyum Nitrit",
+        "aliases": ["E249"],
+        "riskLevel": "high",
+        "description": "Sodyum nitrit gibi işlenmiş etlerde kullanılır ve benzer riskleri taşır."
+    },
+    {
+        "id": "col_e104_043",
+        "name": "Kinolin Sarısı",
+        "aliases": ["E104", "Quinoline Yellow"],
+        "riskLevel": "medium",
+        "description": "Sentetik sarı boya. Çocuklarda davranış bozuklukları ile ilişkilendirilir."
+    },
+    {
+        "id": "talc_044",
+        "name": "Talk",
+        "aliases": ["E553b", "Talc", "Magnezyum Silikat"],
+        "riskLevel": "medium",
+        "description": "Parlatıcı ve topaklanma önleyici. Mide kanseri ile ilişkisi araştırılmaktadır."
+    },
+    {
+        "id": "erythrosine_045",
+        "name": "Eritrosin",
+        "aliases": ["E127", "Red 3"],
+        "riskLevel": "high",
+        "description": "Kiraz ve vişne şekerlemelerinde kullanılan kırmızı boya. Tiroid tümörü riski nedeniyle tartışmalıdır."
+    }
+    {
+            "id": "sucralose_046",
+            "name": "Sukraloz",
+            "aliases": ["E955", "Splenda", "Triklorogalaktosukroz"],
+            "riskLevel": "medium",
+            "description": "Klorlanmış şeker molekülü. Bağırsak florasını (mikrobiyota) bozabileceği ve insülin duyarlılığını etkileyebileceği gösterilmiştir."
+        },
         {
-            "id": "msg_001",
-            "name": "Monosodyum Glutamat",
-            "aliases": ["MSG", "E621", "Mono Sodyum Glutamat", "Çin Tuzu"],
+            "id": "cal_prop_047",
+            "name": "Kalsiyum Propiyonat",
+            "aliases": ["E282", "Calcium Propionate", "Propiyonik Asit"],
+            "riskLevel": "medium",
+            "description": "Özellikle ekmek ve unlu mamullerde küf önleyici olarak kullanılır. Çocuklarda davranış bozuklukları ve baş ağrısı/migren ile ilişkilendirilmiştir."
+        },
+        {
+            "id": "bpa_048",
+            "name": "Bisfenol A",
+            "aliases": ["BPA", "Bisphenol A"],
             "riskLevel": "high",
-            "description": "Lezzet artırıcıdır. Baş ağrısı ve hassasiyete neden olabilir."
+            "description": "Konserve ve plastik ambalajlardan gıdaya geçebilen kimyasal. Güçlü bir endokrin (hormon) bozucudur."
         },
         {
-            "id": "hfcs_002",
-            "name": "Yüksek Fruktozlu Mısır Şurubu",
-            "aliases": ["HFCS", "Mısır Şurubu", "Fruktoz Şurubu", "Nişasta Bazlı Şeker"],
+            "id": "ribonucl_049",
+            "name": "Disodyum 5'-Ribonükleotidler",
+            "aliases": ["E635", "Ribonükleotid", "I+G"],
             "riskLevel": "medium",
-            "description": "İşlenmiş şeker. Obezite ve karaciğer yağlanması riski taşır."
+            "description": "Genellikle MSG ile birlikte kullanılan lezzet artırıcı. Deri döküntüleri ve gut hastalığı olanlarda ürik asit artışı riski taşır."
         },
         {
-            "id": "palmoil_003",
-            "name": "Palm Yağı",
-            "aliases": ["Palm Oil", "Palmiye Yağı", "Bitkisel Yağ (Palm)"],
+            "id": "col_e173_050",
+            "name": "Alüminyum (Renklendirici)",
+            "aliases": ["E173", "Aluminum"],
+            "riskLevel": "high",
+            "description": "Genellikle pasta süslemelerinde metalik gri renk için kullanılır. Nörotoksik bir metaldir ve Alzheimer riskiyle ilişkilendirilir."
+        },
+        {
+            "id": "sod_alum_phos_051",
+            "name": "Sodyum Alüminyum Fosfat",
+            "aliases": ["E541", "SALP", "Sodium Aluminium Phosphate"],
             "riskLevel": "medium",
-            "description": "Yüksek doymuş yağ içerir ve kardiyovasküler risk oluşturabilir."
+            "description": "Endüstriyel hamur kabartma tozlarında ve işlenmiş peynirlerde bulunur. Vücutta alüminyum birikimine katkıda bulunur."
+        },
+        {
+            "id": "benzoyl_per_052",
+            "name": "Benzoil Peroksit",
+            "aliases": ["E928", "Benzoyl Peroxide"],
+            "riskLevel": "medium",
+            "description": "Un beyazlatıcı ajan. Unun besin değerini (özellikle E vitaminini) yok eder ve alerjik reaksiyonlara neden olabilir."
+        },
+        {
+            "id": "cottonseed_053",
+            "name": "Pamuk Yağı",
+            "aliases": ["Cottonseed Oil", "Pamuk Tohumu Yağı"],
+            "riskLevel": "medium",
+            "description": "Gıda ürünü olmayan pamuktan elde edildiği için diğer bitkisel yağlara göre daha yüksek tarım ilacı (pestisit) kalıntısı riski taşır."
+        },
+        {
+            "id": "hexane_054",
+            "name": "Heksan",
+            "aliases": ["Hexane", "Petrol Çözücü"],
+            "riskLevel": "medium",
+            "description": "Tohum yağlarını (ayçiçek, soya) çıkarmak için kullanılan petrol türevi çözücü. Eser miktarda kalıntı bırakabilir, sinir sistemi için toksiktir."
+        },
+        {
+            "id": "glyphosate_055",
+            "name": "Glifosat",
+            "aliases": ["Glyphosate", "Roundup Kalıntısı"],
+            "riskLevel": "high",
+            "description": "Katkı maddesi değil, yaygın bir herbisit kalıntısıdır. GDO'lu tahıllarda ve bakliyatlarda sık bulunur. Olası kanserojen olarak sınıflandırılır."
+        },
+        {
+            "id": "polydextrose_056",
+            "name": "Polidekstroz",
+            "aliases": ["E1200", "Polydextrose"],
+            "riskLevel": "low",
+            "description": "Sentetik lif ve dolgu maddesi. Yüksek miktarda tüketildiğinde şiddetli gaz, şişkinlik ve laksatif (ishal yapıcı) etki gösterebilir."
+        },
+        {
+            "id": "invert_sugar_057",
+            "name": "İnvert Şeker Şurubu",
+            "aliases": ["Invert Sugar", "Yapay Bal", "Glikoz-Fruktoz Şurubu"],
+            "riskLevel": "medium",
+            "description": "Sükrozun parçalanmasıyla elde edilir. Yüksek fruktoz içeriği nedeniyle karaciğer yağlanması ve metabolik sendrom riskini artırır."
+        },
+        {
+            "id": "ammonium_chl_058",
+            "name": "Amonyum Klorür",
+            "aliases": ["E510", "Salmiak"],
+            "riskLevel": "medium",
+            "description": "Bazı unlu mamullerde ve şekerlemelerde tat verici/maya besini olarak kullanılır. Böbrek ve karaciğer sorunu olanlarda asidozu tetikleyebilir."
+        },
+        {
+            "id": "annatto_059",
+            "name": "Annatto",
+            "aliases": ["E160b", "Bixin", "Norbixin", "Anatto"],
+            "riskLevel": "medium",
+            "description": "Doğal bir boya (turuncu) olmasına rağmen, gıda boyaları arasında en sık alerjik reaksiyon (kurdeşen, şişme) yaratanlardan biridir."
+        },
+        {
+            "id": "natamycin_060",
+            "name": "Natamisin",
+            "aliases": ["E235", "Pimarisin"],
+            "riskLevel": "medium",
+            "description": "Peynir ve sosis dış yüzeylerinde kullanılan antifungal (mantar önleyici) koruyucu. Bazı bireylerde mide bulantısı ve diyareye yol açabilir."
         }
-    ]
+        {
+                "id": "yeast_ext_061",
+                "name": "Maya Özütü",
+                "aliases": ["Yeast Extract", "Hidrolize Maya", "Otolize Maya"],
+                "riskLevel": "medium",
+                "description": "Doğal kökenli görünse de serbest glutamik asit (MSG'nin ana bileşeni) içerir. MSG'ye duyarlı kişilerde benzer reaksiyonları (baş ağrısı, çarpıntı) tetikleyebilir."
+            },
+            {
+                "id": "edta_062",
+                "name": "Kalsiyum Disodyum EDTA",
+                "aliases": ["E385", "Calcium Disodium EDTA"],
+                "riskLevel": "medium",
+                "description": "Konserve bakliyat ve mayonezlerde renk/lezzet koruyucu. Vücuttaki yararlı mineralleri (demir, çinko) bağlayıp atılmasına ve yüksek dozda böbrek yüküne neden olabilir."
+            },
+            {
+                "id": "prop_glycol_063",
+                "name": "Propilen Glikol",
+                "aliases": ["E1520", "Propylene Glycol"],
+                "riskLevel": "medium",
+                "description": "Aroma çözücü ve nem tutucu. Antifriz üretiminde de kullanılan bu madde, yüksek dozlarda alındığında sinir sistemi üzerinde toksik etkiler gösterebilir."
+            },
+            {
+                "id": "pgpr_064",
+                "name": "Poligliserol Polirisinoleat",
+                "aliases": ["E476", "PGPR"],
+                "riskLevel": "medium",
+                "description": "Çikolatalarda kakao yağı yerine kullanılan ucuz emülgatör. Hayvan deneylerinde karaciğer büyümesi ile ilişkilendirilmiştir."
+            },
+            {
+                "id": "pot_sorbate_065",
+                "name": "Potasyum Sorbat",
+                "aliases": ["E202", "Potassium Sorbate", "Sorbik Asit Tuzu"],
+                "riskLevel": "low",
+                "description": "Çok yaygın bir koruyucudur. Genellikle güvenli kabul edilse de, bazı laboratuvar çalışmaları DNA hasarı potansiyeli olduğunu (genotoksisite) ve cilt alerjilerini tetikleyebileceğini göstermiştir."
+            },
+            {
+                "id": "l_cysteine_066",
+                "name": "L-Sistein",
+                "aliases": ["E920", "L-Cysteine"],
+                "riskLevel": "medium",
+                "description": "Unlu mamullerde hamur yumuşatıcı. Genellikle insan saçı, ördek tüyü veya domuz kılından hidroliz yoluyla üretilir. Kaynağı nedeniyle etik ve alerjik endişeler taşır."
+            },
+            {
+                "id": "shellac_067",
+                "name": "Şellak",
+                "aliases": ["E904", "Shellac", "Parlatıcı Ajan"],
+                "riskLevel": "low",
+                "description": "Şekerleme ve ilaç kaplamalarında kullanılan parlatıcı. Bir böcek türünün (Laccifer lacca) salgısından elde edilir. Alerjik reaksiyon riski taşır."
+            },
+            {
+                "id": "maltitol_068",
+                "name": "Maltitol",
+                "aliases": ["E965", "Şeker Alkolü", "Poliyol"],
+                "riskLevel": "medium",
+                "description": "Diyet ürünlerdeki tatlandırıcı. Kan şekerini diğer şeker alkollerine göre daha fazla yükseltir ve ciddi sindirim sorunlarına (gaz, ishal) yol açabilir."
+            },
+            {
+                "id": "sod_meta_069",
+                "name": "Sodyum Metabisülfit",
+                "aliases": ["E223", "Sodium Metabisulfite"],
+                "riskLevel": "high",
+                "description": "Kurutulmuş meyve ve şaraplarda koruyucu. B1 vitaminini yok eder ve sülfit duyarlılığı olanlarda anafilaktik şoka varan reaksiyonlar yaratabilir."
+            },
+            {
+                "id": "col_e155_070",
+                "name": "Brown HT",
+                "aliases": ["E155", "Kahverengi HT", "Chocolate Brown HT"],
+                "riskLevel": "high",
+                "description": "Çikolatalı kek ve tatlılarda kullanılan sentetik kahverengi boya. Astım ve alerji tetikleyicisidir; birçok Avrupa ülkesinde kullanımı kısıtlanmıştır."
+            },
+            {
+                "id": "col_e131_071",
+                "name": "Patent Blue V",
+                "aliases": ["E131", "Patent Mavisi V"],
+                "riskLevel": "medium",
+                "description": "Şekerlemelerde kullanılan mavi boya. Nadir de olsa hipotansiyon (tansiyon düşüklüğü) ve titreme gibi aşırı duyarlılık reaksiyonlarına neden olabilir."
+            },
+            {
+                "id": "datem_072",
+                "name": "DATEM",
+                "aliases": ["E472e", "Diacetyl Tartaric Acid Esters of Mono- and Diglycerides"],
+                "riskLevel": "medium",
+                "description": "Endüstriyel ekmeklerde hacim artırıcı. Bağırsak geçirgenliğini (sızdıran bağırsak sendromu) artırabileceği yönünde çalışmalar mevcuttur."
+            },
+            {
+                "id": "sod_ferro_073",
+                "name": "Sodyum Ferrosiyanür",
+                "aliases": ["E535", "Sodium Ferrocyanide", "Topaklanma Önleyici"],
+                "riskLevel": "low",
+                "description": "Sofra tuzlarında topaklanmayı önler. Düşük toksisiteye sahiptir ancak isminde siyanür geçmesi nedeniyle tüketici endişesi yüksektir ve asitli ortamda az miktarda ayrışabilir."
+            },
+            {
+                "id": "konjac_074",
+                "name": "Konjak Gamı",
+                "aliases": ["E425", "Konjac Gum", "Konjac Glucomannan"],
+                "riskLevel": "high",
+                "description": "Kıvam artırıcı. Özellikle çocuklar için boğulma tehlikesi yarattığı için jelibon (jelly cup) formunda kullanımı birçok ülkede yasaklanmıştır."
+            },
+            {
+                "id": "neotame_075",
+                "name": "Neotam",
+                "aliases": ["E961", "Neotame"],
+                "riskLevel": "medium",
+                "description": "Aspartamın kimyasal yapısının değiştirilmesiyle elde edilen, şekerden binlerce kat tatlı yapay tatlandırıcı. Uzun vadeli insan sağlığı etkileri henüz tam olarak bilinmemektedir."
+            },
+            {
+                "id": "bismuth_076",
+                "name": "Bizmut Oksiklorür",
+                "aliases": ["E172", "Bismuth", "Sedef Boya"],
+                "riskLevel": "medium",
+                "description": "Gıdalarda nadiren, kozmetikte sık kullanılır. Gıda boyası karışımlarında bulunabilir. Ağır metal benzeri etkiler gösterebilir ve alerjiktir."
+            },
+            {
+                "id": "mod_starch_077",
+                "name": "Modifiye Nişasta",
+                "aliases": ["Modified Starch", "E1400-E1450 Serisi", "İşlenmiş Nişasta"],
+                "riskLevel": "medium",
+                "description": "Kimyasallarla (asitler, enzimler) yapısı değiştirilmiş nişastadır. Genetiği değiştirilmiş mısırdan elde edilme ihtimali yüksektir ve sindirimi zordur."
+            },
+            {
+                "id": "sod_lac_078",
+                "name": "Sodyum Laktat",
+                "aliases": ["E325", "Sodium Lactate"],
+                "riskLevel": "low",
+                "description": "Et ürünlerinde asitliği düzenler. Süt alerjisi olanlarda (laktoz içermese de) çapraz reaksiyon riski oluşturabilir ve bebeklerde metabolizmayı zorlayabilir."
+            },
+            {
+                "id": "xanthan_079",
+                "name": "Ksantan Gam",
+                "aliases": ["E415", "Xanthan Gum"],
+                "riskLevel": "medium",
+                "description": "Bakteriyel fermantasyonla üretilen kıvam artırıcı. Hassas bağırsak sendromu (IBS) olan kişilerde ciddi şişkinlik ve gaz sancılarına neden olabilir."
+            },
+            {
+                "id": "phthalates_080",
+                "name": "Ftalatlar",
+                "aliases": ["Plastikleştiriciler", "DEHP", "DINP"],
+                "riskLevel": "high",
+                "description": "Doğrudan eklenmez ancak plastik ambalajlardan yağlı gıdalara (peynir, et) geçer. Hormon bozucu, kısırlık yapıcı ve gelişim bozukluğuna yol açan maddelerdir."
+            }
+            
+                {
+                    "id": "mosh_081",
+                    "name": "MOSH (Mineral Yağ Doymuş Hidrokarbonlar)",
+                    "aliases": ["Mineral Oil Saturated Hydrocarbons", "Mineral Yağ Kalıntısı"],
+                    "riskLevel": "high",
+                    "description": "Genellikle geri dönüştürülmüş karton kutulardan veya makinelerden gıdaya bulaşır. Karaciğer ve lenf düğümlerinde birikme potansiyeli vardır."
+                },
+                {
+                    "id": "moah_082",
+                    "name": "MOAH (Mineral Yağ Aromatik Hidrokarbonlar)",
+                    "aliases": ["Mineral Oil Aromatic Hydrocarbons"],
+                    "riskLevel": "high",
+                    "description": "MOSH ile birlikte bulunur ancak daha risklidir. DNA hasarına yol açabilen (genotoksik) kanserojen bileşikler içerebilir."
+                },
+                {
+                    "id": "pfas_083",
+                    "name": "PFAS (Sonsuz Kimyasallar)",
+                    "aliases": ["Perfloroalkil Maddeler", "Teflon Kalıntısı", "PFOA", "PFOS"],
+                    "riskLevel": "high",
+                    "description": "Yağlı kağıtlar, fast-food kutuları ve yapışmaz yüzeylerden geçer. Bağışıklık sistemini baskılayabilir ve hormonları bozabilir."
+                },
+                {
+                    "id": "methylparaben_084",
+                    "name": "Metil Paraben",
+                    "aliases": ["E218", "Methylparaben", "Metil p-hidroksibenzoat"],
+                    "riskLevel": "medium",
+                    "description": "Kozmetikte olduğu gibi gıdada da koruyucu olarak kullanılır. Östrojen taklidi yaparak hormon sistemini etkileyebilir."
+                },
+                {
+                    "id": "propylparaben_085",
+                    "name": "Propil Paraben",
+                    "aliases": ["E216", "Propylparaben"],
+                    "riskLevel": "medium",
+                    "description": "Metil parabene göre endokrin bozucu etkisi daha güçlüdür. Bazı ülkelerde gıdada kullanımı yasaklanmıştır."
+                },
+                {
+                    "id": "arsenic_086",
+                    "name": "İnorganik Arsenik",
+                    "aliases": ["Arsenic", "As"],
+                    "riskLevel": "high",
+                    "description": "Özellikle pirinç ve pirinç bazlı bebek mamalarında bulunur. Uzun vadeli maruziyet cilt, mesane ve akciğer kanseri riskini artırır."
+                },
+                {
+                    "id": "mercury_087",
+                    "name": "Metil Cıva",
+                    "aliases": ["Mercury", "Hg", "Cıva"],
+                    "riskLevel": "high",
+                    "description": "Dip balıklarında ve büyük yırtıcı balıklarda (ton balığı vb.) birikir. Sinir sistemi ve beyin gelişimi (özellikle fetüslerde) için toksiktir."
+                },
+                {
+                    "id": "lead_088",
+                    "name": "Kurşun",
+                    "aliases": ["Lead", "Pb"],
+                    "riskLevel": "high",
+                    "description": "Eski su boruları veya kirli topraktan gıdaya geçer. Çocuklarda zeka gelişimini (IQ) olumsuz etkilediği kanıtlanmıştır."
+                },
+                {
+                    "id": "cadmium_089",
+                    "name": "Kadmiyum",
+                    "aliases": ["Cadmium", "Cd"],
+                    "riskLevel": "high",
+                    "description": "Kakao ürünleri (bitter çikolata) ve kabuklu deniz ürünlerinde doğal olarak birikebilir. Böbreklerde birikir ve kemik erimesine yol açabilir."
+                },
+                {
+                    "id": "ethylene_ox_090",
+                    "name": "Etilen Oksit",
+                    "aliases": ["Ethylene Oxide", "EtO"],
+                    "riskLevel": "high",
+                    "description": "Baharat ve tohumlarda sterilizasyon için kullanılan gazdır. Kanserojen olduğu için AB'de yasaktır ancak ithal ürünlerde kalıntılarına rastlanabilir."
+                },
+                {
+                    "id": "poly60_091",
+                    "name": "Polisorbat 60",
+                    "aliases": ["E435", "Polysorbate 60"],
+                    "riskLevel": "medium",
+                    "description": "Paketli kek ve kremalarda emülgatör. Bağırsak bariyerini zayıflatarak toksinlerin kana karışmasına (sızdıran bağırsak) zemin hazırlayabilir."
+                },
+                {
+                    "id": "amm_bicarb_092",
+                    "name": "Amonyum Bikarbonat",
+                    "aliases": ["E503", "Amonyak Tuzu", "Geyik Boynuzu Tuzu"],
+                    "riskLevel": "medium",
+                    "description": "Kabartma tozu. Isıl işlem sırasında akrilamid (kanserojen madde) oluşumunu sodyum bikarbonata göre daha fazla tetikleyebilir."
+                },
+                {
+                    "id": "stannous_chl_093",
+                    "name": "Kalay Klorür",
+                    "aliases": ["E512", "Stannous Chloride"],
+                    "riskLevel": "medium",
+                    "description": "Kuşkonmaz gibi konserve sebzelerde renk koruyucu. Yüksek dozda mide tahrişine neden olabilir."
+                },
+                {
+                    "id": "sod_bisul_094",
+                    "name": "Sodyum Bisülfit",
+                    "aliases": ["E222", "Sodium Bisulfite"],
+                    "riskLevel": "medium",
+                    "description": "Sülfit grubu koruyucu. Taze gıdalarda kullanımı yasaktır, astım tetikleyicidir."
+                },
+                {
+                    "id": "pot_meta_095",
+                    "name": "Potasyum Metabisülfit",
+                    "aliases": ["E224", "Potassium Metabisulfite"],
+                    "riskLevel": "medium",
+                    "description": "Şarap üretiminde yaygındır. Sülfit duyarlılığı olanlarda baş ağrısı ve solunum sorunu yaratır."
+                },
+                {
+                    "id": "dimethyl_dic_096",
+                    "name": "Dimetil Dikarbonat",
+                    "aliases": ["E242", "DMDC"],
+                    "riskLevel": "medium",
+                    "description": "Soğuk çay ve sporcu içeceklerinde koruyucu. Uygulandıktan sonra metanol ve karbondioksite parçalanır, eser miktarda metanol riski taşır."
+                },
+                {
+                    "id": "advantame_097",
+                    "name": "Advantame",
+                    "aliases": ["E969"],
+                    "riskLevel": "medium",
+                    "description": "Aspartamdan türetilen yeni nesil ultra tatlandırıcı. Çok yeni olduğu için uzun vadeli epidemiyolojik veriler sınırlıdır."
+                },
+                {
+                    "id": "sod_alum_sil_098",
+                    "name": "Sodyum Alüminyum Silikat",
+                    "aliases": ["E554", "Sodium Aluminium Silicate"],
+                    "riskLevel": "medium",
+                    "description": "Toz ürünlerde topaklanma önleyici. Alüminyum maruziyetini artırır."
+                },
+                {
+                    "id": "pot_alum_sil_099",
+                    "name": "Potasyum Alüminyum Silikat",
+                    "aliases": ["E555", "Mika"],
+                    "riskLevel": "medium",
+                    "description": "Gıda boyalarında parlaklık vermek için kullanılır. Alüminyum içerir."
+                },
+                {
+                    "id": "cal_alum_sil_100",
+                    "name": "Kalsiyum Alüminyum Silikat",
+                    "aliases": ["E556"],
+                    "riskLevel": "medium",
+                    "description": "Süt tozu ve kahve kremalarında bulunur. Alüminyum birikimi riski nedeniyle nörolojik sağlığı tehdit edebilir."
+                },
+                {
+                    "id": "col_e123_101",
+                    "name": "Amarant",
+                    "aliases": ["E123", "Amaranth", "Red 2"],
+                    "riskLevel": "high",
+                    "description": "Kırmızı boya. Kanserojen şüphesi ve doğum kusurları riski nedeniyle ABD'de yasaklanmıştır, bazı ülkelerde serbesttir."
+                },
+                {
+                    "id": "col_e128_102",
+                    "name": "Kırmızı 2G",
+                    "aliases": ["E128", "Red 2G"],
+                    "riskLevel": "high",
+                    "description": "Kırmızı boya. Vücutta kanserojen aniline dönüşebilir. Çoğu ülkede kullanımı durdurulmuştur ancak eski veritabanlarında bulunabilir."
+                },
+                {
+                    "id": "col_e180_103",
+                    "name": "Litol Rubin BK",
+                    "aliases": ["E180", "Lithol Rubine BK"],
+                    "riskLevel": "medium",
+                    "description": "Sadece yenilebilir peynir kabuklarında kullanılan kırmızı boya. Astım ve ürtikeri tetikleyebilir."
+                },
+                {
+                    "id": "col_e161g_104",
+                    "name": "Kantaksantin",
+                    "aliases": ["E161g", "Canthaxanthin"],
+                    "riskLevel": "medium",
+                    "description": "Turuncu-kırmızı boya. Yüksek alımda göz retinasında kristal birikimine neden olabilir."
+                },
+                {
+                    "id": "col_e153_105",
+                    "name": "Bitkisel Karbon",
+                    "aliases": ["E153", "Vegetable Carbon", "Carbon Black"],
+                    "riskLevel": "medium",
+                    "description": "Siyah boya. Eğer üretiminde kullanılan materyal tam yanmazsa polisiklik aromatik hidrokarbonlar (PAH - kanserojen) içerebilir."
+                }
+                {
+                        "id": "erythritol_106",
+                        "name": "Eritritol",
+                        "aliases": ["E968", "Erythritol"],
+                        "riskLevel": "medium",
+                        "description": "Doğal bir şeker alkolüdür. Ancak 2023 tarihli araştırmalar, yüksek kan seviyelerinin kan pıhtılaşması ve kalp krizi riskini artırabileceğini öne sürmüştür."
+                    },
+                    {
+                        "id": "xylitol_107",
+                        "name": "Ksilitol",
+                        "aliases": ["E967", "Huş Şekeri"],
+                        "riskLevel": "medium",
+                        "description": "Şeker alkolü. İnsanlarda laksatif etki yapar, ancak evcil hayvanlar (özellikle köpekler) için son derece zehirlidir."
+                    },
+                    {
+                        "id": "sorbitol_108",
+                        "name": "Sorbitol",
+                        "aliases": ["E420", "Glucitol"],
+                        "riskLevel": "medium",
+                        "description": "Diyet ürünlerde ve sakızlarda bulunur. Hassas bağırsak sendromu (IBS) olanlarda şiddetli gaz ve kramplara neden olur."
+                    },
+                    {
+                        "id": "mannitol_109",
+                        "name": "Mannitol",
+                        "aliases": ["E421"],
+                        "riskLevel": "medium",
+                        "description": "Diğer şeker alkollerine göre sindirimi daha zordur ve böbrek fonksiyonlarını etkileyebilir."
+                    },
+                    {
+                        "id": "isomalt_110",
+                        "name": "İzomalt",
+                        "aliases": ["E953", "Isomalt"],
+                        "riskLevel": "low",
+                        "description": "Şekerden türetilen tatlandırıcı. Aşırı tüketimi sindirim sistemini bozar."
+                    },
+                    {
+                        "id": "phos_acid_111",
+                        "name": "Fosforik Asit",
+                        "aliases": ["E338", "Phosphoric Acid"],
+                        "riskLevel": "high",
+                        "description": "Kola tipi içeceklerde bulunur. Kalsiyum emilimini engelleyerek kemik erimesi (osteoporoz) riskini artırır."
+                    },
+                    {
+                        "id": "sod_polyphos_112",
+                        "name": "Sodyum Polifosfat",
+                        "aliases": ["E452", "Sodium Polyphosphate"],
+                        "riskLevel": "high",
+                        "description": "İşlenmiş et ve peynirlerde su tutucu. Yüksek fosfor alımı böbreklere zarar verir ve kalp damar sağlığını bozar."
+                    },
+                    {
+                        "id": "diphosphates_113",
+                        "name": "Difosfatlar",
+                        "aliases": ["E450", "Disodyum Difosfat", "Pirofosfat"],
+                        "riskLevel": "high",
+                        "description": "Hazır çorba ve sosislerde yaygındır. Vücudun kalsiyum-fosfor dengesini bozarak kemik mineral yoğunluğunu düşürebilir."
+                    },
+                    {
+                        "id": "triphosphates_114",
+                        "name": "Trifosfatlar",
+                        "aliases": ["E451", "Pentasodyum Trifosfat"],
+                        "riskLevel": "high",
+                        "description": "Et ürünlerinde ağırlık artırmak (su tutmak) için kullanılır. Yüksek tüketimi böbrek hastaları için tehlikelidir."
+                    },
+                    {
+                        "id": "citric_acid_mold_115",
+                        "name": "Sitrik Asit (Endüstriyel)",
+                        "aliases": ["E330", "Limon Tuzu"],
+                        "riskLevel": "low",
+                        "description": "Genellikle GDO'lu mısırdan 'Aspergillus niger' (siyah küf) mantarı kullanılarak üretilir. Bazı kişilerde küf alerjisine bağlı inflamasyon yapabilir."
+                    },
+                    {
+                        "id": "cal_peroxide_116",
+                        "name": "Kalsiyum Peroksit",
+                        "aliases": ["E930", "Calcium Peroxide"],
+                        "riskLevel": "medium",
+                        "description": "Un beyazlatıcı ve hamur güçlendirici. Bazı ülkelerde yasaktır, solunum yollarını tahriş edebilir."
+                    },
+                    {
+                        "id": "amm_sulf_117",
+                        "name": "Amonyum Sülfat",
+                        "aliases": ["E517", "Ammonium Sulfate"],
+                        "riskLevel": "medium",
+                        "description": "Ekmek mayasını beslemek için kullanılır. Gübre sanayinde kullanılan maddeyle aynıdır, yüksek dozda sindirim sorunları yaratabilir."
+                    },
+                    {
+                        "id": "sorb_mono_118",
+                        "name": "Sorbitan Monostearat",
+                        "aliases": ["E491", "Span 60"],
+                        "riskLevel": "medium",
+                        "description": "Kuru mayalarda emülgatör olarak bulunur. Cilt alerjileriyle ilişkilendirilmiştir."
+                    },
+                    {
+                        "id": "carnauba_119",
+                        "name": "Karnauba Mumu",
+                        "aliases": ["E903", "Carnauba Wax"],
+                        "riskLevel": "low",
+                        "description": "Şekerlemelerin parlamasını sağlar. Bir palmiye türünden elde edilir, sindirimi zordur."
+                    },
+                    {
+                        "id": "mag_stearate_120",
+                        "name": "Magnezyum Stearat",
+                        "aliases": ["E572", "Magnesium Stearate"],
+                        "riskLevel": "low",
+                        "description": "Genellikle takviye edici gıdalarda topaklanmayı önler. Bazı iddialar bağışıklığı baskıladığı yönünde olsa da kanıtlar zayıftır."
+                    },
+                    {
+                        "id": "gum_arabic_121",
+                        "name": "Gam Arabik",
+                        "aliases": ["E414", "Akasya Gamı", "Acacia Gum"],
+                        "riskLevel": "low",
+                        "description": "Gazlı içeceklerde ve şekerlerde stabilizör. Genelde güvenlidir ancak hassas kişilerde gaz ve şişkinlik yapar."
+                    },
+                    {
+                        "id": "guar_gum_122",
+                        "name": "Guar Gam",
+                        "aliases": ["E412", "Guar Gum"],
+                        "riskLevel": "medium",
+                        "description": "Baklagil kaynaklı kıvam artırıcı. Soya fasulyesine benzer şekilde aşırı gaz üretimine ve karın ağrısına neden olabilir."
+                    },
+                    {
+                        "id": "gellan_gum_123",
+                        "name": "Jellan Gam",
+                        "aliases": ["E418", "Gellan Gum"],
+                        "riskLevel": "medium",
+                        "description": "Bitkisel sütlerde kıvam için kullanılır. Bağırsak florasındaki yararlı bakterileri değiştirebileceği yönünde çalışmalar vardır."
+                    },
+                    {
+                        "id": "tara_gum_124",
+                        "name": "Tara Gam",
+                        "aliases": ["E417", "Tara Gum"],
+                        "riskLevel": "medium",
+                        "description": "Keçiboynuzu gamına benzer. Aşırı tüketimi laksatif etki gösterebilir."
+                    },
+                    {
+                        "id": "glycerol_125",
+                        "name": "Gliserol",
+                        "aliases": ["E422", "Glycerin", "Gliserin"],
+                        "riskLevel": "low",
+                        "description": "Nem tutucu. Yüksek miktarlarda baş ağrısı, susuzluk ve mide bulantısına yol açabilir."
+                    },
+                     {
+                        "id": "locust_bean_126",
+                        "name": "Keçiboynuzu Gamı",
+                        "aliases": ["E410", "Locust Bean Gum", "Carob Gum"],
+                        "riskLevel": "medium",
+                        "description": "Doğal bir kıvam artırıcıdır ancak baklagil alerjisi olanlarda çapraz reaksiyon (alerji) yaratabilir."
+                    },
+                    {
+                        "id": "micro_cell_127",
+                        "name": "Mikrokristalin Selüloz",
+                        "aliases": ["E460", "Microcrystalline Cellulose", "MCC"],
+                        "riskLevel": "medium",
+                        "description": "Odun hamurundan elde edilen dolgu maddesi. İnsan vücudu tarafından sindirilemez, yüksek miktarda bağırsak hareketlerini artırır."
+                    },
+                     {
+                        "id": "invertase_128",
+                        "name": "İnvertaz",
+                        "aliases": ["E1103", "Invertase"],
+                        "riskLevel": "low",
+                        "description": "Şekerlemelerde yumuşak kıvam sağlar. Nadiren alerjik reaksiyonlara neden olabilir."
+                    },
+                    {
+                        "id": "polydim_129",
+                        "name": "Polidimetilsiloksan",
+                        "aliases": ["E900", "PDMS"],
+                        "riskLevel": "medium",
+                        "description": "Fast food kızartma yağlarında ve sakızlarda bulunur. Silikon bazlıdır, uzun vadeli güvenlik verileri sınırlıdır."
+                    },
+                    {
+                        "id": "sod_prop_130",
+                        "name": "Sodyum Propiyonat",
+                        "aliases": ["E281", "Sodium Propionate"],
+                        "riskLevel": "medium",
+                        "description": "Ekmeklerde küf önleyici. Migren ağrılarını tetikleyebilir ve insülin direncine katkıda bulunabilir."
+                    }
+                    {
+                            "id": "mcpd_131",
+                            "name": "3-MCPD",
+                            "aliases": ["3-monokloropropan", "Rafine Yağ Kontaminantı"],
+                            "riskLevel": "high",
+                            "description": "Rafine bitkisel yağların (özellikle palm yağı) yüksek ısıda işlenmesiyle oluşur. Böbrekler için toksiktir ve olası kanserojendir."
+                        },
+                        {
+                            "id": "ge_est_132",
+                            "name": "Glisidil Esterleri (GE)",
+                            "aliases": ["Glycidyl Fatty Acid Esters", "GEs"],
+                            "riskLevel": "high",
+                            "description": "Yemeklik yağların rafinasyonu sırasında oluşur. Vücutta glisidole dönüşür; bu madde genotoksik ve kanserojen olarak kabul edilir."
+                        },
+                        {
+                            "id": "furan_133",
+                            "name": "Furan",
+                            "aliases": ["Furan"],
+                            "riskLevel": "high",
+                            "description": "Kavanoz mamalar ve kahve gibi kapalı kapta ısıl işlem gören gıdalarda oluşur. Karaciğer kanseri riski taşır."
+                        },
+                        {
+                            "id": "patulin_134",
+                            "name": "Patulin",
+                            "aliases": ["Patulin Toksini"],
+                            "riskLevel": "medium",
+                            "description": "Çürük elmalardan üretilen meyve sularında bulunan bir mikotoksindir (küf zehri). Mide bulantısı ve genotoksik etki riski vardır."
+                        },
+                        {
+                            "id": "aflatoxin_135",
+                            "name": "Aflatoksin",
+                            "aliases": ["Aflatoxin B1", "Küf Zehri"],
+                            "riskLevel": "high",
+                            "description": "Kötü depolanmış kuruyemiş (fındık, fıstık) ve pul biberde ürer. Bilinen en güçlü karaciğer kanseri tetikleyicilerinden biridir."
+                        },
+                        {
+                            "id": "ochratoxin_136",
+                            "name": "Okratoksin A",
+                            "aliases": ["OTA", "Ochratoxin"],
+                            "riskLevel": "high",
+                            "description": "Kahve, kuru üzüm ve şarapta bulunabilen bir böbrek toksinidir."
+                        },
+                        {
+                            "id": "histamine_137",
+                            "name": "Histamin",
+                            "aliases": ["Histamine"],
+                            "riskLevel": "medium",
+                            "description": "Katkı maddesi değildir ancak fermente gıdalarda (eski kaşar, salam, şarap) birikir. İntoleransı olanlarda alerji benzeri şiddetli reaksiyonlar yapar."
+                        },
+                        {
+                            "id": "tyramine_138",
+                            "name": "Tiramin",
+                            "aliases": ["Tyramine"],
+                            "riskLevel": "medium",
+                            "description": "Olgunlaştırılmış peynir ve etlerde bulunur. MAO inhibitörü ilaç kullananlar için tehlikelidir ve migreni tetikler."
+                        },
+                        {
+                            "id": "meat_glue_139",
+                            "name": "Transglutaminaz",
+                            "aliases": ["Et Tutkalı", "Meat Glue", "TG Enzimi"],
+                            "riskLevel": "medium",
+                            "description": "Parça etleri birleştirip bütün et gibi göstermek için kullanılır. Bakteriyel kontaminasyon riskini artırır ve çölyak hastaları için sorun yaratabilir."
+                        },
+                        {
+                            "id": "liquid_smoke_140",
+                            "name": "Sıvı Tütsü Aroma",
+                            "aliases": ["Liquid Smoke", "Tütsü Aroması", "Smoke Flavouring"],
+                            "riskLevel": "medium",
+                            "description": "Doğal tütsüleme yerine kullanılır. Bazı türleri DNA hasarı potansiyeli nedeniyle EFSA tarafından inceleme altındadır."
+                        },
+                        {
+                            "id": "mei4_141",
+                            "name": "4-MEI",
+                            "aliases": ["4-Metilimidazol", "Karamel Yan Ürünü"],
+                            "riskLevel": "high",
+                            "description": "Karamel boyası (E150c ve E150d) üretimi sırasında oluşan yan üründür. Kaliforniya yasalarına göre kanserojen olarak işaretlenmelidir."
+                        },
+                        {
+                            "id": "chlorpyrifos_142",
+                            "name": "Klorpirifos",
+                            "aliases": ["Chlorpyrifos", "Böcek İlacı"],
+                            "riskLevel": "high",
+                            "description": "Meyve ve sebzelerde yaygın bulunan pestisit kalıntısı. Çocuklarda nörolojik gelişim bozukluklarına (DEHB, otizm benzeri etkiler) yol açtığı için birçok ülkede yasaklanmaya başlanmıştır."
+                        },
+                        {
+                            "id": "atrazine_143",
+                            "name": "Atrazin",
+                            "aliases": ["Atrazine", "Herbisit"],
+                            "riskLevel": "high",
+                            "description": "Mısır tarlalarında kullanılan tarım ilacı. Sulara karışır ve güçlü bir hormon bozucudur (özellikle üreme sistemi üzerinde)."
+                        },
+                        {
+                            "id": "rbgh_144",
+                            "name": "rBGH / rBST",
+                            "aliases": ["Büyüme Hormonu", "Recombinant Bovine Growth Hormone"],
+                            "riskLevel": "high",
+                            "description": "İneklerde süt üretimini artırmak için kullanılan yapay hormon. İnsanlarda IGF-1 seviyesini artırarak prostat ve meme kanseri riskini yükseltebilir."
+                        },
+                        {
+                            "id": "antibiotics_145",
+                            "name": "Antibiyotik Kalıntıları",
+                            "aliases": ["Tetrasiklin", "Penisilin Kalıntısı"],
+                            "riskLevel": "high",
+                            "description": "Endüstriyel hayvancılıkta kullanılan ilaçlar süt ve ete geçebilir. Antibiyotik direnci oluşumuna ve bağırsak florasının bozulmasına neden olur."
+                        },
+                        {
+                            "id": "chlorine_diox_146",
+                            "name": "Klor Dioksit",
+                            "aliases": ["Chlorine Dioxide", "Un Ağartıcı"],
+                            "riskLevel": "medium",
+                            "description": "Unu beyazlatmak için kullanılır. E vitaminini yok eder."
+                        },
+                        {
+                            "id": "rhodamine_147",
+                            "name": "Rodamin B",
+                            "aliases": ["Rhodamine B"],
+                            "riskLevel": "high",
+                            "description": "Yasadışı bir tekstil boyasıdır ancak bazen kaçak biber salçalarında ve baharatlarda tespit edilir. Kanserojendir."
+                        },
+                        {
+                            "id": "sudan_dye_148",
+                            "name": "Sudan Boyaları",
+                            "aliases": ["Sudan I-IV", "Sudan Red"],
+                            "riskLevel": "high",
+                            "description": "Sumak ve pul biberde renk vermek için kullanılan yasadışı kanserojen sanayi boyası."
+                        },
+                        {
+                            "id": "silver_149",
+                            "name": "Gümüş",
+                            "aliases": ["E174", "Silver"],
+                            "riskLevel": "medium",
+                            "description": "Pasta süslemelerinde metalik kaplama. Vücuttan atılması zordur, dokularda birikerek 'arjiri' (ciltte mavi-gri renk değişimi) yapabilir."
+                        },
+                        {
+                            "id": "gold_150",
+                            "name": "Altın",
+                            "aliases": ["E175", "Gold"],
+                            "riskLevel": "low",
+                            "description": "Lüks çikolata ve tatlı süslemelerinde kullanılır. Kimyasal olarak inert olsa da, nano-partikül boyutunda ise hücresel etkileri tam bilinmemektedir."
+                        },
+                        {
+                            "id": "talc_asbestos_151",
+                            "name": "Asbestli Talk",
+                            "aliases": ["Kirli Talk"],
+                            "riskLevel": "high",
+                            "description": "E553b (Talk) bazen doğal olarak asbest ile kirlenmiş olabilir. Bu durum pirinç parlatmada kullanıldığında mide kanseri riski yaratır."
+                        },
+                        {
+                            "id": "brominated_veg_152",
+                            "name": "Bromlu Bitkisel Yağ",
+                            "aliases": ["BVO", "Brominated Vegetable Oil"],
+                            "riskLevel": "high",
+                            "description": "Gazlı içeceklerde aroma sabitleyici. Bromür birikimi sinir sistemi hasarına ve hafıza kaybına yol açabilir. Birçok ülkede yasaktır."
+                        },
+                        {
+                             "id": "pot_bromate_dup_153",
+                             "name": "Kalsiyum Bromat",
+                             "aliases": ["E924b", "Calcium Bromate"],
+                             "riskLevel": "high",
+                             "description": "Potasyum bromat gibi unda kullanılır ve benzer kanserojen riskleri taşır."
+                        },
+                        {
+                            "id": "chloropropanols_154",
+                            "name": "Kloropropanoller",
+                            "aliases": ["DCP", "Hidrolize Sebze Proteini Yan Ürünü"],
+                            "riskLevel": "high",
+                            "description": "Soya sosu ve hidrolize protein üretiminde oluşur. Kanser riski taşır."
+                        },
+                        {
+                            "id": "vinyl_chl_155",
+                            "name": "Vinil Klorür",
+                            "aliases": ["PVC Monomeri"],
+                            "riskLevel": "high",
+                            "description": "PVC ambalajlardan gıdaya geçebilen monomer. Karaciğer hasarı ve kanser ile ilişkilidir."
+                        }
+]
