@@ -28,7 +28,7 @@
 | **Architecture** | MVVM | Clean separation of concerns. |
 | **Database** | SwiftData | Modern persistence framework for user history. |
 | **AI / ML** | Vision Framework | On-device Optical Character Recognition (OCR). |
-| **Logic** | Fuzzy Matching | Custom algorithm to detect ingredients despite OCR errors. |
+| **Logic** | Fuzzy Matching | Custom algorithm to detect ingredients despite OCR errors.|
 
 ## 📂 Project Structure
 
