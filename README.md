@@ -5,6 +5,7 @@
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat)
 ![Architecture](https://img.shields.io/badge/Architecture-MVVM-green?style=flat)
 
+
 > **Scan ingredients. Detect risks. Stay healthy.** > *An offline-first iOS health assistant powered by on-device OCR.*
 
 ## 🌟 Overview
