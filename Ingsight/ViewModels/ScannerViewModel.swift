@@ -10,7 +10,11 @@ class ScannerViewModel: ObservableObject {
     @Published var isAnalyzing: Bool = false
     @Published var detectedIngredients: [Ingredient] = []
     @Published var isAnalysisScreenPresented: Bool = false
-    private let ingredientService = IngredientService.shared
+    private let ingredientService: IngredientService
+    
+    init(service: IngredientService = .shared) {
+        self.ingredientService = service
+    }
     
     @Published var selectedItem: PhotosPickerItem? = nil {
         didSet {
@@ -112,6 +116,11 @@ class ScannerViewModel: ObservableObject {
         // Doğrudan servisi çağırıyoruz (DispatchQueue.global YOK)
         // String karşılaştırması milisaniyeler sürer, UI'ı dondurmaz.
         let matches = ingredientService.checkForRisk(in: recognizedText)
+        
+        // DEBUG: Konsola biraz daha detay yazalım
+        print("🔍 OCR Metni Uzunluğu: \(recognizedText.count) karakter")
+        print("🔍 Toplam veri tabanı kaydı: \(ingredientService.ingredients.count)")
+        print("🔍 Bulunan eşleşme sayısı: \(matches.count)")
         
         // Sonuçları işle
         self.detectedIngredients = matches

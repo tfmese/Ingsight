@@ -313,7 +313,7 @@
         "aliases": ["E127", "Red 3"],
         "riskLevel": "high",
         "description": "Kiraz ve vişne şekerlemelerinde kullanılan kırmızı boya. Tiroid tümörü riski nedeniyle tartışmalıdır."
-    }
+    },
     {
             "id": "sucralose_046",
             "name": "Sukraloz",
@@ -418,7 +418,7 @@
             "aliases": ["E235", "Pimarisin"],
             "riskLevel": "medium",
             "description": "Peynir ve sosis dış yüzeylerinde kullanılan antifungal (mantar önleyici) koruyucu. Bazı bireylerde mide bulantısı ve diyareye yol açabilir."
-        }
+        },
         {
                 "id": "yeast_ext_061",
                 "name": "Maya Özütü",
@@ -558,7 +558,7 @@
                 "aliases": ["Plastikleştiriciler", "DEHP", "DINP"],
                 "riskLevel": "high",
                 "description": "Doğrudan eklenmez ancak plastik ambalajlardan yağlı gıdalara (peynir, et) geçer. Hormon bozucu, kısırlık yapıcı ve gelişim bozukluğuna yol açan maddelerdir."
-            }
+            },
             
                 {
                     "id": "mosh_081",
@@ -734,7 +734,7 @@
                     "aliases": ["E153", "Vegetable Carbon", "Carbon Black"],
                     "riskLevel": "medium",
                     "description": "Siyah boya. Eğer üretiminde kullanılan materyal tam yanmazsa polisiklik aromatik hidrokarbonlar (PAH - kanserojen) içerebilir."
-                }
+                },
                 {
                         "id": "erythritol_106",
                         "name": "Eritritol",
@@ -909,7 +909,7 @@
                         "aliases": ["E281", "Sodium Propionate"],
                         "riskLevel": "medium",
                         "description": "Ekmeklerde küf önleyici. Migren ağrılarını tetikleyebilir ve insülin direncine katkıda bulunabilir."
-                    }
+                    },
                     {
                             "id": "mcpd_131",
                             "name": "3-MCPD",

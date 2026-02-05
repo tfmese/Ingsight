@@ -1,0 +1,108 @@
+[
+  {
+    "id": "cos_001",
+    "name": "Sodyum Lauril Sülfat",
+    "aliases": ["SLS", "Sodium Lauryl Sulfate", "Sodyum Lauril Sülfat"],
+    "riskLevel": "medium",
+    "description": "Köpük oluşturan yüzey aktif madde. Cildi kurutur, bariyer yapısını bozabilir ve hassas ciltlerde iritasyona yol açabilir."
+  },
+  {
+    "id": "cos_002",
+    "name": "Sodyum Laureth Sülfat",
+    "aliases": ["SLES", "Sodium Laureth Sulfate", "Sodyum Laureth Sülfat"],
+    "riskLevel": "medium",
+    "description": "SLS türevi bir temizleyicidir. Uzun vadeli kullanımda cilt hassasiyetini artırabilir ve göz çevresinde tahrişe neden olabilir."
+  },
+  {
+    "id": "cos_003",
+    "name": "Parfüm",
+    "aliases": ["Fragrance", "Parfum", "Koku"],
+    "riskLevel": "high",
+    "description": "İçeriği açıklanmayan sentetik koku karışımları alerji, migren ve hormon bozucu etkilere yol açabilir."
+  },
+  {
+    "id": "cos_004",
+    "name": "Metil Paraben",
+    "aliases": ["Methylparaben", "Metil p-hidroksibenzoat"],
+    "riskLevel": "medium",
+    "description": "Koruyucu olarak kullanılır. Östrojen benzeri etki göstererek hormon dengesini bozabilir."
+  },
+  {
+    "id": "cos_005",
+    "name": "Propil Paraben",
+    "aliases": ["Propylparaben"],
+    "riskLevel": "high",
+    "description": "Parabenler arasında en güçlü endokrin bozuculardan biridir. Uzun süreli maruziyet üreme sistemi üzerinde olumsuz etkilere yol açabilir."
+  },
+  {
+    "id": "cos_006",
+    "name": "Triklosan",
+    "aliases": ["Triclosan"],
+    "riskLevel": "high",
+    "description": "Antibakteriyel ajan. Hormon sistemi, tiroid fonksiyonları ve bağırsak florası üzerinde bozucu etkilere sahiptir."
+  },
+  {
+    "id": "cos_007",
+    "name": "Formaldehit Salıcı Koruyucular",
+    "aliases": ["DMDM Hydantoin", "Imidazolidinyl Urea", "Diazolidinyl Urea", "Quaternium-15"],
+    "riskLevel": "high",
+    "description": "Zamanla formaldehit salan koruyucular; kanserojen olduğu bilinen formaldehit gazını açığa çıkarabilirler."
+  },
+  {
+    "id": "cos_008",
+    "name": "Butilhidroksitoluen",
+    "aliases": ["BHT", "Butylated Hydroxytoluene"],
+    "riskLevel": "medium",
+    "description": "Antioksidan olarak kullanılır. Uzun vadeli maruziyet karaciğer ve bağışıklık sistemi üzerinde olumsuz etkilere yol açabilir."
+  },
+  {
+    "id": "cos_009",
+    "name": "Butilhidroksianisol",
+    "aliases": ["BHA", "Butylated Hydroxyanisole"],
+    "riskLevel": "high",
+    "description": "Oksidasyonu önlemek için kullanılır. Olası kanserojen ve güçlü bir hormon bozucudur."
+  },
+  {
+    "id": "cos_010",
+    "name": "Mineral Yağ",
+    "aliases": ["Mineral Oil", "Paraffinum Liquidum", "Liquid Paraffin"],
+    "riskLevel": "medium",
+    "description": "Petrol türevi yumuşatıcı. Ciltte bariyer oluşturarak nefes almasını engelleyebilir ve komedon (siyah nokta) oluşumunu artırabilir."
+  },
+  {
+    "id": "cos_011",
+    "name": "Silikon Yağları",
+    "aliases": ["Dimethicone", "Cyclopentasiloxane", "Cyclohexasiloxane"],
+    "riskLevel": "medium",
+    "description": "Ciltte kaygan ve pürüzsüz his verir ancak gözenekleri tıkayabilir ve uzun vadede cilt dengesini bozabilir."
+  },
+  {
+    "id": "cos_012",
+    "name": "Alüminyum Tuzları",
+    "aliases": ["Aluminum Chlorohydrate", "Aluminum Zirconium", "Alüminyum Klorhidrat"],
+    "riskLevel": "high",
+    "description": "Terlemeyi engelleyen deodorant bileşenleri. Uzun dönem maruziyet meme dokusu ve lenf sistemi üzerinde riskler barındırabilir."
+  },
+  {
+    "id": "cos_013",
+    "name": "Ftalatlar",
+    "aliases": ["Phthalates", "DEHP", "DBP", "Dibutyl Phthalate"],
+    "riskLevel": "high",
+    "description": "Plastikleştirici ve koku sabitleyici olarak kullanılır. Güçlü hormon bozuculardandır ve doğurganlık üzerinde olumsuz etkilere sahiptir."
+  },
+  {
+    "id": "cos_014",
+    "name": "Oksibenzon",
+    "aliases": ["Oxybenzone", "Benzophenone-3"],
+    "riskLevel": "high",
+    "description": "Kimyasal güneş filtresi. Cilde nüfuz ederek kan dolaşımına karışabilir, hormon sistemini etkileyebilir."
+  },
+  {
+    "id": "cos_015",
+    "name": "Octinoxate",
+    "aliases": ["Octyl Methoxycinnamate", "Ethylhexyl Methoxycinnamate"],
+    "riskLevel": "medium",
+    "description": "Kimyasal UV filtresi. Hormon sistemi üzerinde etkileri ve çevresel toksisite potansiyeli tartışmalıdır."
+  }
+]
+

@@ -41,29 +41,6 @@ class CameraManager: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleB
     override init() {
         super.init()
         queue.setSpecific(key: queueSpecificKey, value: true)
-        Task { [weak self] in
-            guard let self else { return }
-            switch self.currentAuthorizationStatus() {
-            case .authorized:
-                await self.configureSessionIfNeeded()
-                self.setupVision()
-            case .notDetermined:
-                let granted = await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
-                    AVCaptureDevice.requestAccess(for: .video) { granted in
-                        continuation.resume(returning: granted)
-                    }
-                }
-                if granted {
-                    await self.configureSessionIfNeeded()
-                    self.setupVision()
-                } else {
-                    // Optionally handle denial
-                }
-            case .denied:
-                // Optionally handle denial (e.g., show guidance to enable in Settings)
-                break
-            }
-        }
     }
     
     private func configureSessionIfNeeded() async {
@@ -112,8 +89,11 @@ class CameraManager: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleB
     }
     
     private var textRecognitionRequest = VNRecognizeTextRequest()
+    private var isVisionConfigured = false
     
-    private func setupVision() {
+    private func setupVisionIfNeeded() {
+        guard !isVisionConfigured else { return }
+        
         textRecognitionRequest = VNRecognizeTextRequest { [weak self] (request, error) in
             guard let self = self else { return }
             guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
@@ -129,12 +109,31 @@ class CameraManager: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleB
         // Dil ve doğruluk ayarları
         textRecognitionRequest.recognitionLevel = .accurate
         textRecognitionRequest.usesLanguageCorrection = true
+        isVisionConfigured = true
     }
     
     func start() {
         Task { [weak self] in
             guard let self = self else { return }
-            await self.configureSessionIfNeeded()
+            
+            switch self.currentAuthorizationStatus() {
+            case .authorized:
+                await self.configureSessionIfNeeded()
+                self.setupVisionIfNeeded()
+            case .notDetermined:
+                let granted = await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
+                    AVCaptureDevice.requestAccess(for: .video) { granted in
+                        continuation.resume(returning: granted)
+                    }
+                }
+                guard granted else { return }
+                await self.configureSessionIfNeeded()
+                self.setupVisionIfNeeded()
+            case .denied:
+                // İstersen burada kullanıcıya ayarlardan izin vermesi için yönlendirme yapabilirsin.
+                return
+            }
+            
             self.queue.async { [weak self] in
                 guard let self = self else { return }
                 guard !self.isConfiguringSession else { return }

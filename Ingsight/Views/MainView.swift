@@ -1,104 +1,153 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var selectedCategory: ScanCategory = .food
+    
     var body: some View {
-        TabView {
-            ScannerView()
-                .tabItem {
-                    Label("Tara", systemImage: "barcode.viewfinder")
-                }
-            HistoryView()
-                .tabItem {
-                    Label("Geçmiş", systemImage: "clock")
-                }
-            InfoView()
-                .tabItem {
-                    Label("Bilgi", systemImage: "info.circle")
-                }
-        }
-        .tint(.white)
-    }
-}
-
-struct HistoryView: View {
-    var body: some View {
-        ZStack {
-            LinearGradient(
-                colors: [Color.black, Color.blue.opacity(0.9)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
+        ZStack(alignment: .bottom) {
+            // Kök arka plan – modern iOS hissi için koyu
+            Color.black
+                .ignoresSafeArea()
             
-            VStack(spacing: 16) {
-                Image(systemName: "clock.arrow.circlepath")
-                    .font(.system(size: 50, weight: .semibold))
-                    .foregroundColor(.white)
-                
-                Text("Henüz bir tarama geçmişin yok")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                
-                Text("Taramaya başladığında, analiz ettiğin ürünleri burada görebileceksin.")
-                    .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.7))
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
+            // Ana içerik – mobil odaklı, max genişlik sınırlı
+            Group {
+                switch selectedCategory {
+                case .food:
+                    ScannerView(
+                        category: .food,
+                        viewModel: ScannerViewModel(service: .shared)
+                    )
+                case .cosmetics:
+                    ScannerView(
+                        category: .cosmetics,
+                        viewModel: ScannerViewModel(service: .cosmetics)
+                    )
+                }
             }
+            .frame(maxWidth: 430) // max-w-md benzeri
+            .frame(maxHeight: .infinity, alignment: .top)
+            .padding(.bottom, 96) // yüzen tab bar için boşluk
+            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: selectedCategory)
+            
+            FloatingTabBar(selectedCategory: $selectedCategory)
+                .padding(.horizontal, 16)
+                .padding(.bottom, 16)
         }
     }
 }
 
-struct InfoView: View {
-    var body: some View {
-        ZStack {
-            LinearGradient(
-                colors: [Color.black, Color.blue.opacity(0.9)],
-                startPoint: .top,
-                endPoint: .bottom
+// MARK: - Floating Bottom Tab Navigation
+
+struct FloatingTabBar: View {
+    @Binding var selectedCategory: ScanCategory
+    @Namespace private var indicatorNamespace
+    
+    private func gradient(for category: ScanCategory) -> LinearGradient {
+        switch category {
+        case .food:
+            // from-green-400 via-emerald-500 to-teal-600
+            return LinearGradient(
+                gradient: Gradient(colors: [
+                    Color(.systemGreen),
+                    Color(.systemTeal),
+                    Color(.systemTeal).opacity(0.9)
+                ]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
             )
-            .ignoresSafeArea()
-            
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    HStack(spacing: 12) {
-                        Image(systemName: "info.circle.fill")
-                            .font(.system(size: 34))
-                            .foregroundColor(.white)
-                        VStack(alignment: .leading) {
-                            Text("Ingsight Nedir?")
-                                .font(.title2.bold())
-                                .foregroundColor(.white)
-                            Text("Ürün içeriklerini tarayıp, içindeki potansiyel zararlı maddeleri risk seviyelerine göre gösteren akıllı bir asistan.")
-                                .font(.subheadline)
-                                .foregroundColor(.white.opacity(0.8))
-                        }
-                    }
-                    
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Öne Çıkan Özellikler")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                        
-                        Label("Tamamen offline çalışır, verin cihazı terk etmez.", systemImage: "lock.shield")
-                            .foregroundColor(.white.opacity(0.9))
-                        Label("Kamera veya galeriden içerik etiketi tarar.", systemImage: "camera.viewfinder")
-                            .foregroundColor(.white.opacity(0.9))
-                        Label("Zararlı maddeleri risk seviyesine göre renklendirir.", systemImage: "exclamationmark.triangle")
-                            .foregroundColor(.white.opacity(0.9))
-                    }
-                    
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Sorumluluk Reddi")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                        Text("Ingsight medikal bir uygulama değildir. Sağlık kararlarınız için her zaman bir uzmana danışın; uygulama yalnızca bilgilendirme amacı taşır.")
-                            .font(.footnote)
-                            .foregroundColor(.white.opacity(0.7))
+        case .cosmetics:
+            // from-pink-400 via-rose-500 to-purple-600
+            return LinearGradient(
+                gradient: Gradient(colors: [
+                    Color(.systemPink),
+                    Color(.systemPink).opacity(0.9),
+                    Color(.systemPurple)
+                ]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        }
+    }
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            tabButton(
+                icon: "leaf.fill",
+                label: "Gıda",
+                category: .food
+            )
+            tabButton(
+                icon: "sparkles",
+                label: "Kozmetik",
+                category: .cosmetics
+            )
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 10)
+        .background(
+            // Daha kompakt, cam efektli tab bar
+            RoundedRectangle(cornerRadius: 32, style: .continuous)
+                .fill(.ultraThinMaterial)
+                .background(
+                    RoundedRectangle(cornerRadius: 32, style: .continuous)
+                        .fill(Color.white.opacity(0.15))
+                )
+                .shadow(color: Color.black.opacity(0.35), radius: 24, x: 0, y: 18)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 32, style: .continuous)
+                .stroke(
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            Color.white.opacity(0.6),
+                            Color.white.opacity(0.15)
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 0.9
+                )
+        )
+    }
+    
+    @ViewBuilder
+    private func tabButton(icon: String, label: String, category: ScanCategory) -> some View {
+        let isActive = selectedCategory == category
+        
+        Button {
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                selectedCategory = category
+            }
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: icon)
+                    .font(.system(size: 18, weight: .semibold))
+                Text(label)
+                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+            }
+            .foregroundColor(.white)
+            .padding(.horizontal, isActive ? 16 : 12)
+            .padding(.vertical, 10)
+            .background(
+                ZStack {
+                    if isActive {
+                        gradient(for: category)
+                            .matchedGeometryEffect(id: "ACTIVE_TAB_BACKGROUND", in: indicatorNamespace)
+                    } else {
+                        Color.white.opacity(0.0001) // hit area
                     }
                 }
-                .padding(24)
-            }
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+            .shadow(
+                color: isActive ? Color.black.opacity(0.35) : Color.clear,
+                radius: isActive ? 18 : 0,
+                x: 0,
+                y: isActive ? 12 : 0
+            )
+            .scaleEffect(isActive ? 1.05 : 1.0)
+            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: isActive)
         }
+        .buttonStyle(.plain)
     }
 }
