@@ -5,6 +5,7 @@
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat)
 ![Architecture](https://img.shields.io/badge/Architecture-MVVM-green?style=flat)
 
+
 > **Scan ingredients. Detect risks. Stay healthy.** > *An offline-first iOS health assistant powered by on-device OCR.*
 
 ## 🌟 Overview
@@ -28,7 +29,7 @@
 | **Architecture** | MVVM | Clean separation of concerns. |
 | **Database** | SwiftData | Modern persistence framework for user history. |
 | **AI / ML** | Vision Framework | On-device Optical Character Recognition (OCR). |
-| **Logic** | Fuzzy Matching | Custom algorithm to detect ingredients despite OCR errors. |
+| **Logic** | Fuzzy Matching | Custom algorithm to detect ingredients despite OCR errors.|
 
 ## 📂 Project Structure
 
