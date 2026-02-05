@@ -1,108 +1,913 @@
 [
-  {
-    "id": "cos_001",
-    "name": "Sodyum Lauril Sülfat",
-    "aliases": ["SLS", "Sodium Lauryl Sulfate", "Sodyum Lauril Sülfat"],
-    "riskLevel": "medium",
-    "description": "Köpük oluşturan yüzey aktif madde. Cildi kurutur, bariyer yapısını bozabilir ve hassas ciltlerde iritasyona yol açabilir."
-  },
-  {
-    "id": "cos_002",
-    "name": "Sodyum Laureth Sülfat",
-    "aliases": ["SLES", "Sodium Laureth Sulfate", "Sodyum Laureth Sülfat"],
-    "riskLevel": "medium",
-    "description": "SLS türevi bir temizleyicidir. Uzun vadeli kullanımda cilt hassasiyetini artırabilir ve göz çevresinde tahrişe neden olabilir."
-  },
-  {
-    "id": "cos_003",
-    "name": "Parfüm",
-    "aliases": ["Fragrance", "Parfum", "Koku"],
-    "riskLevel": "high",
-    "description": "İçeriği açıklanmayan sentetik koku karışımları alerji, migren ve hormon bozucu etkilere yol açabilir."
-  },
-  {
-    "id": "cos_004",
-    "name": "Metil Paraben",
-    "aliases": ["Methylparaben", "Metil p-hidroksibenzoat"],
-    "riskLevel": "medium",
-    "description": "Koruyucu olarak kullanılır. Östrojen benzeri etki göstererek hormon dengesini bozabilir."
-  },
-  {
-    "id": "cos_005",
-    "name": "Propil Paraben",
-    "aliases": ["Propylparaben"],
-    "riskLevel": "high",
-    "description": "Parabenler arasında en güçlü endokrin bozuculardan biridir. Uzun süreli maruziyet üreme sistemi üzerinde olumsuz etkilere yol açabilir."
-  },
-  {
-    "id": "cos_006",
-    "name": "Triklosan",
-    "aliases": ["Triclosan"],
-    "riskLevel": "high",
-    "description": "Antibakteriyel ajan. Hormon sistemi, tiroid fonksiyonları ve bağırsak florası üzerinde bozucu etkilere sahiptir."
-  },
-  {
-    "id": "cos_007",
-    "name": "Formaldehit Salıcı Koruyucular",
-    "aliases": ["DMDM Hydantoin", "Imidazolidinyl Urea", "Diazolidinyl Urea", "Quaternium-15"],
-    "riskLevel": "high",
-    "description": "Zamanla formaldehit salan koruyucular; kanserojen olduğu bilinen formaldehit gazını açığa çıkarabilirler."
-  },
-  {
-    "id": "cos_008",
-    "name": "Butilhidroksitoluen",
-    "aliases": ["BHT", "Butylated Hydroxytoluene"],
-    "riskLevel": "medium",
-    "description": "Antioksidan olarak kullanılır. Uzun vadeli maruziyet karaciğer ve bağışıklık sistemi üzerinde olumsuz etkilere yol açabilir."
-  },
-  {
-    "id": "cos_009",
-    "name": "Butilhidroksianisol",
-    "aliases": ["BHA", "Butylated Hydroxyanisole"],
-    "riskLevel": "high",
-    "description": "Oksidasyonu önlemek için kullanılır. Olası kanserojen ve güçlü bir hormon bozucudur."
-  },
-  {
-    "id": "cos_010",
-    "name": "Mineral Yağ",
-    "aliases": ["Mineral Oil", "Paraffinum Liquidum", "Liquid Paraffin"],
-    "riskLevel": "medium",
-    "description": "Petrol türevi yumuşatıcı. Ciltte bariyer oluşturarak nefes almasını engelleyebilir ve komedon (siyah nokta) oluşumunu artırabilir."
-  },
-  {
-    "id": "cos_011",
-    "name": "Silikon Yağları",
-    "aliases": ["Dimethicone", "Cyclopentasiloxane", "Cyclohexasiloxane"],
-    "riskLevel": "medium",
-    "description": "Ciltte kaygan ve pürüzsüz his verir ancak gözenekleri tıkayabilir ve uzun vadede cilt dengesini bozabilir."
-  },
-  {
-    "id": "cos_012",
-    "name": "Alüminyum Tuzları",
-    "aliases": ["Aluminum Chlorohydrate", "Aluminum Zirconium", "Alüminyum Klorhidrat"],
-    "riskLevel": "high",
-    "description": "Terlemeyi engelleyen deodorant bileşenleri. Uzun dönem maruziyet meme dokusu ve lenf sistemi üzerinde riskler barındırabilir."
-  },
-  {
-    "id": "cos_013",
-    "name": "Ftalatlar",
-    "aliases": ["Phthalates", "DEHP", "DBP", "Dibutyl Phthalate"],
-    "riskLevel": "high",
-    "description": "Plastikleştirici ve koku sabitleyici olarak kullanılır. Güçlü hormon bozuculardandır ve doğurganlık üzerinde olumsuz etkilere sahiptir."
-  },
-  {
-    "id": "cos_014",
-    "name": "Oksibenzon",
-    "aliases": ["Oxybenzone", "Benzophenone-3"],
-    "riskLevel": "high",
-    "description": "Kimyasal güneş filtresi. Cilde nüfuz ederek kan dolaşımına karışabilir, hormon sistemini etkileyebilir."
-  },
-  {
-    "id": "cos_015",
-    "name": "Octinoxate",
-    "aliases": ["Octyl Methoxycinnamate", "Ethylhexyl Methoxycinnamate"],
-    "riskLevel": "medium",
-    "description": "Kimyasal UV filtresi. Hormon sistemi üzerinde etkileri ve çevresel toksisite potansiyeli tartışmalıdır."
-  }
+    {
+        "id": "cos_001",
+        "name": "Sodyum Lauril Sülfat",
+        "aliases": ["SLS", "Sodium Lauryl Sulfate", "Sodyum Lauril Sülfat"],
+        "riskLevel": "medium",
+        "description": "Köpük oluşturan yüzey aktif madde. Cildi kurutur, bariyer yapısını bozabilir ve hassas ciltlerde iritasyona yol açabilir."
+      },
+      {
+        "id": "cos_002",
+        "name": "Sodyum Laureth Sülfat",
+        "aliases": ["SLES", "Sodium Laureth Sulfate", "Sodyum Laureth Sülfat"],
+        "riskLevel": "medium",
+        "description": "SLS türevi bir temizleyicidir. Uzun vadeli kullanımda cilt hassasiyetini artırabilir ve göz çevresinde tahrişe neden olabilir."
+      },
+      {
+        "id": "cos_003",
+        "name": "Parfüm",
+        "aliases": ["Fragrance", "Parfum", "Parfüm Karışımı", "Sentetik Parfüm"],
+        "riskLevel": "high",
+        "description": "İçeriği açıklanmayan sentetik koku karışımları alerji, migren ve hormon bozucu etkilere yol açabilir."
+      },
+      {
+        "id": "cos_004",
+        "name": "Metil Paraben",
+        "aliases": ["Methylparaben", "Metil p-hidroksibenzoat"],
+        "riskLevel": "medium",
+        "description": "Koruyucu olarak kullanılır. Östrojen benzeri etki göstererek hormon dengesini bozabilir."
+      },
+      {
+        "id": "cos_005",
+        "name": "Propil Paraben",
+        "aliases": ["Propylparaben"],
+        "riskLevel": "high",
+        "description": "Parabenler arasında en güçlü endokrin bozuculardan biridir. Uzun süreli maruziyet üreme sistemi üzerinde olumsuz etkilere yol açabilir."
+      },
+      {
+        "id": "cos_006",
+        "name": "Triklosan",
+        "aliases": ["Triclosan"],
+        "riskLevel": "high",
+        "description": "Antibakteriyel ajan. Hormon sistemi, tiroid fonksiyonları ve bağırsak florası üzerinde bozucu etkilere sahiptir."
+      },
+      {
+        "id": "cos_007",
+        "name": "Formaldehit Salıcı Koruyucular",
+        "aliases": ["DMDM Hydantoin", "Imidazolidinyl Urea", "Diazolidinyl Urea", "Quaternium-15"],
+        "riskLevel": "high",
+        "description": "Zamanla formaldehit salan koruyucular; kanserojen olduğu bilinen formaldehit gazını açığa çıkarabilirler."
+      },
+      {
+        "id": "cos_008",
+        "name": "Butilhidroksitoluen",
+        "aliases": ["BHT", "Butylated Hydroxytoluene"],
+        "riskLevel": "medium",
+        "description": "Antioksidan olarak kullanılır. Uzun vadeli maruziyet karaciğer ve bağışıklık sistemi üzerinde olumsuz etkilere yol açabilir."
+      },
+      {
+        "id": "cos_009",
+        "name": "Butilhidroksianisol",
+        "aliases": ["BHA", "Butylated Hydroxyanisole"],
+        "riskLevel": "high",
+        "description": "Oksidasyonu önlemek için kullanılır. Olası kanserojen ve güçlü bir hormon bozucudur."
+      },
+      {
+        "id": "cos_010",
+        "name": "Mineral Yağ",
+        "aliases": ["Mineral Oil", "Paraffinum Liquidum", "Liquid Paraffin"],
+        "riskLevel": "medium",
+        "description": "Petrol türevi yumuşatıcı. Ciltte bariyer oluşturarak nefes almasını engelleyebilir ve komedon (siyah nokta) oluşumunu artırabilir."
+      },
+      {
+        "id": "cos_011",
+        "name": "Silikon Yağları",
+        "aliases": ["Dimethicone", "Cyclopentasiloxane", "Cyclohexasiloxane"],
+        "riskLevel": "medium",
+        "description": "Ciltte kaygan ve pürüzsüz his verir ancak gözenekleri tıkayabilir ve uzun vadede cilt dengesini bozabilir."
+      },
+      {
+        "id": "cos_012",
+        "name": "Alüminyum Tuzları",
+        "aliases": ["Aluminum Chlorohydrate", "Aluminum Zirconium", "Alüminyum Klorhidrat"],
+        "riskLevel": "high",
+        "description": "Terlemeyi engelleyen deodorant bileşenleri. Uzun dönem maruziyet meme dokusu ve lenf sistemi üzerinde riskler barındırabilir."
+      },
+      {
+        "id": "cos_013",
+        "name": "Ftalatlar",
+        "aliases": ["Phthalates", "DEHP", "DBP", "Dibutyl Phthalate"],
+        "riskLevel": "high",
+        "description": "Plastikleştirici ve koku sabitleyici olarak kullanılır. Güçlü hormon bozuculardandır ve doğurganlık üzerinde olumsuz etkilere sahiptir."
+      },
+      {
+        "id": "cos_014",
+        "name": "Oksibenzon",
+        "aliases": ["Oxybenzone", "Benzophenone-3"],
+        "riskLevel": "high",
+        "description": "Kimyasal güneş filtresi. Cilde nüfuz ederek kan dolaşımına karışabilir, hormon sistemini etkileyebilir."
+      },
+      {
+        "id": "cos_015",
+        "name": "Octinoxate",
+        "aliases": ["Octyl Methoxycinnamate", "Ethylhexyl Methoxycinnamate"],
+        "riskLevel": "medium",
+        "description": "Kimyasal UV filtresi. Hormon sistemi üzerinde etkileri ve çevresel toksisite potansiyeli tartışmalıdır."
+      },
+      {
+        "id": "cos_016",
+        "name": "Metilizotiazolinon",
+        "aliases": ["Methylisothiazolinone", "Metilizotiyazolinon"],
+        "riskLevel": "high",
+        "description": "Güçlü bir koruyucudur. Ciltte ciddi alerjik reaksiyonlara ve egzama benzeri döküntülere (kontakt dermatit) neden olma riski yüksektir."
+      },
+      {
+        "id": "cos_017",
+        "name": "Metilkloroizotiazolinon",
+        "aliases": ["Methylchloroisothiazolinone", "MCI", "CMIT"],
+        "riskLevel": "high",
+        "description": "Genellikle MIT ile birlikte kullanılır. Hassas ciltlerde anında reaksiyona, kaşıntıya ve kimyasal yanıklara neden olabilir."
+      },
+      {
+        "id": "cos_018",
+        "name": "Fenoksietanol",
+        "aliases": ["Phenoxyethanol", "2-Phenoxyethanol"],
+        "riskLevel": "medium",
+        "description": "Yaygın bir koruyucudur. Yüksek konsantrasyonlarda cilt ve göz tahrişine neden olabilir; bebek ürünlerinde kullanımı tartışmalıdır."
+      },
+      {
+        "id": "cos_019",
+        "name": "Etanolaminler (DEA/TEA/MEA)",
+        "aliases": ["Diethanolamine", "Triethanolamine", "Monoethanolamine", "Cocamide DEA", "Cocamide MEA"],
+        "riskLevel": "high",
+        "description": "pH dengeleyici ve köpürtücü. Diğer bileşenlerle tepkimeye girerek kanserojen olduğu bilinen 'nitrozaminleri' oluşturabilir."
+      },
+      {
+        "id": "cos_020",
+        "name": "Toluen",
+        "aliases": ["Toluene", "Toluol", "Phenylmethane"],
+        "riskLevel": "high",
+        "description": "Genellikle oje ve saç boyalarında bulunur. Solunması halinde sinir sistemine zarar verebilir, baş ağrısı ve baş dönmesi yapabilir."
+      },
+      {
+        "id": "cos_021",
+        "name": "Polietilen Glikol (PEG) Bileşenleri",
+        "aliases": ["PEG-100 Stearate", "PEG-40 Hydrogenated Castor Oil", "Ceteareth-20", "Polysorbate"],
+        "riskLevel": "medium",
+        "description": "Emilimi artırıcı maddelerdir. Üretim sürecinde kanserojen 1,4-dioksan ile kontamine olma riski taşırlar."
+      },
+      {
+        "id": "cos_022",
+        "name": "Hidrokinon",
+        "aliases": ["Hydroquinone", "1,4-Benzenediol"],
+        "riskLevel": "high",
+        "description": "Cilt rengi açıcı ajan. Hücrelere zarar verebilir, cildin savunma mekanizmasını bozabilir ve kanserojen şüphesi taşır (AB'de yasaklıdır)."
+      },
+      {
+        "id": "cos_023",
+        "name": "Talk (Asbest İçerme Riski)",
+        "aliases": ["Talc", "Talcum Powder", "Magnesium Silicate"],
+        "riskLevel": "medium",
+        "description": "Pudra bazlı ürünlerde bulunur. İyi saflaştırılmamışsa kanserojen asbest lifleri içerebilir; solunum yolları için risklidir."
+      },
+      {
+        "id": "cos_024",
+        "name": "PFAS (Sonsuz Kimyasallar)",
+        "aliases": ["PTFE", "Perfluorononyl Dimethicone", "Polytef", "Teflon"],
+        "riskLevel": "high",
+        "description": "Suya dayanıklı makyaj ürünlerinde bulunur. Vücuttan atılması çok zordur, bağışıklık sistemini baskılayabilir."
+      },
+      {
+        "id": "cos_025",
+        "name": "Resorsinol",
+        "aliases": ["Resorcinol", "1,3-Benzenediol"],
+        "riskLevel": "high",
+        "description": "Saç boyalarında ve akne tedavilerinde kullanılır. Tiroid fonksiyonlarını bozabilir ve güçlü bir cilt tahriş edicidir."
+      },
+      {
+        "id": "cos_026",
+        "name": "P-Fenilendiamin",
+        "aliases": ["PPD", "p-Phenylenediamine", "4-Aminoaniline"],
+        "riskLevel": "high",
+        "description": "Koyu renk saç boyalarında bulunur. Şiddetli alerjik reaksiyonlara neden olabilir ve uzun vadede toksik etkileri vardır."
+      },
+      {
+        "id": "cos_027",
+        "name": "Homosalat",
+        "aliases": ["Homosalate", "HMS"],
+        "riskLevel": "medium",
+        "description": "UV filtresidir. Vücutta birikerek hormonları (özellikle östrojen ve androjen) taklit etme veya bozma potansiyeli vardır."
+      },
+      {
+        "id": "cos_028",
+        "name": "Avobenzon",
+        "aliases": ["Avobenzone", "Butyl Methoxydibenzoylmethane"],
+        "riskLevel": "medium",
+        "description": "Güneş koruyucu. Güneş ışığında kararsızlaşabilir ve parçalanma ürünleri alerjik reaksiyonlara yol açabilir."
+      },
+      {
+        "id": "cos_029",
+        "name": "Sentetik Miskler",
+        "aliases": ["Musk Ketone", "Musk Xylene", "Galaxolide", "Tonalide"],
+        "riskLevel": "medium",
+        "description": "Parfümlerde kalıcılık sağlar. Anne sütünde ve yağ dokusunda birikebilir, hormon sistemini etkileyebilir."
+      },
+      {
+        "id": "cos_030",
+        "name": "Nanopartiküller",
+        "aliases": ["Titanium Dioxide (Nano)", "Zinc Oxide (Nano)"],
+        "riskLevel": "medium",
+        "description": "Nano boyuttaki mineraller. Solunduğunda (sprey formunda) akciğerlere zarar verebilir; cilt emilimi konusundaki veriler tartışmalıdır."
+      },
+    {
+      "id": "cos_031",
+      "name": "Butilparaben",
+      "aliases": ["Butylparaben", "Butyl 4-hydroxybenzoate"],
+      "riskLevel": "high",
+      "description": "Paraben grubunun en risklilerindendir. Cilt tarafından kolayca emilir ve hormonal sistemi bozma potansiyeli çok yüksektir."
+    },
+    {
+      "id": "cos_032",
+      "name": "İzobutilparaben",
+      "aliases": ["Isobutylparaben"],
+      "riskLevel": "high",
+      "description": "Üreme sistemi ve gelişimsel bozukluklarla ilişkilendirilen, AB'de kullanımı kısıtlanmış güçlü bir parabendir."
+    },
+    {
+      "id": "cos_033",
+      "name": "Diazolidinil Üre",
+      "aliases": ["Diazolidinyl Urea"],
+      "riskLevel": "high",
+      "description": "Formaldehit salıcı bir koruyucudur. Ciltte alerjik reaksiyonlara (kontakt dermatit) neden olma riski yüksektir."
+    },
+    {
+      "id": "cos_034",
+      "name": "İmidazolidinil Üre",
+      "aliases": ["Imidazolidinyl Urea"],
+      "riskLevel": "high",
+      "description": "Kozmetikte yaygın kullanılan bir formaldehit salıcıdır. Hassas ciltlerde egzama tetikleyicisi olabilir."
+    },
+    {
+      "id": "cos_035",
+      "name": "Oktokrilen",
+      "aliases": ["Octocrylene"],
+      "riskLevel": "medium",
+      "description": "Güneş kremlerinde bulunur. Zamanla benzofenona (kanserojen) dönüşebilir ve deniz yaşamına zarar verir."
+    },
+    {
+      "id": "cos_036",
+      "name": "Benzofenon-1",
+      "aliases": ["Benzophenone-1", "BP-1"],
+      "riskLevel": "high",
+      "description": "Ojelerde ve parfümlerde UV koruyucu olarak kullanılır. Güçlü bir hormon bozucudur."
+    },
+    {
+      "id": "cos_037",
+      "name": "Benzofenon-3",
+      "aliases": ["Benzophenone-3", "Oxybenzone"],
+      "riskLevel": "high",
+      "description": "Cilt tarafından yüksek oranda emilir, anne sütüne geçebilir ve hormonal sistemi etkiler."
+    },
+    {
+      "id": "cos_038",
+      "name": "Etilheksil Metoksisinamat",
+      "aliases": ["Ethylhexyl Methoxycinnamate", "OMC", "Octinoxate"],
+      "riskLevel": "high",
+      "description": "Tiroit hormonlarını etkileyebilen ve anne sütünde tespit edilen yaygın bir kimyasal filtredir."
+    },
+    {
+      "id": "cos_039",
+      "name": "Siklopentasiloksan",
+      "aliases": ["Cyclopentasiloxane", "D5"],
+      "riskLevel": "medium",
+      "description": "Uçucu bir silikondur. Solunduğunda riskli olabilir ve doğada biyolojik olarak birikim yapar."
+    },
+    {
+      "id": "cos_040",
+      "name": "Siklotetrasiloksan",
+      "aliases": ["Cyclotetrasiloxane", "D4"],
+      "riskLevel": "high",
+      "description": "Üreme sistemi üzerinde toksik etkileri olduğu şüphesiyle AB'de kısıtlanmıştır."
+    },
+    {
+      "id": "cos_041",
+      "name": "Limonen",
+      "aliases": ["Limonene", "d-Limonene"],
+      "riskLevel": "medium",
+      "description": "Turunçgillerden elde edilir. Havayla temas edip okside olduğunda güçlü bir cilt alerjenine dönüşür."
+    },
+    {
+      "id": "cos_042",
+      "name": "Linalool",
+      "aliases": ["Linalool"],
+      "riskLevel": "medium",
+      "description": "Lavanta gibi bitkilerde bulunur. Okside olduğunda egzama ve alerji yapma potansiyeli yüksektir."
+    },
+    {
+      "id": "cos_043",
+      "name": "Sitronellol",
+      "aliases": ["Citronellol"],
+      "riskLevel": "medium",
+      "description": "Gül kokusu verir. AB tarafından potansiyel alerjen olarak etiketlenmesi zorunlu 26 maddeden biridir."
+    },
+    {
+      "id": "cos_044",
+      "name": "Heksil Sinnamal",
+      "aliases": ["Hexyl Cinnamal"],
+      "riskLevel": "medium",
+      "description": "Yasemin benzeri koku maddesi. Hassas ciltlerde kontakt dermatite yol açabilir."
+    },
+    {
+      "id": "cos_045",
+      "name": "Benzil Alkol",
+      "aliases": ["Benzyl Alcohol"],
+      "riskLevel": "medium",
+      "description": "Hem koku hem koruyucudur. Yüksek dozlarda ciltte kuruluk ve tahriş yapabilir."
+    },
+    {
+      "id": "cos_046",
+      "name": "Metilizotiazolinon (MIT)",
+      "aliases": ["Methylisothiazolinone", "Metilizotiyazolinon"],
+      "riskLevel": "high",
+      "description": "Durulanmayan ürünlerde (krem gibi) yasaklanmıştır. Çok güçlü bir alerjendir."
+    },
+    {
+      "id": "cos_047",
+      "name": "Kokamid DEA",
+      "aliases": ["Cocamide DEA"],
+      "riskLevel": "high",
+      "description": "Köpürtücü ajandır. Kanserojen olduğu bilinen nitrozaminlerin oluşumuna neden olabilir."
+    },
+    {
+      "id": "cos_048",
+      "name": "Lauramid DEA",
+      "aliases": ["Lauramide DEA"],
+      "riskLevel": "high",
+      "description": "Cilt bariyerini zayıflatabilir ve kanserojen bileşiklerle kontamine olma riski vardır."
+    },
+    {
+      "id": "cos_049",
+      "name": "Polisorbat 80",
+      "aliases": ["Polysorbate 80"],
+      "riskLevel": "medium",
+      "description": "Genellikle güvenlidir ancak üretim sırasında etilen oksit (kanserojen) ile kirlenmiş olabilir."
+    },
+    {
+      "id": "cos_050",
+      "name": "PEG-40 Hidrojene Hint Yağı",
+      "aliases": ["PEG-40 Hydrogenated Castor Oil"],
+      "riskLevel": "medium",
+      "description": "Cilt geçirgenliğini artırarak diğer zararlı maddelerin emilimini kolaylaştırabilir."
+    },
+    {
+      "id": "cos_051",
+      "name": "Kurşun Asetat",
+      "aliases": ["Lead Acetate"],
+      "riskLevel": "high",
+      "description": "Bazı saç boyalarında bulunur. Nörotoksiktir (sinir sistemine zararlı) ve üreme sistemini bozar."
+    },
+    {
+      "id": "cos_052",
+      "name": "Petrolatum",
+      "aliases": ["Petrolatum", "Petroleum Jelly", "Vazelin"],
+      "riskLevel": "medium",
+      "description": "Tam saflaştırılmamışsa PAH (Polisiklik Aromatik Hidrokarbonlar) içerebilir. Gözenekleri tıkayabilir."
+    },
+    {
+      "id": "cos_053",
+      "name": "Talk",
+      "aliases": ["Talc", "Magnesium Silicate"],
+      "riskLevel": "high",
+      "description": "Bebek pudrası ve allıklarda bulunur. Asbest içerme riski nedeniyle solunduğunda kanserojen olabilir."
+    },
+    {
+      "id": "cos_054",
+      "name": "Karbon Karası",
+      "aliases": ["Carbon Black", "CI 77266", "D&C Black No. 2"],
+      "riskLevel": "high",
+      "description": "Eyeliner ve maskarada kullanılır. Solunması halinde kanserojen risk taşır."
+    },
+    {
+      "id": "cos_055",
+      "name": "Resorsinol",
+      "aliases": ["Resorcinol"],
+      "riskLevel": "high",
+      "description": "Tiroid fonksiyonlarını bozabilir ve merkezi sinir sistemini etkileyebilir."
+    },
+    {
+      "id": "cos_056",
+      "name": "Amonyak",
+      "aliases": ["Ammonia", "Ammonium Hydroxide"],
+      "riskLevel": "medium",
+      "description": "Saç boyalarında bulunur. Solunum yollarını tahriş eder ve astımı tetikleyebilir."
+    },
+    {
+      "id": "cos_057",
+      "name": "P-Fenilendiamin",
+      "aliases": ["p-Phenylenediamine", "PPD"],
+      "riskLevel": "high",
+      "description": "Koyu renk saç boyalarının ana maddesidir. Çok güçlü bir alerjendir ve toksik etkileri vardır."
+    },
+    {
+      "id": "cos_058",
+      "name": "Toluen",
+      "aliases": ["Toluene"],
+      "riskLevel": "high",
+      "description": "Oje ve tırnak ürünlerinde bulunur. Sinir sistemine zarar verebilir, baş dönmesi yapar."
+    },
+    {
+      "id": "cos_059",
+      "name": "Formaldehit",
+      "aliases": ["Formaldehyde", "Formalin"],
+      "riskLevel": "high",
+      "description": "Bilinen bir kanserojendir. Tırnak sertleştiricilerde ve saç düzleştiricilerde bulunabilir."
+    },
+    {
+      "id": "cos_060",
+      "name": "Triklokarban",
+      "aliases": ["Triclocarban"],
+      "riskLevel": "high",
+      "description": "Triklosana benzer. Hormon bozucu etkileri vardır ve doğada çözünmesi zordur."
+    },
+    {
+      "id": "cos_061",
+      "name": "Retinil Palmitat",
+      "aliases": ["Retinyl Palmitate", "Vitamin A Palmitate"],
+      "riskLevel": "medium",
+      "description": "Gündüz kullanıldığında güneş ışığıyla tepkimeye girerek ciltte serbest radikal hasarını artırabilir."
+    },
+    {
+      "id": "cos_062",
+      "name": "Alüminyum Klorhidrat",
+      "aliases": ["Aluminum Chlorohydrate"],
+      "riskLevel": "medium",
+      "description": "Ter gözeneklerini tıkar. Vücutta birikimi ve nörotoksisitesi tartışmalıdır."
+    },
+    {
+      "id": "cos_063",
+      "name": "Sodyum Hidroksimetilglisinat",
+      "aliases": ["Sodium Hydroxymethylglycinate"],
+      "riskLevel": "high",
+      "description": "Formaldehit salıcı bir koruyucudur. Cilt hassasiyetine neden olabilir."
+    },
+    {
+      "id": "cos_064",
+      "name": "Kuaterniyum-15",
+      "aliases": ["Quaternium-15"],
+      "riskLevel": "high",
+      "description": "En fazla formaldehit salan koruyuculardan biridir. Ciddi alerjik reaksiyon riski taşır."
+    },
+    {
+      "id": "cos_065",
+      "name": "DMDM Hidantoin",
+      "aliases": ["DMDM Hydantoin"],
+      "riskLevel": "high",
+      "description": "Şampuanlarda yaygındır. Formaldehit salarak cildi tahriş eder ve kanserojen risk taşır."
+    },
+    {
+      "id": "cos_066",
+      "name": "Gümüş",
+      "aliases": ["Silver", "CI 77820", "Colloidal Silver"],
+      "riskLevel": "medium",
+      "description": "Nanoparçacık formundaysa hücrelere nüfuz edebilir. Ciltte 'arjiri' (mavi-gri lekelenme) yapabilir."
+    },
+    {
+      "id": "cos_067",
+      "name": "Bizmut Oksiklorür",
+      "aliases": ["Bismuth Oxychloride", "CI 77163"],
+      "riskLevel": "medium",
+      "description": "Makyaj ürünlerine parlaklık verir. Ağır bir mineraldir, gözenekleri tıkayıp sivilce (akne kozmetika) ve kaşıntı yapabilir."
+    },
+    {
+      "id": "cos_068",
+      "name": "Poliakrilamid",
+      "aliases": ["Polyacrylamide"],
+      "riskLevel": "high",
+      "description": "Kendisinden ziyade, üretim artığı olan 'Akrilamid' güçlü bir nörotoksin ve kanserojendir."
+    },
+    {
+      "id": "cos_069",
+      "name": "Stiren",
+      "aliases": ["Styrene", "Styrene/Acrylates Copolymer"],
+      "riskLevel": "medium",
+      "description": "Opaklaştırıcı olarak kullanılır. Stiren gazı olası bir kanserojendir ve endokrin bozucudur."
+    },
+    {
+      "id": "cos_070",
+      "name": "EDTA ve Tuzları",
+      "aliases": ["Disodium EDTA", "Tetrasodium EDTA"],
+      "riskLevel": "medium",
+      "description": "Ürünün bozulmasını engeller ancak diğer kimyasalların cilt emilimini artırır. Doğada çözünmez."
+    },
+    {
+      "id": "cos_071",
+      "name": "Butoksietanol",
+      "aliases": ["Butoxyethanol", "2-Butoxyethanol"],
+      "riskLevel": "high",
+      "description": "Parfümlerde ve saç boyalarında bulunur. Solunması kan hücrelerine ve karaciğere zarar verebilir."
+    },
+    {
+      "id": "cos_072",
+      "name": "Kloroasetamid",
+      "aliases": ["Chloroacetamide"],
+      "riskLevel": "high",
+      "description": "Üreme toksisitesi riski nedeniyle birçok ülkede kozmetiklerde kullanımı yasaklanmış veya kısıtlanmıştır."
+    },
+    {
+      "id": "cos_073",
+      "name": "Metakrilatlar",
+      "aliases": ["Methyl Methacrylate", "Ethyl Methacrylate"],
+      "riskLevel": "medium",
+      "description": "Takma tırnak yapıştırıcılarında bulunur. Tırnak yatağında hasar ve ciddi alerji yapabilir."
+    },
+    {
+      "id": "cos_074",
+      "name": "Fenilmerkürik Asetat",
+      "aliases": ["Phenylmercuric Acetate"],
+      "riskLevel": "high",
+      "description": "Cıva bileşiğidir. Göz ürünlerinde çok nadir de olsa kullanılır. Cıva zehirlenmesi riski taşır."
+    },
+    {
+      "id": "cos_075",
+      "name": "Benzalkonyum Klorür",
+      "aliases": ["Benzalkonium Chloride"],
+      "riskLevel": "medium",
+      "description": "Göz damlalarında ve lens solüsyonlarında bulunur. Uzun vadede kornea hücrelerine zarar verebilir."
+    },
+    {
+      "id": "cos_076",
+      "name": "Sodyum Borat",
+      "aliases": ["Sodium Borate", "Borax"],
+      "riskLevel": "high",
+      "description": "AB'de üreme sistemi üzerindeki olumsuz etkileri nedeniyle 'Reprotoksik' olarak sınıflandırılmıştır."
+    },
+    {
+      "id": "cos_077",
+      "name": "Perborik Asit",
+      "aliases": ["Perboric Acid"],
+      "riskLevel": "high",
+      "description": "Diş beyazlatma ürünlerinde bulunabilir. Yüksek dozda toksik etki gösterebilir."
+    },
+    {
+      "id": "cos_078",
+      "name": "Kojik Asit",
+      "aliases": ["Kojic Acid"],
+      "riskLevel": "medium",
+      "description": "Cilt lekelerini açmak için kullanılır. Cildi güneşe karşı hassaslaştırır ve uzun vadede tahriş edebilir."
+    },
+    {
+      "id": "cos_079",
+      "name": "Arbutin",
+      "aliases": ["Arbutin", "Alpha-Arbutin"],
+      "riskLevel": "medium",
+      "description": "Hidrokinona dönüşme potansiyeli vardır. Hassas ciltlerde reaksiyona neden olabilir."
+    },
+    {
+      "id": "cos_080",
+      "name": "Ksilen Miskleri",
+      "aliases": ["Musk Xylene"],
+      "riskLevel": "high",
+      "description": "Kalıcı ve biyobirikimlidir. Doğurganlık üzerinde olumsuz etkileri olduğu kanıtlanmıştır."
+    },
+    {
+      "id": "cos_081",
+      "name": "Polietilen",
+      "aliases": ["Polyethylene", "PE"],
+      "riskLevel": "medium",
+      "description": "Mikroplastiktir. Peeling ürünlerinde bulunur. Cilt için düşük riskli olsa da çevre için çok zararlıdır."
+    },
+    {
+      "id": "cos_082",
+      "name": "Naylon-12",
+      "aliases": ["Nylon-12"],
+      "riskLevel": "medium",
+      "description": "Hacim verici ve matlaştırıcı mikroplastiktir. Solunması halinde akciğerler için risk oluşturabilir."
+    },
+    {
+      "id": "cos_083",
+      "name": "Sodyum Benzoat (+ C Vitamini)",
+      "aliases": ["Sodium Benzoate"],
+      "riskLevel": "medium",
+      "description": "Tek başına güvenlidir ancak C Vitamini (Askorbik Asit) ile aynı formüldeyse kanserojen Benzene dönüşebilir."
+    },
+    {
+      "id": "cos_084",
+      "name": "Propilen Glikol",
+      "aliases": ["Propylene Glycol", "PG"],
+      "riskLevel": "medium",
+      "description": "Ciltte penetrasyonu artırır. Egzamalı ve hassas ciltlerde tahriş ve kontakt dermatit yapabilir."
+    },
+    {
+      "id": "cos_085",
+      "name": "İzopropil Alkol",
+      "aliases": ["Isopropyl Alcohol", "Isopropanol"],
+      "riskLevel": "medium",
+      "description": "Cildi aşırı kurutur ve koruyucu bariyeri bozarak enfeksiyonlara açık hale getirebilir."
+    },
+    {
+      "id": "cos_086",
+      "name": "Kömür Katranı",
+      "aliases": ["Coal Tar", "Pix Carbonis"],
+      "riskLevel": "high",
+      "description": "Kepek şampuanlarında bulunur. Bilinen bir kanserojendir ve AB kozmetik yönetmeliğinde yasaklıdır."
+    },
+    {
+      "id": "cos_087",
+      "name": "Okamimetiltrisiloksan",
+      "aliases": ["Octamethyltrisiloxane"],
+      "riskLevel": "medium",
+      "description": "Silikon bazlı bir çözücüdür. Biyolojik birikim potansiyeli yüksektir."
+    },
+    {
+      "id": "cos_088",
+      "name": "Aseton",
+      "aliases": ["Acetone"],
+      "riskLevel": "medium",
+      "description": "Oje çıkarıcı. Tırnakları aşırı kurutur, kırılganlaştırır ve buharları baş ağrısı yapabilir."
+    },
+    {
+      "id": "cos_089",
+      "name": "Florid",
+      "aliases": ["Sodium Fluoride", "Fluoride"],
+      "riskLevel": "medium",
+      "description": "Diş macunlarında bulunur. Çocuklar tarafından yutulduğunda toksik olabilir."
+    },
+    {
+      "id": "cos_090",
+      "name": "CI 19140 (Sarı 5)",
+      "aliases": ["Yellow 5", "Tartrazine", "CI 19140"],
+      "riskLevel": "medium",
+      "description": "Sentetik gıda ve kozmetik boyasıdır. Hassas bünyelerde alerji ve hiperaktivite ile ilişkilendirilmiştir."
+    },
+    {
+      "id": "cos_091",
+      "name": "CI 17200 (Kırmızı 33)",
+      "aliases": ["Red 33", "D&C Red No. 33", "CI 17200"],
+      "riskLevel": "medium",
+      "description": "Sentetik boya. Kömür katranından elde edilir, hassas ciltlerde döküntü yapabilir."
+    },
+    {
+      "id": "cos_092",
+      "name": "CI 42090 (Mavi 1)",
+      "aliases": ["Blue 1", "Brilliant Blue FCF", "CI 42090"],
+      "riskLevel": "medium",
+      "description": "Deri tarafından emilebilir. Hayvan deneylerinde bazı organ toksisiteleri görülmüştür."
+    },
+    {
+      "id": "cos_093",
+      "name": "Padimat O",
+      "aliases": ["Padimate O", "Octyl Dimethyl PABA"],
+      "riskLevel": "high",
+      "description": "Eski tip bir güneş koruyucudur. DNA hasarına yol açan serbest radikalleri artırabilir."
+    },
+    {
+      "id": "cos_094",
+      "name": "Enzakamen",
+      "aliases": ["Enzacamene", "4-Methylbenzylidene Camphor"],
+      "riskLevel": "high",
+      "description": "UV filtresidir. Güçlü tiroid ve hormon bozucu etkileri nedeniyle birçok ülkede izlenmektedir."
+    },
+    {
+      "id": "cos_095",
+      "name": "Geraniyol",
+      "aliases": ["Geraniol"],
+      "riskLevel": "medium",
+      "description": "Doğal bir koku bileşenidir ancak bilinen en yaygın 26 kozmetik alerjeninden biridir."
+    },
+    {
+      "id": "cos_096",
+      "name": "Sitral",
+      "aliases": ["Citral"],
+      "riskLevel": "medium",
+      "description": "Limon kokusu verir. Ciltte tahriş ve alerjik reaksiyon potansiyeli yüksektir."
+    },
+    {
+      "id": "cos_097",
+      "name": "Öjenol",
+      "aliases": ["Eugenol"],
+      "riskLevel": "medium",
+      "description": "Karanfil yağı bileşeni. Bağışıklık sistemi tepkisine ve kontakt dermatite yol açabilir."
+    },
+    {
+      "id": "cos_098",
+      "name": "Farnesol",
+      "aliases": ["Farnesol"],
+      "riskLevel": "medium",
+      "description": "Koku verici. Sık maruziyette koku hassasiyetine ve alerjiye neden olabilir."
+    },
+    {
+      "id": "cos_099",
+      "name": "Kumarin",
+      "aliases": ["Coumarin"],
+      "riskLevel": "medium",
+      "description": "Tarçın benzeri koku. Yüksek dozlarda karaciğer toksisitesi riski taşır ve alerjendir."
+    },
+    {
+      "id": "cos_100",
+      "name": "PVP",
+      "aliases": ["Polyvinylpyrrolidone", "PVP"],
+      "riskLevel": "medium",
+      "description": "Saç spreylerinde sabitleyici. Solunduğunda akciğerlerde partikül birikimine (tekozis) yol açabilir."
+    },
+    {
+      "id": "cos_101",
+      "name": "Dehidroasetik Asit",
+      "aliases": ["Dehydroacetic Acid"],
+      "riskLevel": "medium",
+      "description": "Koruyucudur. Genelde güvenli kabul edilse de göz çevresinde tahriş edici olabilir."
+    },
+    {
+      "id": "cos_102",
+      "name": "Amonyum Lauril Sülfat",
+      "aliases": ["ALS", "Ammonium Lauryl Sulfate"],
+      "riskLevel": "medium",
+      "description": "SLS'ye benzer sert bir temizleyicidir. Saç derisini kurutur ve gözleri yakar."
+    },
+    {
+      "id": "cos_103",
+      "name": "Metil Etil Keton",
+      "aliases": ["Methyl Ethyl Ketone", "Metil Etil Ketone", "2-Butanon"],
+      "riskLevel": "high",
+      "description": "Çözücüdür. Asetondan daha toksiktir, solunması merkezi sinir sistemini etkiler."
+    },
+    {
+      "id": "cos_104",
+      "name": "2-Bromo-2-Nitropropane-1,3-Diol",
+      "aliases": ["Bronopol"],
+      "riskLevel": "high",
+      "description": "Yüksek oranda formaldehit salan ve nitrozamin oluşturan riskli bir koruyucudur."
+    },
+    {
+      "id": "cos_105",
+      "name": "5-Bromo-5-Nitro-1,3-Dioxane",
+      "aliases": ["Bronidox"],
+      "riskLevel": "high",
+      "description": "Bakteri önleyicidir. Formaldehit salınımı ve nitrozamin riski taşır."
+    },
+    {
+      "id": "cos_106",
+      "name": "Sodyum Hidroksit",
+      "aliases": ["Sodium Hydroxide", "Caustic Soda"],
+      "riskLevel": "medium",
+      "description": "Kostik soda. Yüksek konsantrasyonlarda cildi yakar, pH ayarlayıcı olarak düşük dozda kullanılır."
+    },
+    {
+      "id": "cos_107",
+      "name": "Potasyum Hidroksit",
+      "aliases": ["Potassium Hydroxide"],
+      "riskLevel": "medium",
+      "description": "Kütikül gidericilerde bulunur. Çok aşındırıcıdır, ciltte yanıklara neden olabilir."
+    },
+    {
+      "id": "cos_108",
+      "name": "Üre",
+      "aliases": ["Urea", "Carbamide"],
+      "riskLevel": "medium",
+      "description": "Nemlendiricidir ancak Diazolidinil Üre ile karıştırılmamalıdır. Yüksek dozda hassasiyet yapabilir."
+    },
+    {
+      "id": "cos_109",
+      "name": "Oktoxinol",
+      "aliases": ["Octoxynol-10", "Octoxynol-40"],
+      "riskLevel": "medium",
+      "description": "Emülgatör. Hormon bozucu etkileri olabileceğine dair çalışmalar mevcuttur."
+    },
+    {
+      "id": "cos_110",
+      "name": "Nonoksinol",
+      "aliases": ["Nonoxynol", "Nonoxynol-9"],
+      "riskLevel": "high",
+      "description": "Spermisid olarak da kullanılır. Cilt bariyerini bozabilir ve emilimi artırır."
+    },
+    {
+      "id": "cos_111",
+      "name": "Metildibromo Glutaronitril",
+      "aliases": ["Methyldibromo Glutaronitrile", "MDBGN"],
+      "riskLevel": "high",
+      "description": "Alerji salgınına yol açtığı için AB'de durulanan ve durulanmayan ürünlerde yasaklanmıştır."
+    },
+    {
+      "id": "cos_112",
+      "name": "İyodopropinil Butilkarbamat",
+      "aliases": ["Iodopropynyl Butylcarbamate", "IPBC"],
+      "riskLevel": "medium",
+      "description": "Koruyucudur. Solunduğunda toksik olabilir, Japonya'da kullanımı kısıtlıdır."
+    },
+    {
+      "id": "cos_113",
+      "name": "Klorfenezin",
+      "aliases": ["Chlorphenesin"],
+      "riskLevel": "medium",
+      "description": "Kas gevşetici özelliği olan bir koruyucudur. Bebeklerde solunum baskılanması riski taşır."
+    },
+    {
+      "id": "cos_114",
+      "name": "Setrimonyum Klorür",
+      "aliases": ["Cetrimonium Chloride"],
+      "riskLevel": "medium",
+      "description": "Saç kremlerinde bulunur. Cilt tahriş edicidir ve alerjik reaksiyonlara neden olabilir."
+    },
+    {
+      "id": "cos_115",
+      "name": "Behentrimonyum Klorür",
+      "aliases": ["Behentrimonium Chloride"],
+      "riskLevel": "medium",
+      "description": "Saç yumuşatıcı. Göz çevresinde doku hasarı riski vardır, konsantrasyonu kısıtlıdır."
+    },
+    {
+      "id": "cos_116",
+      "name": "Pirokton Olamin",
+      "aliases": ["Piroctone Olamine"],
+      "riskLevel": "medium",
+      "description": "Kepek önleyici. Genelde güvenlidir ancak bazı kişilerde kontakt hassasiyet yaratabilir."
+    },
+    {
+      "id": "cos_117",
+      "name": "Çinko Piritiyon",
+      "aliases": ["Zinc Pyrithione"],
+      "riskLevel": "high",
+      "description": "Kepek şampuanlarında yaygındır. Üreme toksisitesi şüphesiyle AB'de kısıtlanmıştır."
+    },
+    {
+      "id": "cos_118",
+      "name": "Selenyum Sülfit",
+      "aliases": ["Selenium Sulfide"],
+      "riskLevel": "high",
+      "description": "Kepek ilacıdır. Nörotoksiktir ve olası bir kanserojen olarak sınıflandırılmıştır."
+    },
+    {
+      "id": "cos_119",
+      "name": "Kloroform",
+      "aliases": ["Chloroform"],
+      "riskLevel": "high",
+      "description": "Eski formülasyonlarda bulunur. Kanserojen ve nörotoksiktir, artık yasaktır ancak kaçak ürünlerde çıkabilir."
+    },
+    {
+      "id": "cos_120",
+      "name": "Vinil Klorür",
+      "aliases": ["Vinyl Chloride"],
+      "riskLevel": "high",
+      "description": "Spreylerde itici gaz olarak kullanılırdı. Karaciğer kanseri ile doğrudan bağlantılıdır, yasaktır."
+    },
+    {
+      "id": "cos_121",
+      "name": "Zirkonyum",
+      "aliases": ["Zirconium"],
+      "riskLevel": "medium",
+      "description": "Sprey deodorantlarda kullanılması akciğer granülomlarına yol açtığı için yasaklanmıştır."
+    },
+    {
+      "id": "cos_122",
+      "name": "Okaliptüs Yağı",
+      "aliases": ["Eucalyptus Oil"],
+      "riskLevel": "medium",
+      "description": "Doğal olsa da yüksek dozda toksiktir ve bebeklerde solunum spazmı yaratabilir."
+    },
+    {
+      "id": "cos_123",
+      "name": "Kafur",
+      "aliases": ["Camphor"],
+      "riskLevel": "medium",
+      "description": "Solunduğunda baş dönmesi yapar. Çocuklarda yutulması nöbetlere ve zehirlenmeye yol açar."
+    },
+    {
+      "id": "cos_124",
+      "name": "Mentol",
+      "aliases": ["Menthol"],
+      "riskLevel": "medium",
+      "description": "Ciltte ferahlık verir ancak yüksek konsantrasyonda cilt bariyerini tahriş eder."
+    },
+    {
+      "id": "cos_125",
+      "name": "Sülfürik Asit",
+      "aliases": ["Sulfuric Acid"],
+      "riskLevel": "high",
+      "description": "pH dengeleyici olarak çok düşük dozda kullanılır. Yüksek dozda doku yakıcıdır."
+    },
+    {
+      "id": "cos_126",
+      "name": "Hidroklorik Asit",
+      "aliases": ["Hydrochloric Acid"],
+      "riskLevel": "medium",
+      "description": "Aşırı asidik yapısı nedeniyle yanlış kullanımda kimyasal yanıklara neden olabilir."
+    },
+    {
+      "id": "cos_127",
+      "name": "Arakidil Propiyonat",
+      "aliases": ["Arachidyl Propionate"],
+      "riskLevel": "medium",
+      "description": "Yumuşatıcıdır. Sivilceye meyilli ciltlerde gözenek tıkayıcı (komedojenik) etkisi yüksektir."
+    },
+    {
+      "id": "cos_128",
+      "name": "İzopropil Miristat",
+      "aliases": ["Isopropyl Myristate"],
+      "riskLevel": "medium",
+      "description": "Kozmetikteki en güçlü gözenek tıkayıcılardan biridir. Akne sorunu olanlar kaçınmalıdır."
+    },
+    {
+      "id": "cos_129",
+      "name": "Lanolin",
+      "aliases": ["Lanolin", "Wool Alcohol"],
+      "riskLevel": "medium",
+      "description": "Koyun yününden elde edilir. Pestisit kalıntısı barındırabilir ve güçlü bir alerjendir."
+    },
+    {
+      "id": "cos_130",
+      "name": "Balmumu (Sentetik)",
+      "aliases": ["Synthetic Beeswax"],
+      "riskLevel": "medium",
+      "description": "Doğal balmumuna göre daha fazla alerjik reaksiyon riski taşır ve gözenekleri tıkayabilir."
+    }
 ]
 

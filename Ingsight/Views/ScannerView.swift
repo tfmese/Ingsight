@@ -300,7 +300,7 @@ struct CameraScreen: View {
 
             // Alt kısım – açıklama + büyük çekim butonu
             VStack(spacing: 14) {
-                Text("Etiket üzerindeki içerik listesini kare içine hizala veya galeriden bir fotoğraf seç.")
+                Text("İçerik listesinin fotoğrafını çek veya galeriden yükle.")
                     .font(.footnote)
                     .foregroundColor(.white.opacity(0.75))
                     .multilineTextAlignment(.center)
@@ -391,24 +391,26 @@ struct ResultsScreen: View {
         ingredients.filter { $0.riskLevel == .high }.count
     }
 
+    /// Skor: 100’den başlayıp madde sayısına göre düşer; ne çok sert ne çok yumuşak, en düşük 22.
     private var score: Int {
-        if avoidCount > 0 { return 35 }
-        if cautionCount > 0 { return 65 }
-        if !ingredients.isEmpty { return 95 }
-        // Tamamen temiz – ekstra güvenli
-        return 98
+        guard !ingredients.isEmpty else { return 98 } // Hiç risk yok
+        let puan = 100
+            - (avoidCount * 7)    // Yüksek risk: madde başı 7 puan (1→93, 5→65, 10→30)
+            - (cautionCount * 3)  // Orta risk: madde başı 3 puan
+            - (safeCount * 1)     // Düşük risk: madde başı 1 puan
+        return min(98, max(22, puan))
     }
 
     private var scoreLabel: String {
-        if avoidCount > 0 { return "Yüksek Risk" }
-        if cautionCount > 0 { return "Dikkatli Kullan" }
-        if ingredients.isEmpty { return "Çok Güvenli" }
-        return "Genelde Güvenli"
+        if score <= 40 { return "Yüksek Risk" }
+        if score <= 65 { return "Dikkatli Kullan" }
+        if score <= 85 { return "Genelde Güvenli" }
+        return "Çok Güvenli"
     }
 
     private var scoreColor: Color {
-        if avoidCount > 0 { return .red }
-        if cautionCount > 0 { return .orange }
+        if score <= 40 { return .red }
+        if score <= 65 { return .orange }
         return .green
     }
 
@@ -680,14 +682,27 @@ struct ResultsScreen: View {
     }
 
     private var hintText: String {
-        if avoidCount > 0 {
-            return "İçerikte yüksek riskli maddeler bulunuyor. Mümkünse alternatif, daha temiz içerikli ürünler tercih et."
-        } else if cautionCount > 0 {
-            return "Bazı bileşenler hassas ciltler veya uzun süreli kullanım için ideal olmayabilir. Düzenli kullanımda doz ve sıklığı gözlemle."
-        } else if ingredients.isEmpty {
-            return "Etikette bilinen riskli veya tartışmalı bileşenlere rastlanmadı. Yine de kişisel alerji ve hassasiyetlerini göz önünde bulundur."
-        } else {
-            return "İçerik listesi genel olarak temiz görünüyor. Yine de uzun isimli kimyasal bileşenleri ara sıra gözden geçirmek faydalı olabilir."
+        switch category {
+        case .food:
+            if avoidCount > 0 {
+                return "İçerikte yüksek riskli katkı veya bileşenler var. Mümkünse daha az işlenmiş veya daha temiz içerikli alternatiflere yönelebilirsin."
+            } else if cautionCount > 0 {
+                return "Bazı katkı maddeleri özellikle sık veya yüksek miktarda tüketimde sorun yaratabilir. Porsiyon ve tüketim sıklığını göz önünde bulundur."
+            } else if ingredients.isEmpty {
+                return "Etikette bilinen riskli veya tartışmalı bileşenlere rastlanmadı. Kişisel alerji ve hassasiyetlerini yine de göz önünde bulundur."
+            } else {
+                return "İçerik listesi genel olarak temiz görünüyor. Uzun vadede dengeli beslenme ve çeşitlilik önemli."
+            }
+        case .cosmetics:
+            if avoidCount > 0 {
+                return "İçerikte yüksek riskli maddeler bulunuyor. Mümkünse daha temiz formüllü veya doğal içerikli alternatiflere yönelebilirsin."
+            } else if cautionCount > 0 {
+                return "Bazı bileşenler hassas ciltler veya uzun süreli kullanım için ideal olmayabilir. Doz ve uygulama sıklığını gözlemle."
+            } else if ingredients.isEmpty {
+                return "Etikette bilinen riskli veya tartışmalı bileşenlere rastlanmadı. Kişisel alerji ve cilt hassasiyetini yine de göz önünde bulundur."
+            } else {
+                return "İçerik listesi genel olarak temiz görünüyor. Özellikle yüz ve saç derisine uygulanan ürünlerde içerik takibi faydalı olabilir."
+            }
         }
     }
 }

@@ -52,23 +52,52 @@ class IngredientService {
         }
     }
     
+    /// Kısa metinler (≤3 karakter) sadece kelime sınırında eşleşir; yoksa "as", "mek", "mi" gibi alias'lar
+    /// başka kelimelerin içinde yanlış pozitif verir (ör. "yemek", "pas", "minimum").
+    private static let maxLengthForWordBoundary = 3
+    
+    /// Metinde `needle` tam kelime olarak (başka harf/rakamın parçası olmadan) geçiyor mu?
+    private static func textContainsAsWord(_ text: String, needle: String) -> Bool {
+        let lower = text.lowercased()
+        let n = needle.lowercased()
+        guard !n.isEmpty else { return false }
+        
+        var start = lower.startIndex
+        while start < lower.endIndex,
+              let range = lower.range(of: n, range: start..<lower.endIndex) {
+            let before = range.lowerBound == lower.startIndex
+                ? true
+                : !lower[lower.index(before: range.lowerBound)].isLetter && !lower[lower.index(before: range.lowerBound)].isNumber
+            let after = range.upperBound == lower.endIndex
+                ? true
+                : !lower[range.upperBound].isLetter && !lower[range.upperBound].isNumber
+            if before && after { return true }
+            start = range.upperBound
+        }
+        return false
+    }
+    
     /// Verilen metin içerisinde riskli bileşenleri arar.
-    /// NOT: Burayı, önceden çalışan basit mantığa geri döndürdük:
-    /// - Sadece `lowercased()` ile kontrol
-    /// - İsim ve alias'ları doğrudan `contains` ile arama
+    /// Kısa isim/alias (≤3 karakter) sadece kelime sınırında aranır; yanlış eşleşme önlenir.
     func checkForRisk(in text: String) -> [Ingredient] {
         let lowercasedText = text.lowercased()
         
         return ingredients.filter { ingredient in
-            // 1. İsim Kontrolü
-            if lowercasedText.contains(ingredient.name.lowercased()) {
-                return true
+            let name = ingredient.name.lowercased()
+            // 1. İsim kontrolü
+            if name.count <= Self.maxLengthForWordBoundary {
+                if Self.textContainsAsWord(lowercasedText, needle: name) { return true }
+            } else {
+                if lowercasedText.contains(name) { return true }
             }
             
-            // 2. Takma Adlar (Aliases)
+            // 2. Takma adlar
             for alias in ingredient.aliases {
-                if lowercasedText.contains(alias.lowercased()) {
-                    return true
+                let a = alias.lowercased()
+                if a.count <= Self.maxLengthForWordBoundary {
+                    if Self.textContainsAsWord(lowercasedText, needle: a) { return true }
+                } else {
+                    if lowercasedText.contains(a) { return true }
                 }
             }
             

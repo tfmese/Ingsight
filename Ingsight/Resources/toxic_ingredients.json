@@ -30,14 +30,14 @@
     {
         "id": "sodnit_005",
         "name": "Sodyum Nitrit",
-        "aliases": ["E250", "Nitrit"],
+        "aliases": ["E250", "Nitrit", "Sodium Nitrite"],
         "riskLevel": "high",
         "description": "İşlenmiş et koruyucusu. Kanserojen nitrozaminlere dönüşme riski yüksektir."
     },
     {
         "id": "sodnitrat_006",
         "name": "Sodyum Nitrat",
-        "aliases": ["E251", "Nitrat"],
+        "aliases": ["E251", "Nitrat", "Sodium Nitrate"],
         "riskLevel": "high",
         "description": "Genellikle şarküteri ürünlerinde bulunur. Kalp damar sağlığına olumsuz etkileri olabilir."
     },
@@ -100,7 +100,7 @@
     {
         "id": "sodbenz_015",
         "name": "Sodyum Benzoat",
-        "aliases": ["E211", "Benzoat"],
+        "aliases": ["E211", "Benzoat", "Sodium Benzoate"],
         "riskLevel": "medium",
         "description": "Asitli gıda koruyucusu. C vitamini ile tepkimeye girerek benzen oluşturabilir."
     },
@@ -289,9 +289,30 @@
     {
         "id": "potnit_042",
         "name": "Potasyum Nitrit",
-        "aliases": ["E249"],
+        "aliases": ["E249", "Potassium Nitrite", "Potasyum nitrit"],
         "riskLevel": "high",
         "description": "Sodyum nitrit gibi işlenmiş etlerde kullanılır ve benzer riskleri taşır."
+    },
+    {
+        "id": "potnitrat_042b",
+        "name": "Potasyum Nitrat",
+        "aliases": ["E252", "Potassium Nitrate", "Potasyum nitrat"],
+        "riskLevel": "high",
+        "description": "Şarküteri ve işlenmiş etlerde koruyucu. Nitritlerle benzer riskler taşır."
+    },
+    {
+        "id": "sodaskorbat_042c",
+        "name": "Sodyum Askorbat",
+        "aliases": ["E301", "Sodium Ascorbate", "Askorbat"],
+        "riskLevel": "medium",
+        "description": "Et ve şarküteride nitrozamin oluşumunu azaltmak için kullanılır. Yüksek miktar hassas bünyede sorun yaratabilir."
+    },
+    {
+        "id": "soderitorbat_042d",
+        "name": "Sodyum Eritorbat",
+        "aliases": ["E316", "Sodium Erythorbate", "Eritorbat"],
+        "riskLevel": "medium",
+        "description": "İşlenmiş etlerde antioksidan ve renk sabitleyici. Aşırı tüketimde oksalat birikimi riski."
     },
     {
         "id": "col_e104_043",
@@ -598,28 +619,28 @@
                 {
                     "id": "arsenic_086",
                     "name": "İnorganik Arsenik",
-                    "aliases": ["Arsenic", "As"],
+                    "aliases": ["Arsenic", "Arsenik", "İnorganik Arsenik"],
                     "riskLevel": "high",
                     "description": "Özellikle pirinç ve pirinç bazlı bebek mamalarında bulunur. Uzun vadeli maruziyet cilt, mesane ve akciğer kanseri riskini artırır."
                 },
                 {
                     "id": "mercury_087",
                     "name": "Metil Cıva",
-                    "aliases": ["Mercury", "Hg", "Cıva"],
+                    "aliases": ["Mercury", "Cıva", "Metil Cıva", "Methyl Mercury"],
                     "riskLevel": "high",
                     "description": "Dip balıklarında ve büyük yırtıcı balıklarda (ton balığı vb.) birikir. Sinir sistemi ve beyin gelişimi (özellikle fetüslerde) için toksiktir."
                 },
                 {
                     "id": "lead_088",
                     "name": "Kurşun",
-                    "aliases": ["Lead", "Pb"],
+                    "aliases": ["Lead", "Kurşun", "Lead (metal)"],
                     "riskLevel": "high",
                     "description": "Eski su boruları veya kirli topraktan gıdaya geçer. Çocuklarda zeka gelişimini (IQ) olumsuz etkilediği kanıtlanmıştır."
                 },
                 {
                     "id": "cadmium_089",
                     "name": "Kadmiyum",
-                    "aliases": ["Cadmium", "Cd"],
+                    "aliases": ["Cadmium", "Kadmiyum"],
                     "riskLevel": "high",
                     "description": "Kakao ürünleri (bitter çikolata) ve kabuklu deniz ürünlerinde doğal olarak birikebilir. Böbreklerde birikir ve kemik erimesine yol açabilir."
                 },
@@ -787,14 +808,14 @@
                     {
                         "id": "diphosphates_113",
                         "name": "Difosfatlar",
-                        "aliases": ["E450", "Disodyum Difosfat", "Pirofosfat"],
+                        "aliases": ["E450", "Disodyum Difosfat", "Pirofosfat", "Tetrasodium Pyrophosphate", "TSPP", "Sodium Acid Pyrophosphate", "Tetrasodyum Pirofosfat"],
                         "riskLevel": "high",
                         "description": "Hazır çorba ve sosislerde yaygındır. Vücudun kalsiyum-fosfor dengesini bozarak kemik mineral yoğunluğunu düşürebilir."
                     },
                     {
                         "id": "triphosphates_114",
                         "name": "Trifosfatlar",
-                        "aliases": ["E451", "Pentasodyum Trifosfat"],
+                        "aliases": ["E451", "Pentasodyum Trifosfat", "Sodium Tripolyphosphate", "STPP", "Pentasodyum trifosfat"],
                         "riskLevel": "high",
                         "description": "Et ürünlerinde ağırlık artırmak (su tutmak) için kullanılır. Yüksek tüketimi böbrek hastaları için tehlikelidir."
                     },
