@@ -45,27 +45,11 @@ struct FloatingTabBar: View {
     private func gradient(for category: ScanCategory) -> LinearGradient {
         switch category {
         case .food:
-            // from-green-400 via-emerald-500 to-teal-600
-            return LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(.systemGreen),
-                    Color(.systemTeal),
-                    Color(.systemTeal).opacity(0.9)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            let c = Color(red: 0.52, green: 0.58, blue: 0.48)  // sage / olive
+            return LinearGradient(colors: [c, c.opacity(0.9)], startPoint: .topLeading, endPoint: .bottomTrailing)
         case .cosmetics:
-            // from-pink-400 via-rose-500 to-purple-600
-            return LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(.systemPink),
-                    Color(.systemPink).opacity(0.9),
-                    Color(.systemPurple)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            let c = Color(red: 0.68, green: 0.55, blue: 0.75)  // muted lilac / rose
+            return LinearGradient(colors: [c, c.opacity(0.9)], startPoint: .topLeading, endPoint: .bottomTrailing)
         }
     }
     
@@ -82,30 +66,40 @@ struct FloatingTabBar: View {
                 category: .cosmetics
             )
         }
-        .padding(.horizontal, 14)
-        .padding(.vertical, 10)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
         .background(
-            // Daha kompakt, cam efektli tab bar
-            RoundedRectangle(cornerRadius: 32, style: .continuous)
+            // Modern glassmorphism tab bar - iOS 18+
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .fill(.ultraThinMaterial)
                 .background(
-                    RoundedRectangle(cornerRadius: 32, style: .continuous)
-                        .fill(Color.white.opacity(0.15))
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    Color.white.opacity(0.2),
+                                    Color.white.opacity(0.1)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
                 )
-                .shadow(color: Color.black.opacity(0.35), radius: 24, x: 0, y: 18)
+                .shadow(color: Color.black.opacity(0.4), radius: 30, x: 0, y: 20)
+                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 32, style: .continuous)
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .stroke(
                     LinearGradient(
                         gradient: Gradient(colors: [
-                            Color.white.opacity(0.6),
-                            Color.white.opacity(0.15)
+                            Color.white.opacity(0.7),
+                            Color.white.opacity(0.2)
                         ]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     ),
-                    lineWidth: 0.9
+                    lineWidth: 1.2
                 )
         )
     }
@@ -121,9 +115,9 @@ struct FloatingTabBar: View {
         } label: {
             HStack(spacing: 8) {
                 Image(systemName: icon)
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(.system(size: 19, weight: .bold, design: .rounded))
                 Text(label)
-                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                    .font(.system(size: 15, weight: .bold, design: .rounded))
             }
             .foregroundColor(.white)
             .padding(.horizontal, isActive ? 16 : 12)

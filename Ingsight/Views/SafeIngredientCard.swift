@@ -16,41 +16,77 @@ struct SafeIngredientCard: View {
     }
 
     var body: some View {
-        HStack(alignment: .center, spacing: 14) {
+        HStack(alignment: .center, spacing: 16) {
+            // Modern icon container
             ZStack {
                 Circle()
-                    .fill(Color.white.opacity(0.20))
-                    .frame(width: 40, height: 40)
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color.white.opacity(0.3),
+                                Color.white.opacity(0.2)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: 52, height: 52)
                 Circle()
-                    .fill(Color.white.opacity(0.30))
-                    .frame(width: 26, height: 26)
+                    .fill(Color.white.opacity(0.35))
+                    .frame(width: 34, height: 34)
                 Image(systemName: "checkmark.seal.fill")
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
             }
+            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
 
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("Riskli madde bulunamadı")
-                    .font(.subheadline.weight(.semibold))
+                    .font(.system(size: 18, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
                 Text("Bu üründe bilinen zararlı veya tartışmalı bileşenlere rastlanmadı.")
-                    .font(.caption2)
-                    .foregroundColor(.white.opacity(0.9))
+                    .font(.system(size: 14, weight: .medium, design: .rounded))
+                    .foregroundColor(.white.opacity(0.95))
                     .fixedSize(horizontal: false, vertical: true)
             }
 
             Spacer()
         }
-        .padding(.vertical, 14)
-        .padding(.horizontal, 16)
+        .padding(.vertical, 18)
+        .padding(.horizontal, 20)
         .background(
-            RoundedRectangle(cornerRadius: 26, style: .continuous)
+            // Modern glassmorphism card
+            RoundedRectangle(cornerRadius: 28, style: .continuous)
                 .fill(self.baseGradient)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 26, style: .continuous)
-                        .stroke(Color.white.opacity(0.3), lineWidth: 0.8)
+                .background(
+                    RoundedRectangle(cornerRadius: 28, style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    Color.white.opacity(0.2),
+                                    Color.white.opacity(0.08)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
                 )
-                .shadow(color: Color.black.opacity(0.4), radius: 14, x: 0, y: 8)
         )
+        .overlay(
+            RoundedRectangle(cornerRadius: 28, style: .continuous)
+                .stroke(
+                    LinearGradient(
+                        colors: [
+                            Color.white.opacity(0.5),
+                            Color.white.opacity(0.2)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 1.2
+                )
+        )
+        .shadow(color: Color.black.opacity(0.4), radius: 24, x: 0, y: 16)
+        .shadow(color: Color.black.opacity(0.2), radius: 8, x: 0, y: 4)
     }
 }

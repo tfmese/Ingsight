@@ -33,8 +33,8 @@ enum ScanCategory {
     
     var primaryAccent: Color {
         switch self {
-        case .food: return Color.green
-        case .cosmetics: return Color.purple
+        case .food: return Color(red: 0.72, green: 0.75, blue: 0.62)       // champagne / sage accent on dark
+        case .cosmetics: return Color(red: 0.85, green: 0.72, blue: 0.88) // soft lilac / rose gold on dark
         }
     }
     
@@ -52,73 +52,45 @@ enum ScanCategory {
         }
     }
 
-    // Sayfa arka planı için gradient (Tailwind benzeri)
+    // Arka plan artık PatternBackground içinde (dark base + mesh). Bu gradient diğer yerlerde kullanılıyorsa tutuluyor.
     var backgroundGradient: LinearGradient {
         switch self {
         case .food:
-            // from-green-400 via-emerald-500 to-teal-600
             return LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.22, green: 0.87, blue: 0.53),   // green-400
-                    Color(red: 0.09, green: 0.72, blue: 0.53),   // emerald-500
-                    Color(red: 0.03, green: 0.55, blue: 0.62)    // teal-600
-                ]),
+                colors: [
+                    Color(red: 0.12, green: 0.22, blue: 0.16),
+                    Color(red: 0.10, green: 0.16, blue: 0.14)
+                ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
         case .cosmetics:
-            // from-pink-400 via-rose-500 to-purple-600
             return LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.97, green: 0.53, blue: 0.75),   // pink-400
-                    Color(red: 0.94, green: 0.42, blue: 0.57),   // rose-500
-                    Color(red: 0.58, green: 0.27, blue: 0.88)    // purple-600
-                ]),
+                colors: [
+                    Color(red: 0.12, green: 0.08, blue: 0.20),
+                    Color(red: 0.14, green: 0.12, blue: 0.18)
+                ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
         }
     }
 
-    // Risk kartları için gradient
+    // Risk kartları — premium dark tema ile uyumlu
     func cardGradient(for risk: RiskLevel) -> LinearGradient {
         switch (self, risk) {
         case (.food, .low):
-            return LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.21, green: 0.83, blue: 0.44),
-                    Color(red: 0.09, green: 0.68, blue: 0.47)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            let c = Color(red: 0.45, green: 0.55, blue: 0.45)  // sage
+            return LinearGradient(colors: [c, c.opacity(0.85)], startPoint: .topLeading, endPoint: .bottomTrailing)
         case (.cosmetics, .low):
-            return LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.98, green: 0.56, blue: 0.79),
-                    Color(red: 0.89, green: 0.40, blue: 0.90)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            let c = Color(red: 0.68, green: 0.58, blue: 0.78)  // soft lilac
+            return LinearGradient(colors: [c, c.opacity(0.85)], startPoint: .topLeading, endPoint: .bottomTrailing)
         case (_, .medium):
-            return LinearGradient(
-                gradient: Gradient(colors: [
-                    Color.orange,
-                    Color(red: 0.91, green: 0.59, blue: 0.19)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            let c = Color(red: 0.82, green: 0.68, blue: 0.52)   // warm gold
+            return LinearGradient(colors: [c, c.opacity(0.88)], startPoint: .topLeading, endPoint: .bottomTrailing)
         case (_, .high):
-            return LinearGradient(
-                gradient: Gradient(colors: [
-                    Color.red,
-                    Color(red: 0.75, green: 0.11, blue: 0.23)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            let c = Color(red: 0.75, green: 0.35, blue: 0.38)
+            return LinearGradient(colors: [c, c.opacity(0.88)], startPoint: .topLeading, endPoint: .bottomTrailing)
         }
     }
 }
@@ -139,31 +111,8 @@ struct ScannerView: View {
     
     var body: some View {
         ZStack {
-            // Sayfa tematik gradient arka plan
-            category.backgroundGradient
-                .ignoresSafeArea()
-
-            // Büyük bulanık daireler ile derinlik (opacity-10..20, blur-3xl)
-            ZStack {
-                Circle()
-                    .fill(Color.white.opacity(0.16))
-                    .frame(width: 380, height: 380)
-                    .blur(radius: 60)
-                    .offset(x: -160, y: -420)
-
-                Circle()
-                    .fill(Color.white.opacity(0.10))
-                    .frame(width: 260, height: 260)
-                    .blur(radius: 50)
-                    .offset(x: 140, y: -260)
-
-                Circle()
-                    .fill(Color.black.opacity(0.25))
-                    .frame(width: 420, height: 420)
-                    .blur(radius: 90)
-                    .offset(x: 0, y: 420)
-            }
-            .ignoresSafeArea()
+            // Desenli arka plan - organik/görsel zenginlik
+            AnimatedPatternBackground(category: category)
 
             VStack(spacing: 0) {
                 if viewModel.isAnalysisScreenPresented {
@@ -211,7 +160,7 @@ struct CameraScreen: View {
             VStack(alignment: .leading, spacing: 12) {
                 HStack(spacing: 10) {
                     Text("AI Powered")
-                        .font(.caption.bold())
+                        .font(.system(size: 13, weight: .bold, design: .rounded))
                         .padding(.horizontal, 10)
                         .padding(.vertical, 6)
                         .background(
@@ -232,12 +181,12 @@ struct CameraScreen: View {
                 }
 
                 Text(category.title)
-                    .font(.system(size: 34, weight: .heavy, design: .rounded))
+                    .font(.system(size: 38, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
 
                 Text(category.subtitle)
-                    .font(.callout)
-                    .foregroundColor(.white.opacity(0.82))
+                    .font(.system(size: 17, weight: .medium, design: .rounded))
+                    .foregroundColor(.white.opacity(0.9))
                     .fixedSize(horizontal: false, vertical: true)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -277,15 +226,15 @@ struct CameraScreen: View {
                                 .frame(width: 10, height: 10)
                                 .shadow(color: .red.opacity(0.7), radius: 6)
                             Text("REC")
-                                .font(.caption2.bold())
-                                .foregroundColor(.white.opacity(0.85))
+                                .font(.system(size: 11, weight: .bold, design: .rounded))
+                                .foregroundColor(.white.opacity(0.9))
                         }
 
                         Spacer()
 
                         Image(systemName: "camera.aperture")
-                            .font(.system(size: 18, weight: .medium))
-                            .foregroundColor(.white.opacity(0.85))
+                            .font(.system(size: 18, weight: .semibold, design: .rounded))
+                            .foregroundColor(.white.opacity(0.9))
                     }
                     .padding(.horizontal, 18)
                     .padding(.top, 14)
@@ -301,31 +250,59 @@ struct CameraScreen: View {
             // Alt kısım – açıklama + büyük çekim butonu
             VStack(spacing: 14) {
                 Text("İçerik listesinin fotoğrafını çek veya galeriden yükle.")
-                    .font(.footnote)
-                    .foregroundColor(.white.opacity(0.75))
+                    .font(.system(size: 15, weight: .medium, design: .rounded))
+                    .foregroundColor(.white.opacity(0.88))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 26)
 
                 HStack(spacing: 22) {
-                    // Galeri butonu (küçük kapsül)
+                    // Modern galeri butonu - glassmorphism
                     PhotosPicker(selection: $viewModel.selectedItem, matching: .images) {
-                        HStack(spacing: 6) {
+                        HStack(spacing: 8) {
                             Image(systemName: "photo.on.rectangle")
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(.system(size: 17, weight: .bold, design: .rounded))
                             Text("Galeri")
-                                .font(.caption.bold())
+                                .font(.system(size: 15, weight: .bold, design: .rounded))
                         }
-                        .foregroundColor(.white.opacity(0.9))
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 10)
+                        .foregroundColor(.white.opacity(0.95))
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 12)
                         .background(
                             Capsule()
-                                .fill(Color.white.opacity(0.16))
+                                .fill(.ultraThinMaterial)
+                                .background(
+                                    Capsule()
+                                        .fill(
+                                            LinearGradient(
+                                                colors: [
+                                                    Color.white.opacity(0.25),
+                                                    Color.white.opacity(0.12)
+                                                ],
+                                                startPoint: .topLeading,
+                                                endPoint: .bottomTrailing
+                                            )
+                                        )
+                                )
+                                .overlay(
+                                    Capsule()
+                                        .stroke(
+                                            LinearGradient(
+                                                colors: [
+                                                    Color.white.opacity(0.5),
+                                                    Color.white.opacity(0.2)
+                                                ],
+                                                startPoint: .topLeading,
+                                                endPoint: .bottomTrailing
+                                            ),
+                                            lineWidth: 1.2
+                                        )
+                                )
                         )
+                        .shadow(color: Color.black.opacity(0.3), radius: 12, x: 0, y: 6)
                     }
                     .buttonStyle(.plain)
                     
-                    // Ortadaki büyük dairesel "çekim" butonu (şimdilik reset + canlı önizleme)
+                    // Modern kamera butonu - iOS 18+ style
                     Button {
                         withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                             viewModel.resetAnalysis()
@@ -333,33 +310,76 @@ struct CameraScreen: View {
                         }
                     } label: {
                         ZStack {
+                            // Outer glow
                             Circle()
-                                .fill(Color.white.opacity(0.14))
-                                .frame(width: 80, height: 80)
+                                .fill(
+                                    RadialGradient(
+                                        colors: [
+                                            category.primaryAccent.opacity(0.3),
+                                            category.primaryAccent.opacity(0)
+                                        ],
+                                        center: .center,
+                                        startRadius: 30,
+                                        endRadius: 50
+                                    )
+                                )
+                                .frame(width: 100, height: 100)
+                                .blur(radius: 12)
                             
+                            // Glassmorphism container
                             Circle()
-                                .strokeBorder(Color.white.opacity(0.65), lineWidth: 2)
-                                .frame(width: 72, height: 72)
+                                .fill(.ultraThinMaterial)
+                                .background(
+                                    Circle()
+                                        .fill(
+                                            LinearGradient(
+                                                colors: [
+                                                    Color.white.opacity(0.3),
+                                                    Color.white.opacity(0.15)
+                                                ],
+                                                startPoint: .topLeading,
+                                                endPoint: .bottomTrailing
+                                            )
+                                        )
+                                )
+                                .frame(width: 84, height: 84)
                             
+                            // Border
+                            Circle()
+                                .strokeBorder(
+                                    LinearGradient(
+                                        colors: [
+                                            Color.white.opacity(0.8),
+                                            Color.white.opacity(0.4)
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    ),
+                                    lineWidth: 2.5
+                                )
+                                .frame(width: 76, height: 76)
+                            
+                            // Inner button
                             Circle()
                                 .fill(
                                     LinearGradient(
-                                        gradient: Gradient(colors: [
-                                            Color.white,
-                                            Color.white.opacity(0.9)
-                                        ]),
-                                        startPoint: .top,
-                                        endPoint: .bottom
+                                        colors: [
+                                            Color.white.opacity(0.95),
+                                            Color.white.opacity(0.85)
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
                                     )
                                 )
-                                .frame(width: 60, height: 60)
+                                .frame(width: 64, height: 64)
                                 .overlay(
                                     Image(systemName: "camera.fill")
-                                        .font(.system(size: 22, weight: .semibold))
+                                        .font(.system(size: 26, weight: .bold, design: .rounded))
                                         .foregroundColor(category.primaryAccent)
                                 )
                         }
-                        .shadow(color: Color.black.opacity(0.55), radius: 16, x: 0, y: 10)
+                        .shadow(color: Color.black.opacity(0.4), radius: 24, x: 0, y: 16)
+                        .shadow(color: category.primaryAccent.opacity(0.3), radius: 16, x: 0, y: 8)
                     }
                     .buttonStyle(.plain)
                 }
@@ -391,13 +411,13 @@ struct ResultsScreen: View {
         ingredients.filter { $0.riskLevel == .high }.count
     }
 
-    /// Skor: 100’den başlayıp madde sayısına göre düşer; ne çok sert ne çok yumuşak, en düşük 22.
+    /// Skor: 100’den başlayıp madde sayısına göre düşer. Yüksek/orta risk ve çok sayıda madde skoru daha belirgin düşürür.
     private var score: Int {
         guard !ingredients.isEmpty else { return 98 } // Hiç risk yok
         let puan = 100
-            - (avoidCount * 7)    // Yüksek risk: madde başı 7 puan (1→93, 5→65, 10→30)
-            - (cautionCount * 3)  // Orta risk: madde başı 3 puan
-            - (safeCount * 1)     // Düşük risk: madde başı 1 puan
+            - (avoidCount * 8)    // Yüksek risk: madde başı 8 puan
+            - (cautionCount * 4)  // Orta risk: madde başı 4 puan
+            - (safeCount * 2)     // Düşük risk: madde başı 2 puan (çok madde = daha düşük skor)
         return min(98, max(22, puan))
     }
 
@@ -419,13 +439,13 @@ struct ResultsScreen: View {
             VStack(spacing: 20) {
                 // Üst bar: başlık + Tekrar Tara
                 HStack {
-                    VStack(alignment: .leading, spacing: 4) {
+                    VStack(alignment: .leading, spacing: 6) {
                         Text(category.resultTitle)
-                            .font(.system(size: 26, weight: .heavy, design: .rounded))
+                            .font(.system(size: 28, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
                         Text("Ürün içeriği, risk seviyesine göre analiz edildi.")
-                            .font(.footnote)
-                            .foregroundColor(.white.opacity(0.78))
+                            .font(.system(size: 14, weight: .medium, design: .rounded))
+                            .foregroundColor(.white.opacity(0.88))
                     }
 
                     Spacer()
@@ -435,15 +455,15 @@ struct ResultsScreen: View {
                             Image(systemName: "arrow.counterclockwise")
                             Text("Tekrar Tara")
                         }
-                        .font(.caption.bold())
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 8)
+                        .font(.system(size: 14, weight: .bold, design: .rounded))
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 9)
                         .background(
-                            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                            RoundedRectangle(cornerRadius: 24, style: .continuous)
                                 .fill(.ultraThinMaterial)
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 22, style: .continuous)
-                                        .stroke(Color.white.opacity(0.4), lineWidth: 0.8)
+                                    RoundedRectangle(cornerRadius: 24, style: .continuous)
+                                        .stroke(Color.white.opacity(0.45), lineWidth: 0.9)
                                 )
                         )
                         .foregroundColor(.white)
@@ -466,8 +486,8 @@ struct ResultsScreen: View {
                 // İçerik kartları listesi
                 VStack(alignment: .leading, spacing: 12) {
                     Text("İçindekiler Analizi")
-                        .font(.headline)
-                        .foregroundColor(.white.opacity(0.9))
+                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                        .foregroundColor(.white.opacity(0.95))
                         .padding(.horizontal, 4)
 
                     if ingredients.isEmpty {
@@ -506,23 +526,23 @@ struct ResultsScreen: View {
                         .foregroundColor(.white)
                 }
 
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text("Güvenlik Skoru")
-                        .font(.caption)
-                        .foregroundColor(.white.opacity(0.7))
+                        .font(.system(size: 13, weight: .semibold, design: .rounded))
+                        .foregroundColor(.white.opacity(0.85))
                     Text(scoreLabel)
-                        .font(.subheadline.bold())
+                        .font(.system(size: 16, weight: .bold, design: .rounded))
                         .foregroundColor(scoreColor)
                 }
             }
 
             HStack(alignment: .firstTextBaseline, spacing: 4) {
                 Text("\(score)")
-                    .font(.system(size: 40, weight: .heavy, design: .rounded))
+                    .font(.system(size: 44, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
                 Text("/100")
-                    .font(.headline.weight(.semibold))
-                    .foregroundColor(.white.opacity(0.7))
+                    .font(.system(size: 18, weight: .semibold, design: .rounded))
+                    .foregroundColor(.white.opacity(0.85))
             }
 
             ZStack(alignment: .leading) {
@@ -548,24 +568,47 @@ struct ResultsScreen: View {
             .frame(height: 10)
 
             Text(hintText)
-                .font(.caption2)
-                .foregroundColor(.white.opacity(0.75))
+                .font(.system(size: 12, weight: .medium, design: .rounded))
+                .foregroundColor(.white.opacity(0.85))
                 .fixedSize(horizontal: false, vertical: true)
         }
-        .padding(16)
+        .padding(20)
         .background(
-            RoundedRectangle(cornerRadius: 32, style: .continuous)
+            // Modern glassmorphism - iOS 18+ style
+            RoundedRectangle(cornerRadius: 28, style: .continuous)
                 .fill(.ultraThinMaterial)
                 .background(
-                    RoundedRectangle(cornerRadius: 32, style: .continuous)
-                        .fill(Color.white.opacity(0.12))
+                    // Subtle gradient overlay
+                    RoundedRectangle(cornerRadius: 28, style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    Color.white.opacity(0.18),
+                                    Color.white.opacity(0.08)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
                 )
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 32, style: .continuous)
-                .stroke(Color.white.opacity(0.28), lineWidth: 1)
+            // Modern border - subtle glow
+            RoundedRectangle(cornerRadius: 28, style: .continuous)
+                .stroke(
+                    LinearGradient(
+                        colors: [
+                            Color.white.opacity(0.4),
+                            Color.white.opacity(0.15)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 1.2
+                )
         )
-        .shadow(color: Color.black.opacity(0.55), radius: 22, x: 0, y: 16)
+        .shadow(color: Color.black.opacity(0.4), radius: 30, x: 0, y: 20)
+        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
     }
 
     private var productCard: some View {
@@ -603,16 +646,16 @@ struct ResultsScreen: View {
                     }
                     
                     Text("Taradığın Ürün")
-                        .font(.caption.bold())
-                        .foregroundColor(.white.opacity(0.85))
+                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                        .foregroundColor(.white.opacity(0.9))
                         .lineLimit(1)
                 }
                 .padding(14)
             }
 
             Text(ingredients.isEmpty ? "Şüpheli içerik bulunamadı." : "İçerik listesi analizi tamamlandı.")
-                .font(.caption2)
-                .foregroundColor(.white.opacity(0.75))
+                .font(.system(size: 12, weight: .medium, design: .rounded))
+                .foregroundColor(.white.opacity(0.85))
         }
         .frame(width: 150)
     }
@@ -641,44 +684,79 @@ struct ResultsScreen: View {
     }
 
     private func statItem(title: String, value: Int, icon: String, color: Color) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: 6) {
-                Image(systemName: icon)
-                    .font(.system(size: 13, weight: .bold))
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 8) {
+                // Icon container - modern pill shape
+                ZStack {
+                    Circle()
+                        .fill(color.opacity(0.2))
+                        .frame(width: 32, height: 32)
+                    Image(systemName: icon)
+                        .font(.system(size: 14, weight: .bold, design: .rounded))
+                        .foregroundColor(color)
+                }
+                
                 Text(title)
-                    .font(.caption.bold())
+                    .font(.system(size: 13, weight: .bold, design: .rounded))
+                    .foregroundColor(.white.opacity(0.95))
             }
-            .foregroundColor(.white.opacity(0.85))
 
             Text("\(value)")
-                .font(.headline.weight(.semibold))
+                .font(.system(size: 28, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
+                .padding(.top, 2)
 
+            // Modern progress indicator
             Capsule()
                 .fill(
                     LinearGradient(
                         gradient: Gradient(colors: [
-                            color.opacity(0.9),
-                            color.opacity(0.6)
+                            color.opacity(0.95),
+                            color.opacity(0.75)
                         ]),
                         startPoint: .leading,
                         endPoint: .trailing
                     )
                 )
-                .frame(height: 4)
-                .shadow(color: color.opacity(0.7), radius: 8, x: 0, y: 4)
+                .frame(height: 5)
+                .shadow(color: color.opacity(0.6), radius: 6, x: 0, y: 3)
         }
-        .padding(12)
+        .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
+            // Glassmorphism stat card
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(.ultraThinMaterial)
+                .background(
+                    RoundedRectangle(cornerRadius: 24, style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    Color.white.opacity(0.15),
+                                    Color.white.opacity(0.05)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                )
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .stroke(Color.white.opacity(0.2), lineWidth: 0.8)
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .stroke(
+                    LinearGradient(
+                        colors: [
+                            Color.white.opacity(0.35),
+                            Color.white.opacity(0.12)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 1
+                )
         )
-        .shadow(color: Color.black.opacity(0.45), radius: 14, x: 0, y: 10)
+        .shadow(color: Color.black.opacity(0.35), radius: 20, x: 0, y: 12)
+        .shadow(color: Color.black.opacity(0.15), radius: 8, x: 0, y: 4)
     }
 
     private var hintText: String {
@@ -715,9 +793,9 @@ struct FeatureChip: View {
     var body: some View {
         HStack(spacing: 6) {
             Image(systemName: icon)
-                .font(.system(size: 11, weight: .semibold))
+                .font(.system(size: 11, weight: .bold, design: .rounded))
             Text(text)
-                .font(.caption2)
+                .font(.system(size: 11, weight: .semibold, design: .rounded))
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 6)
