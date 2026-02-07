@@ -210,137 +210,115 @@ struct PatternBackground: View {
     }
     
     @ViewBuilder
-    private var textureOverlay: some View {
-        GeometryReader { geo in
-            let w = geo.size.width
-            let h = geo.size.height
-            let unit = min(w, h) * 0.12  // birim boyut — ekrana göre ölçeklenir
+        private var textureOverlay: some View {
+            GeometryReader { geo in
+                let w = geo.size.width
+                let h = geo.size.height
+                let unit = min(w, h) * 0.12
+                
+                Group {
+                    if category == .food {
+                        foodOrganicTexture(w: w, h: h, unit: unit)
+                    } else {
+                        cosmeticsSilkTexture(w: w, h: h, unit: unit)
+                    }
+                }
+                .frame(width: w, height: h)
+                .clipped()
+                .opacity(category == .food ? 0.18 : 0.2)
+                .blendMode(.plusLighter)
+            }
+        }
+        
+        // MARK: - Helper Shapes
+        private func foodOrganicTexture(w: CGFloat, h: CGFloat, unit: CGFloat) -> some View {
+            let cellSize = unit * 0.7
+            // Ekranı dolduracak kadar döngü
+            let cols = 6
+            let rows = Int(h / (unit * 1.5)) + 2
             
-            switch category {
-            case .food:
-                foodOrganicTexture(w: w, h: h, unit: unit)
-                    .frame(width: w, height: h)
-                    .clipped()
-                    .opacity(0.18)
-                    .blendMode(.plusLighter)
-            case .cosmetics:
-                cosmeticsSilkTexture(w: w, h: h, unit: unit)
-                    .frame(width: w, height: h)
-                    .clipped()
-                    .opacity(0.2)
-                    .blendMode(.plusLighter)
+            return ZStack(alignment: .topLeading) {
+                // Hücresel ızgara
+                ForEach(0..<(cols * rows), id: \.self) { i in
+                    let col = CGFloat(i % cols)
+                    let row = CGFloat(i / cols)
+                    let x = w * (0.05 + col * 0.18)
+                    let y = h * (0.05 + row * 0.12)
+                    
+                    OrganicCellShape()
+                        .stroke(Color.white.opacity(0.6), lineWidth: 1.2)
+                        .frame(width: cellSize, height: cellSize * 0.95)
+                        .position(x: x, y: y)
+                }
+                
+                
+            }
+        }
+        
+        private func cosmeticsSilkTexture(w: CGFloat, h: CGFloat, unit: CGFloat) -> some View {
+            let curveSize = unit * 1.2
+            let rows = Int(h / (unit * 2)) + 2
+            
+            return ZStack(alignment: .topLeading) {
+                // İpek eğrileri
+                ForEach(0..<(4 * rows), id: \.self) { i in
+                    let col = CGFloat(i % 4)
+                    let row = CGFloat(i / 4)
+                    let x = w * (0.1 + col * 0.25)
+                    let y = h * (0.1 + row * 0.2)
+                    
+                    SilkCurveShape()
+                        .stroke(Color.white.opacity(0.55), lineWidth: 1.0)
+                        .frame(width: curveSize, height: curveSize)
+                        .position(x: x, y: y)
+                }
+                
+                
             }
         }
     }
-    
-    // Leaf veins / cellular — koordinatlar w,h içinde, görünür stroke
-    private func foodOrganicTexture(w: CGFloat, h: CGFloat, unit: CGFloat) -> some View {
-        let cellSize = unit * 0.7
-        let cols = 6
-        let rowCount = max(4, min(8, Int(h / (unit * 2.0))))
-        return ZStack(alignment: .topLeading) {
-            // Hücresel yapılar — grid, ekranı kaplar
-            ForEach(0..<(cols * rowCount), id: \.self) { i in
-                let col = i % cols
-                let row = i / cols
-                let x = w * (0.08 + CGFloat(col) * 0.17)
-                let y = h * (0.06 + CGFloat(row) * 0.11)
-                organicCellShape(size: cellSize)
-                    .stroke(Color.white.opacity(0.6), lineWidth: 1.2)
-                    .frame(width: cellSize, height: cellSize * 0.95)
-                    .position(x: x, y: y)
-            }
-            // Yaprak damarı formları — oranlı, ekranda dağılmış
-            ForEach(0..<12, id: \.self) { i in
-                let veinSize = unit * (1.2 + CGFloat(i % 3) * 0.8)
-                let x = w * (0.15 + CGFloat(i % 4) * 0.24)
-                let y = h * (0.18 + CGFloat(i / 4) * 0.24)
-                leafVeinPath(size: veinSize)
-                    .stroke(Color.white.opacity(0.5), lineWidth: 1.0)
-                    .frame(width: veinSize, height: veinSize)
-                    .position(x: x, y: y)
-            }
+
+    // MARK: - Shape Definitions
+    struct OrganicCellShape: Shape {
+        func path(in rect: CGRect) -> Path {
+            var p = Path()
+            let w = rect.width
+            let h = rect.height
+            // Basit bir organik hücre formu
+            p.addEllipse(in: CGRect(x: 0, y: 0, width: w, height: h * 0.9))
+            p.move(to: CGPoint(x: w * 0.5, y: 0))
+            p.addLine(to: CGPoint(x: w * 0.5, y: h * 0.9))
+            return p
         }
     }
-    
-    private func organicCellShape(size: CGFloat) -> Path {
-        let s = size
-        var p = Path()
-        p.addEllipse(in: CGRect(x: 0, y: 0, width: s, height: s * 0.92))
-        p.move(to: CGPoint(x: s * 0.5, y: 0))
-        p.addLine(to: CGPoint(x: s * 0.5, y: s * 0.92))
-        p.move(to: CGPoint(x: 0, y: s * 0.46))
-        p.addLine(to: CGPoint(x: s, y: s * 0.46))
-        return p
-    }
-    
-    private func leafVeinPath(size: CGFloat) -> Path {
-        let s = size
-        var p = Path()
-        p.move(to: CGPoint(x: s * 0.5, y: 0))
-        p.addQuadCurve(to: CGPoint(x: s, y: s * 0.5), control: CGPoint(x: s * 0.72, y: s * 0.18))
-        p.addQuadCurve(to: CGPoint(x: s * 0.5, y: s), control: CGPoint(x: s * 0.82, y: s * 0.72))
-        p.addQuadCurve(to: CGPoint(x: 0, y: s * 0.5), control: CGPoint(x: s * 0.28, y: s * 0.72))
-        p.addQuadCurve(to: CGPoint(x: s * 0.5, y: 0), control: CGPoint(x: s * 0.18, y: s * 0.18))
-        p.closeSubpath()
-        return p
-    }
-    
-    // Silk curves / molecular — w,h içinde konumlar
-    private func cosmeticsSilkTexture(w: CGFloat, h: CGFloat, unit: CGFloat) -> some View {
-        let curveSize = unit * 1.0
-        let hexSize = unit * 0.55
-        return ZStack(alignment: .topLeading) {
-            ForEach(0..<24, id: \.self) { i in
-                let x = w * (0.06 + CGFloat(i % 6) * 0.18)
-                let y = h * (0.08 + CGFloat(i / 6) * 0.2)
-                silkCurveShape(size: curveSize)
-                    .stroke(Color.white.opacity(0.55), lineWidth: 1.0)
-                    .frame(width: curveSize, height: curveSize)
-                    .position(x: x, y: y)
-            }
-            ForEach(0..<15, id: \.self) { i in
-                let x = w * (0.18 + CGFloat(i % 5) * 0.2)
-                let y = h * (0.32 + CGFloat(i / 5) * 0.22)
-                molecularHexagon(size: hexSize)
-                    .stroke(Color.white.opacity(0.4), lineWidth: 0.9)
-                    .frame(width: hexSize * 2, height: hexSize * 2)
-                    .position(x: x, y: y)
-            }
+
+    struct LeafVeinShape: Shape {
+        func path(in rect: CGRect) -> Path {
+            let w = rect.width
+            let h = rect.height
+            var p = Path()
+            p.move(to: CGPoint(x: w * 0.5, y: 0))
+            p.addQuadCurve(to: CGPoint(x: w, y: h * 0.5), control: CGPoint(x: w * 0.7, y: h * 0.2))
+            p.addQuadCurve(to: CGPoint(x: w * 0.5, y: h), control: CGPoint(x: w * 0.8, y: h * 0.7))
+            p.addQuadCurve(to: CGPoint(x: 0, y: h * 0.5), control: CGPoint(x: w * 0.3, y: h * 0.7))
+            p.addQuadCurve(to: CGPoint(x: w * 0.5, y: 0), control: CGPoint(x: w * 0.2, y: h * 0.2))
+            return p
         }
     }
-    
-    private func silkCurveShape(size: CGFloat) -> Path {
-        let s = size
-        var p = Path()
-        p.move(to: CGPoint(x: 0, y: s * 0.5))
-        p.addCurve(
-            to: CGPoint(x: s, y: s * 0.5),
-            control1: CGPoint(x: s * 0.35, y: 0),
-            control2: CGPoint(x: s * 0.65, y: s)
-        )
-        p.addCurve(
-            to: CGPoint(x: 0, y: s * 0.5),
-            control1: CGPoint(x: s * 0.65, y: 0),
-            control2: CGPoint(x: s * 0.35, y: s)
-        )
-        return p
-    }
-    
-    private func molecularHexagon(size: CGFloat) -> Path {
-        let s = size
-        var p = Path()
-        for i in 0..<6 {
-            let angle = CGFloat(i) * .pi / 3 - .pi / 6
-            let x = s + s * CGFloat(cos(Double(angle)))
-            let y = s + s * CGFloat(sin(Double(angle)))
-            if i == 0 { p.move(to: CGPoint(x: x, y: y)) }
-            else { p.addLine(to: CGPoint(x: x, y: y)) }
+
+    struct SilkCurveShape: Shape {
+        func path(in rect: CGRect) -> Path {
+            let w = rect.width
+            let h = rect.height
+            var p = Path()
+            p.move(to: CGPoint(x: 0, y: h * 0.5))
+            p.addCurve(to: CGPoint(x: w, y: h * 0.5), control1: CGPoint(x: w * 0.35, y: 0), control2: CGPoint(x: w * 0.65, y: h))
+            return p
         }
-        p.closeSubpath()
-        return p
     }
-}
+
+   
+
 
 // MARK: - Animated wrapper (optional subtle motion)
 struct AnimatedPatternBackground: View {

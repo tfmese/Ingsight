@@ -389,7 +389,6 @@ struct CameraScreen: View {
         .frame(maxWidth: 430, maxHeight: .infinity, alignment: .top)
     }
 
-    // (Merkezleme için kullandığımız nişangah/köşe çizgilerini kaldırdık)
 }
 
 // MARK: - Sonuç Ekranı (ResultsView)
@@ -422,9 +421,9 @@ struct ResultsScreen: View {
     }
 
     private var scoreLabel: String {
-        if score <= 40 { return "Yüksek Risk" }
-        if score <= 65 { return "Dikkatli Kullan" }
-        if score <= 85 { return "Genelde Güvenli" }
+        if score <= 45 { return "Yüksek Risk" }
+        if score <= 70 { return "Dikkatli Kullan" }
+        if score <= 90 { return "Genelde Güvenli" }
         return "Çok Güvenli"
     }
 
