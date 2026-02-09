@@ -16,61 +16,49 @@ struct RiskIngredientCard: View {
             )
 
         HStack(alignment: .top, spacing: 16) {
-            // Modern icon container
             ZStack {
                 Circle()
-                    .fill(
-                        LinearGradient(
-                            colors: [
-                                Color.white.opacity(0.25),
-                                Color.white.opacity(0.15)
-                            ],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+                    .fill(iconBgColor.opacity(0.2))
                     .frame(width: 48, height: 48)
-                Circle()
-                    .fill(Color.white.opacity(0.3))
-                    .frame(width: 32, height: 32)
                 Image(systemName: iconName)
                     .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundColor(.white)
+                    .foregroundColor(iconBgColor)
             }
-            .shadow(color: Color.black.opacity(0.2), radius: 8, x: 0, y: 4)
 
-            VStack(alignment: .leading, spacing: 8) {
-                HStack(alignment: .firstTextBaseline, spacing: 8) {
+            VStack(alignment: .leading, spacing: 10) {
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
                     Text(ingredient.name)
-                        .font(.system(size: 17, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
+                        .font(AppTypography.bodyBold)
+                        .foregroundColor(.black)
                         .lineLimit(2)
+                        .lineSpacing(2)
 
                     if let contextLabel {
                         Text(contextLabel.uppercased())
-                            .font(.system(size: 10, weight: .black, design: .rounded))
+                            .font(AppTypography.captionBold)
                             .padding(.horizontal, 10)
                             .padding(.vertical, 5)
                             .background(
                                 Capsule()
-                                    .fill(Color.white.opacity(0.2))
+                                    .fill(Color.black.opacity(0.06))
                                     .overlay(
                                         Capsule()
-                                            .stroke(Color.white.opacity(0.3), lineWidth: 0.8)
+                                            .stroke(Color.black.opacity(0.1), lineWidth: 0.8)
                                     )
                             )
-                            .foregroundColor(.white.opacity(0.95))
+                            .foregroundColor(.black.opacity(0.75))
                     }
                 }
 
                 Text(ingredient.riskLabel)
-                    .font(.system(size: 13, weight: .bold, design: .rounded))
+                    .font(AppTypography.captionBold)
                     .foregroundColor(riskColor)
                     .padding(.top, 2)
 
                 Text(ingredient.description)
-                    .font(.system(size: 13, weight: .medium, design: .rounded))
-                    .foregroundColor(.white.opacity(0.9))
+                    .font(AppTypography.caption)
+                    .lineSpacing(AppTypography.lineSpacingCaption)
+                    .foregroundColor(.black.opacity(0.65))
                     .lineLimit(3)
                     .padding(.top, 2)
             }
@@ -78,54 +66,22 @@ struct RiskIngredientCard: View {
             Spacer(minLength: 4)
 
             if ingredient.riskLevel == .high {
-                ZStack {
-                    Circle()
-                        .fill(Color.red.opacity(0.3))
-                        .frame(width: 36, height: 36)
-                        .blur(radius: 8)
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .font(.system(size: 18, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
-                }
-                .shadow(color: .red.opacity(0.6), radius: 12, x: 0, y: 6)
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .font(.system(size: 18, weight: .bold, design: .rounded))
+                    .foregroundColor(Color(red: 0.85, green: 0.35, blue: 0.38))
             }
         }
-        .padding(.vertical, 16)
-        .padding(.horizontal, 18)
+        .padding(.vertical, 18)
+        .padding(.horizontal, 20)
         .background(
-            // Modern glassmorphism card
-            RoundedRectangle(cornerRadius: 26, style: .continuous)
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
                 .fill(accentGradient)
-                .background(
-                    RoundedRectangle(cornerRadius: 26, style: .continuous)
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    Color.white.opacity(0.15),
-                                    Color.white.opacity(0.05)
-                                ],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                )
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 26, style: .continuous)
-                .stroke(
-                    LinearGradient(
-                        colors: [
-                            Color.white.opacity(0.4),
-                            Color.white.opacity(0.15)
-                        ],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 1.2
-                )
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .stroke(Color.black.opacity(0.06), lineWidth: 1)
         )
-        .shadow(color: Color.black.opacity(0.4), radius: 24, x: 0, y: 16)
-        .shadow(color: Color.black.opacity(0.2), radius: 8, x: 0, y: 4)
+        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 6)
         .scaleEffect(isPressed ? 0.97 : 1.0)
         .animation(.spring(response: 0.25, dampingFraction: 0.7), value: isPressed)
         .onTapGesture {
@@ -140,9 +96,18 @@ struct RiskIngredientCard: View {
 
     private var riskColor: Color {
         switch ingredient.riskLevel {
-        case .high: return .white
-        case .medium: return .white.opacity(0.94)
-        case .low: return .white.opacity(0.92)
+        case .high: return Color(red: 0.85, green: 0.35, blue: 0.38)
+        case .medium: return Color(red: 0.88, green: 0.62, blue: 0.32)
+        case .low: return .black.opacity(0.75)
+        }
+    }
+
+    private var iconBgColor: Color {
+        switch ingredient.riskLevel {
+        case .high: return Color(red: 0.85, green: 0.35, blue: 0.38)
+        case .medium: return Color(red: 0.90, green: 0.65, blue: 0.35)
+        case .low:
+            return (category?.primaryAccent) ?? Color(red: 0.4, green: 0.65, blue: 0.4)
         }
     }
 

@@ -5,8 +5,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            // Kök arka plan – modern iOS hissi için koyu
-            Color.black
+            Color.white
                 .ignoresSafeArea()
             
             // Ana içerik – mobil odaklı, max genişlik sınırlı
@@ -43,14 +42,13 @@ struct FloatingTabBar: View {
     @Namespace private var indicatorNamespace
     
     private func gradient(for category: ScanCategory) -> LinearGradient {
-        switch category {
-        case .food:
-            let c = Color(red: 0.52, green: 0.58, blue: 0.48)  // sage / olive
-            return LinearGradient(colors: [c, c.opacity(0.9)], startPoint: .topLeading, endPoint: .bottomTrailing)
-        case .cosmetics:
-            let c = Color(red: 0.68, green: 0.55, blue: 0.75)  // muted lilac / rose
-            return LinearGradient(colors: [c, c.opacity(0.9)], startPoint: .topLeading, endPoint: .bottomTrailing)
-        }
+        let accent = category.primaryAccent.opacity(0.25)
+        let base = Color(red: 0.97, green: 0.97, blue: 0.97)
+        return LinearGradient(
+            colors: [base, accent],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
     }
     
     var body: some View {
@@ -69,38 +67,13 @@ struct FloatingTabBar: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
         .background(
-            // Modern glassmorphism tab bar - iOS 18+
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .fill(.ultraThinMaterial)
-                .background(
-                    RoundedRectangle(cornerRadius: 30, style: .continuous)
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    Color.white.opacity(0.2),
-                                    Color.white.opacity(0.1)
-                                ],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                )
-                .shadow(color: Color.black.opacity(0.4), radius: 30, x: 0, y: 20)
-                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.06), radius: 20, x: 0, y: 8)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .stroke(
-                    LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color.white.opacity(0.7),
-                            Color.white.opacity(0.2)
-                        ]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 1.2
-                )
+                .stroke(Color.black.opacity(0.08), lineWidth: 1)
         )
     }
     
@@ -113,15 +86,16 @@ struct FloatingTabBar: View {
                 selectedCategory = category
             }
         } label: {
-            HStack(spacing: 8) {
+            HStack(spacing: 10) {
                 Image(systemName: icon)
-                    .font(.system(size: 19, weight: .bold, design: .rounded))
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(isActive ? category.primaryAccent : .black.opacity(0.45))
                 Text(label)
-                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                    .font(AppTypography.bodyBold)
+                    .foregroundColor(isActive ? .black : .black.opacity(0.55))
             }
-            .foregroundColor(.white)
-            .padding(.horizontal, isActive ? 16 : 12)
-            .padding(.vertical, 10)
+            .padding(.horizontal, isActive ? 18 : 14)
+            .padding(.vertical, 12)
             .background(
                 ZStack {
                     if isActive {
@@ -134,10 +108,10 @@ struct FloatingTabBar: View {
             )
             .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
             .shadow(
-                color: isActive ? Color.black.opacity(0.35) : Color.clear,
-                radius: isActive ? 18 : 0,
+                color: isActive ? Color.black.opacity(0.08) : Color.clear,
+                radius: isActive ? 12 : 0,
                 x: 0,
-                y: isActive ? 12 : 0
+                y: isActive ? 4 : 0
             )
             .scaleEffect(isActive ? 1.05 : 1.0)
             .animation(.spring(response: 0.4, dampingFraction: 0.8), value: isActive)

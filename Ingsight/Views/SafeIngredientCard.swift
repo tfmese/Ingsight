@@ -15,78 +15,44 @@ struct SafeIngredientCard: View {
         }
     }
 
+    private var accent: Color {
+        category?.primaryAccent ?? Color(red: 0.4, green: 0.65, blue: 0.4)
+    }
+
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            // Modern icon container
             ZStack {
                 Circle()
-                    .fill(
-                        LinearGradient(
-                            colors: [
-                                Color.white.opacity(0.3),
-                                Color.white.opacity(0.2)
-                            ],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+                    .fill(accent.opacity(0.2))
                     .frame(width: 52, height: 52)
-                Circle()
-                    .fill(Color.white.opacity(0.35))
-                    .frame(width: 34, height: 34)
                 Image(systemName: "checkmark.seal.fill")
                     .font(.system(size: 20, weight: .bold, design: .rounded))
-                    .foregroundColor(.white)
+                    .foregroundColor(accent)
             }
-            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
 
             VStack(alignment: .leading, spacing: 8) {
                 Text("Riskli madde bulunamadı")
-                    .font(.system(size: 18, weight: .bold, design: .rounded))
-                    .foregroundColor(.white)
+                    .font(AppTypography.title3)
+                    .foregroundColor(.black)
                 Text("Bu üründe bilinen zararlı veya tartışmalı bileşenlere rastlanmadı.")
-                    .font(.system(size: 14, weight: .medium, design: .rounded))
-                    .foregroundColor(.white.opacity(0.95))
+                    .font(AppTypography.body)
+                    .lineSpacing(AppTypography.lineSpacingBody)
+                    .foregroundColor(.black.opacity(0.65))
                     .fixedSize(horizontal: false, vertical: true)
             }
 
             Spacer()
         }
-        .padding(.vertical, 18)
-        .padding(.horizontal, 20)
+        .padding(.vertical, 20)
+        .padding(.horizontal, 22)
         .background(
-            // Modern glassmorphism card
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
                 .fill(self.baseGradient)
-                .background(
-                    RoundedRectangle(cornerRadius: 28, style: .continuous)
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    Color.white.opacity(0.2),
-                                    Color.white.opacity(0.08)
-                                ],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                )
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .stroke(
-                    LinearGradient(
-                        colors: [
-                            Color.white.opacity(0.5),
-                            Color.white.opacity(0.2)
-                        ],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 1.2
-                )
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .stroke(Color.black.opacity(0.06), lineWidth: 1)
         )
-        .shadow(color: Color.black.opacity(0.4), radius: 24, x: 0, y: 16)
-        .shadow(color: Color.black.opacity(0.2), radius: 8, x: 0, y: 4)
+        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 6)
     }
 }

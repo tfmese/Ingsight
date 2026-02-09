@@ -33,16 +33,15 @@ struct PatternBackground: View {
         self.animationOffset = animationOffset
     }
     
-    // MARK: - Base (deep forest green + charcoal / midnight violet + anthracite)
+    // MARK: - Base (beyaz arka plan – kategoriye göre çok hafif ton farkı)
     private var baseLayer: some View {
         switch category {
         case .food:
             LinearGradient(
                 colors: [
-                    Color(red: 0.06, green: 0.14, blue: 0.08),   // deep forest green
-                    Color(red: 0.08, green: 0.12, blue: 0.10),
-                    Color(red: 0.10, green: 0.11, blue: 0.10),  // charcoal
-                    Color(red: 0.07, green: 0.10, blue: 0.08)
+                    Color.white,
+                    Color(red: 0.99, green: 0.99, blue: 0.98),
+                    Color(red: 0.98, green: 0.98, blue: 0.97)
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -50,10 +49,9 @@ struct PatternBackground: View {
         case .cosmetics:
             LinearGradient(
                 colors: [
-                    Color(red: 0.08, green: 0.04, blue: 0.14),  // midnight violet
-                    Color(red: 0.06, green: 0.05, blue: 0.12),
-                    Color(red: 0.12, green: 0.12, blue: 0.14),  // dark anthracite
-                    Color(red: 0.09, green: 0.06, blue: 0.16)
+                    Color.white,
+                    Color(red: 0.99, green: 0.98, blue: 0.99),
+                    Color(red: 0.98, green: 0.97, blue: 0.98)
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -61,174 +59,70 @@ struct PatternBackground: View {
         }
     }
     
-    // MARK: - Mesh gradients (sage, olive, champagne / rose gold, lilac, white) — heavily blurred
+    // MARK: - Mesh (çok hafif gri + sarı/pembe detay)
     @ViewBuilder
     private var meshGradientLayer: some View {
         GeometryReader { geo in
             let w = geo.size.width
             let h = geo.size.height
-            let blur: CGFloat = 90
+            let blur: CGFloat = 100
+            let accent = category.primaryAccent
             
-            switch category {
-            case .food:
-                // Sage green, muted olive, warm champagne gold — corners & edges
-                ZStack {
-                    Circle()
-                        .fill(
-                            RadialGradient(
-                                colors: [
-                                    Color(red: 0.55, green: 0.62, blue: 0.52).opacity(0.35),  // sage
-                                    Color(red: 0.55, green: 0.62, blue: 0.52).opacity(0)
-                                ],
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: w * 0.5
-                            )
+            ZStack {
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                Color.black.opacity(0.03),
+                                Color.clear
+                            ],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: w * 0.5
                         )
-                        .frame(width: w * 1.2, height: w * 1.2)
-                        .blur(radius: blur)
-                        .offset(x: -w * 0.35, y: -h * 0.3)
-                    
-                    Circle()
-                        .fill(
-                            RadialGradient(
-                                colors: [
-                                    Color(red: 0.48, green: 0.52, blue: 0.40).opacity(0.3),   // muted olive
-                                    Color(red: 0.48, green: 0.52, blue: 0.40).opacity(0)
-                                ],
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: w * 0.45
-                            )
-                        )
-                        .frame(width: w * 1.1, height: w * 1.1)
-                        .blur(radius: blur)
-                        .offset(x: w * 0.4, y: h * 0.35)
-                    
-                    Circle()
-                        .fill(
-                            RadialGradient(
-                                colors: [
-                                    Color(red: 0.76, green: 0.72, blue: 0.62).opacity(0.25), // champagne gold
-                                    Color(red: 0.76, green: 0.72, blue: 0.62).opacity(0)
-                                ],
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: w * 0.4
-                            )
-                        )
-                        .frame(width: w * 1.0, height: w * 1.0)
-                        .blur(radius: blur)
-                        .offset(x: w * 0.15, y: h * 0.55)
-                    
-                    Circle()
-                        .fill(
-                            RadialGradient(
-                                colors: [
-                                    Color(red: 0.50, green: 0.58, blue: 0.48).opacity(0.2),  // soft sage
-                                    Color.clear
-                                ],
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: w * 0.35
-                            )
-                        )
-                        .frame(width: w * 0.9, height: w * 0.9)
-                        .blur(radius: blur)
-                        .offset(x: -w * 0.2, y: h * 0.4)
-                }
+                    )
+                    .frame(width: w * 1.2, height: w * 1.2)
+                    .blur(radius: blur)
+                    .offset(x: -w * 0.35, y: -h * 0.3)
                 
-            case .cosmetics:
-                // Muted rose gold, soft lilac, cool white — bokeh feel
-                ZStack {
-                    Circle()
-                        .fill(
-                            RadialGradient(
-                                colors: [
-                                    Color(red: 0.72, green: 0.55, blue: 0.58).opacity(0.4),  // muted rose gold
-                                    Color(red: 0.72, green: 0.55, blue: 0.58).opacity(0)
-                                ],
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: w * 0.5
-                            )
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                accent.opacity(0.08),
+                                Color.clear
+                            ],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: w * 0.45
                         )
-                        .frame(width: w * 1.2, height: w * 1.2)
-                        .blur(radius: blur)
-                        .offset(x: -w * 0.3, y: -h * 0.25)
-                    
-                    Circle()
-                        .fill(
-                            RadialGradient(
-                                colors: [
-                                    Color(red: 0.70, green: 0.62, blue: 0.82).opacity(0.35), // soft lilac
-                                    Color(red: 0.70, green: 0.62, blue: 0.82).opacity(0)
-                                ],
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: w * 0.45
-                            )
-                        )
-                        .frame(width: w * 1.1, height: w * 1.1)
-                        .blur(radius: blur)
-                        .offset(x: w * 0.45, y: h * 0.3)
-                    
-                    Circle()
-                        .fill(
-                            RadialGradient(
-                                colors: [
-                                    Color(red: 0.92, green: 0.90, blue: 0.96).opacity(0.28), // cool white beam
-                                    Color(red: 0.92, green: 0.90, blue: 0.96).opacity(0)
-                                ],
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: w * 0.4
-                            )
-                        )
-                        .frame(width: w * 1.0, height: w * 1.0)
-                        .blur(radius: blur)
-                        .offset(x: w * 0.1, y: h * 0.6)
-                    
-                    Circle()
-                        .fill(
-                            RadialGradient(
-                                colors: [
-                                    Color(red: 0.75, green: 0.58, blue: 0.75).opacity(0.22), // lilac
-                                    Color.clear
-                                ],
-                                center: .center,
-                                startRadius: 0,
-                                endRadius: w * 0.35
-                            )
-                        )
-                        .frame(width: w * 0.85, height: w * 0.85)
-                        .blur(radius: blur)
-                        .offset(x: -w * 0.25, y: h * 0.45)
-                }
+                    )
+                    .frame(width: w * 1.1, height: w * 1.1)
+                    .blur(radius: blur)
+                    .offset(x: w * 0.4, y: h * 0.4)
             }
         }
     }
     
     @ViewBuilder
-        private var textureOverlay: some View {
-            GeometryReader { geo in
-                let w = geo.size.width
-                let h = geo.size.height
-                let unit = min(w, h) * 0.12
-                
-                Group {
-                    if category == .food {
-                        foodOrganicTexture(w: w, h: h, unit: unit)
-                    } else {
-                        cosmeticsSilkTexture(w: w, h: h, unit: unit)
-                    }
+    private var textureOverlay: some View {
+        GeometryReader { geo in
+            let w = geo.size.width
+            let h = geo.size.height
+            let unit = min(w, h) * 0.12
+            
+            Group {
+                if category == .food {
+                    foodOrganicTexture(w: w, h: h, unit: unit)
+                } else {
+                    cosmeticsSilkTexture(w: w, h: h, unit: unit)
                 }
-                .frame(width: w, height: h)
-                .clipped()
-                .opacity(category == .food ? 0.18 : 0.2)
-                .blendMode(.plusLighter)
             }
+            .frame(width: w, height: h)
+            .clipped()
+            .opacity(0.06)
         }
+    }
         
         // MARK: - Helper Shapes
         private func foodOrganicTexture(w: CGFloat, h: CGFloat, unit: CGFloat) -> some View {
@@ -246,7 +140,7 @@ struct PatternBackground: View {
                     let y = h * (0.05 + row * 0.12)
                     
                     OrganicCellShape()
-                        .stroke(Color.white.opacity(0.6), lineWidth: 1.2)
+                        .stroke(Color.black.opacity(0.12), lineWidth: 1.0)
                         .frame(width: cellSize, height: cellSize * 0.95)
                         .position(x: x, y: y)
                 }
@@ -268,7 +162,7 @@ struct PatternBackground: View {
                     let y = h * (0.1 + row * 0.2)
                     
                     SilkCurveShape()
-                        .stroke(Color.white.opacity(0.55), lineWidth: 1.0)
+                        .stroke(Color.black.opacity(0.10), lineWidth: 1.0)
                         .frame(width: curveSize, height: curveSize)
                         .position(x: x, y: y)
                 }

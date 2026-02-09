@@ -6,12 +6,12 @@ struct ImageWithFallback: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color.white.opacity(0.14))
+                .fill(Color.black.opacity(0.06))
             Image(systemName: systemName)
                 .resizable()
                 .scaledToFit()
                 .padding(12)
-                .foregroundColor(.white)
+                .foregroundColor(.black.opacity(0.5))
         }
     }
     
