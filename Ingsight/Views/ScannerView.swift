@@ -32,7 +32,6 @@ enum ScanCategory {
         }
     }
     
-    /// Ana vurgu rengi (detaylarda kullanılır). Gıda: sarı, Kozmetik: magenta.
     var primaryAccent: Color {
         switch self {
         case .food:

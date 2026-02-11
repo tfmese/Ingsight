@@ -7,11 +7,13 @@
 import SwiftUI
 import ColorSync
 import Foundation
+
 struct ResultsScreen: View {
     let category: ScanCategory
     let ingredients: [Ingredient]
     let selectedImage: UIImage?
     var onScanAgain: () -> Void
+    
 
     // Basit skor mantığı
     private var safeCount: Int {
@@ -55,41 +57,7 @@ struct ResultsScreen: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 28) {
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(category.resultTitle)
-                            .font(AppTypography.title)
-                            .foregroundColor(.black)
-                        Text("Ürün içeriği, risk seviyesine göre analiz edildi.")
-                            .font(AppTypography.caption)
-                            .lineSpacing(AppTypography.lineSpacingCaption)
-                            .foregroundColor(.black.opacity(0.65))
-                    }
-
-                    Spacer(minLength: 16)
-
-                    Button(action: onScanAgain) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "arrow.counterclockwise")
-                                .font(.system(size: 14, weight: .semibold))
-                            Text("Tekrar Tara")
-                                .font(AppTypography.captionBold)
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 10)
-                        .background(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                .fill(Color.white)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                        .stroke(Color.black.opacity(0.15), lineWidth: 1)
-                                )
-                        )
-                        .foregroundColor(.black)
-                    }
-                }
-                .padding(.top, 40)
-                .padding(.horizontal, 24)
+                headerSection
 
                 HStack(alignment: .top, spacing: 20) {
                     scoreCard
@@ -124,6 +92,44 @@ struct ResultsScreen: View {
             }
         }
         .frame(maxWidth: 430, maxHeight: .infinity, alignment: .top)
+    }
+
+    private var headerSection: some View {
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(category.resultTitle)
+                    .font(AppTypography.title)
+                    .foregroundColor(.black)
+                Text("Ürün içeriği, risk seviyesine göre analiz edildi.")
+                    .font(AppTypography.caption)
+                    .lineSpacing(AppTypography.lineSpacingCaption)
+                    .foregroundColor(.black.opacity(0.65))
+            }
+            
+            Spacer(minLength: 16)
+            
+            Button(action: onScanAgain) {
+                HStack(spacing: 8) {
+                    Image(systemName: "arrow.counterclockwise")
+                        .font(.system(size: 14, weight: .semibold))
+                    Text("Tekrar Tara")
+                        .font(AppTypography.captionBold)
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+                .background(
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .fill(Color.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .stroke(Color.black.opacity(0.15), lineWidth: 1)
+                        )
+                )
+                .foregroundColor(.black)
+            }
+        }
+        .padding(.top, 40)
+        .padding(.horizontal, 24)
     }
 
     private var scoreCard: some View {
