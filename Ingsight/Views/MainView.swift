@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 enum MainTab {
     case food
@@ -107,21 +108,19 @@ struct FloatingTabBar: View {
         let isActive = selectedTab == tab
         
         Button {
+            // Hafif haptic feedback – sekme değişiminde
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
+            
             withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                 selectedTab = tab
             }
         } label: {
-            HStack(spacing: 8) {
-                Image(systemName: icon)
-                    .font(.system(size: 17, weight: .semibold))
-                    .foregroundColor(isActive ? tab.accentColor : .black.opacity(0.45))
-                Text(label)
-                    .font(AppTypography.bodyBold)
-                    .foregroundColor(isActive ? .black : .black.opacity(0.55))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.8)
-            }
-            .padding(.vertical, 10)
+            Image(systemName: icon)
+                .font(.system(size: 20, weight: .semibold))
+                .foregroundColor(isActive ? tab.accentColor : .black.opacity(0.45))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 10)
             .frame(maxWidth: .infinity)
             .background(
                 ZStack {

@@ -9,23 +9,18 @@ struct ComparisonRootView: View {
     
     // Sol taraf (Ürün A)
     @StateObject private var leftCameraManager = CameraManager()
-    @State private var leftViewModel: ScannerViewModel
+    @StateObject private var leftViewModel = ScannerViewModel(service: .shared)
     
     // Sağ taraf (Ürün B)
     @StateObject private var rightCameraManager = CameraManager()
-    @State private var rightViewModel: ScannerViewModel
+    @StateObject private var rightViewModel = ScannerViewModel(service: .shared)
     
     @State private var showingComparisonResults = false
-    
-    init() {
-        // İlk kategori için viewModel'leri initialize et
-        _leftViewModel = State(initialValue: ScannerViewModel(service: .shared))
-        _rightViewModel = State(initialValue: ScannerViewModel(service: .shared))
-    }
+    @State private var hasFiredReadyHaptic = false
     
     private var canCompare: Bool {
-        leftViewModel.detectedIngredients.isEmpty == false &&
-        rightViewModel.detectedIngredients.isEmpty == false &&
+        // En basit ve kullanıcı açısından en anlaşılır kural:
+        // Her iki ürün için de birer görsel seçilmiş olsun.
         leftViewModel.selectedImage != nil &&
         rightViewModel.selectedImage != nil
     }
@@ -63,25 +58,22 @@ struct ComparisonRootView: View {
                     .pickerStyle(.segmented)
                     .padding(.horizontal, 24)
                     .onChange(of: selectedCategory) { newCategory in
-                        // Kategori değiştiğinde servisleri güncelle
+                        // Kategori değiştiğinde servisleri güncelle ve mevcut veriyi temizle
                         let service: IngredientService = newCategory == .food ? .shared : .cosmetics
-                        leftViewModel = ScannerViewModel(service: service)
-                        rightViewModel = ScannerViewModel(service: service)
+                        leftViewModel.updateService(service)
+                        rightViewModel.updateService(service)
                         resetComparison()
                     }
                     
-                    // İki ürün karşılaştırma alanı
-                    HStack(spacing: 16) {
-                        // Sol taraf - Ürün A
-                        productCaptureArea(
+                    // İki ürün karşılaştırma alanı (alt alta, her biri tam genişlikte)
+                    VStack(spacing: 20) {
+                        ProductCaptureArea(
                             label: "Ürün A",
                             cameraManager: leftCameraManager,
                             viewModel: leftViewModel,
                             category: selectedCategory
                         )
-                        
-                        // Sağ taraf - Ürün B
-                        productCaptureArea(
+                        ProductCaptureArea(
                             label: "Ürün B",
                             cameraManager: rightCameraManager,
                             viewModel: rightViewModel,
@@ -120,12 +112,27 @@ struct ComparisonRootView: View {
             .frame(maxWidth: 430, maxHeight: .infinity, alignment: .top)
         }
         .onAppear {
-            leftCameraManager.start()
-            rightCameraManager.start()
+            if leftViewModel.selectedImage == nil {
+                leftCameraManager.start()
+            }
+            if rightViewModel.selectedImage == nil {
+                rightCameraManager.start()
+            }
         }
         .onDisappear {
             leftCameraManager.stop()
             rightCameraManager.stop()
+        }
+        // Karşılaştırma hazır olduğunda tek seferlik haptic
+        .onChange(of: canCompare) { ready in
+            if ready && !hasFiredReadyHaptic {
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+                hasFiredReadyHaptic = true
+            }
+            if !ready {
+                hasFiredReadyHaptic = false
+            }
         }
         .sheet(isPresented: $showingComparisonResults) {
             if canCompare {
@@ -156,13 +163,17 @@ struct ComparisonRootView: View {
         rightCameraManager.start()
     }
     
-    @ViewBuilder
-    private func productCaptureArea(
-        label: String,
-        cameraManager: CameraManager,
-        viewModel: ScannerViewModel,
-        category: ScanCategory
-    ) -> some View {
+}
+
+/// Tek bir ürün için kamera/görsel alanını yöneten view.
+/// ScannerViewModel ve CameraManager değişikliklerini gözlemler.
+struct ProductCaptureArea: View {
+    let label: String
+    @ObservedObject var cameraManager: CameraManager
+    @ObservedObject var viewModel: ScannerViewModel
+    let category: ScanCategory
+    
+    var body: some View {
         VStack(spacing: 16) {
             // Ürün etiketi
             Text(label)
@@ -172,12 +183,12 @@ struct ComparisonRootView: View {
             // CameraPreview veya seçilen fotoğraf
             ZStack {
                 if let image = viewModel.selectedImage {
-                    // Fotoğraf seçildiyse göster
+                    // Fotoğraf seçildiyse, mevcut CameraPreview oranlarına benzer şekilde,
+                    // taşmayacak şekilde çerçeveye sığdır.
                     Image(uiImage: image)
                         .resizable()
-                        .scaledToFill()
-                        .frame(height: 200)
-                        .clipped()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity)
                         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
                         .overlay(
                             RoundedRectangle(cornerRadius: 24, style: .continuous)
